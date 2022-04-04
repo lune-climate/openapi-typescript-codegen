@@ -11,16 +11,17 @@
 > Node.js library that generates Typescript clients based on the OpenAPI specification.
 
 ## Why?
-- Frontend ❤️ OpenAPI, but we do not want to use JAVA codegen in our builds
-- Quick, lightweight, robust and framework-agnostic 🚀
-- Supports generation of TypeScript clients
-- Supports generations of Fetch, [Node-Fetch](#node-fetch-support), [Axios](#axios-support), [Angular](#angular-support) and XHR http clients
-- Supports OpenAPI specification v2.0 and v3.0
-- Supports JSON and YAML files for input
-- Supports generation through CLI, Node.js and NPX
-- Supports tsc and @babel/plugin-transform-typescript
-- Supports aborting of requests (cancelable promise pattern)
-- Supports external references using [json-schema-ref-parser](https://github.com/APIDevTools/json-schema-ref-parser/)
+
+-   Frontend ❤️ OpenAPI, but we do not want to use JAVA codegen in our builds
+-   Quick, lightweight, robust and framework-agnostic 🚀
+-   Supports generation of TypeScript clients
+-   Supports generations of Fetch, [Node-Fetch](#node-fetch-support), [Axios](#axios-support), [Angular](#angular-support) and XHR http clients
+-   Supports OpenAPI specification v2.0 and v3.0
+-   Supports JSON and YAML files for input
+-   Supports generation through CLI, Node.js and NPX
+-   Supports tsc and @babel/plugin-transform-typescript
+-   Supports aborting of requests (cancelable promise pattern)
+-   Supports external references using [json-schema-ref-parser](https://github.com/APIDevTools/json-schema-ref-parser/)
 
 ## Install
 
@@ -57,25 +58,25 @@ $ openapi --help
     $ openapi --input ./spec.json --output ./generated --client xhr
 ```
 
-Documentation
-===
-- [Basic usage](docs/basic-usage.md)
-- [OpenAPI object](docs/openapi-object.md)
-- [Client instances](docs/client-instances.md) `--name`
-- [Argument vs. Object style](docs/arguments-vs-object-style.md) `--useOptions`
-- [Enums vs. Union types](docs/enum-vs-union-types.md) `--useUnionTypes`
-- [Runtime schemas](docs/runtime-schemas.md) `--exportSchemas`
-- [Enum with custom names and descriptions](docs/custom-enums.md)
-- [Nullable props (OpenAPI v2)](docs/nullable-props.md)
-- [Authorization](docs/authorization.md)
-- [External references](docs/external-references.md)
+# Documentation
 
-Support
-===
-- [Babel support](docs/babel-support.md)
-- [Axios support](docs/axios-support.md)
-- [Angular support](docs/angular-support.md)
-- [Node-Fetch support](docs/node-fetch-support.md)
+-   [Basic usage](docs/basic-usage.md)
+-   [OpenAPI object](docs/openapi-object.md)
+-   [Client instances](docs/client-instances.md) `--name`
+-   [Argument vs. Object style](docs/arguments-vs-object-style.md) `--useOptions`
+-   [Enums vs. Union types](docs/enum-vs-union-types.md) `--useUnionTypes`
+-   [Runtime schemas](docs/runtime-schemas.md) `--exportSchemas`
+-   [Enum with custom names and descriptions](docs/custom-enums.md)
+-   [Nullable props (OpenAPI v2)](docs/nullable-props.md)
+-   [Authorization](docs/authorization.md)
+-   [External references](docs/external-references.md)
+
+# Support
+
+-   [Babel support](docs/babel-support.md)
+-   [Axios support](docs/axios-support.md)
+-   [Angular support](docs/angular-support.md)
+-   [Node-Fetch support](docs/node-fetch-support.md)
 
 [npm-url]: https://npmjs.org/package/openapi-typescript-codegen
 [npm-image]: https://img.shields.io/npm/v/openapi-typescript-codegen.svg
