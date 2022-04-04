@@ -1,0 +1,23 @@
+name: Publish new version
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Install project
+        run: npm ci
+      - name: Build release
+        run: npm run prepublishOnly
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: make publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
