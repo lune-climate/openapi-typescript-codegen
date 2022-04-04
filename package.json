@@ -1,15 +1,12 @@
 {
-    "name": "openapi-typescript-codegen",
-    "version": "0.20.1",
-    "description": "Library that generates Typescript clients based on the OpenAPI specification.",
-    "author": "Ferdi Koomen",
-    "homepage": "https://github.com/ferdikoomen/openapi-typescript-codegen",
+    "name": "@lune-climate/openapi-typescript-codegen",
+    "version": "0.0.1",
+    "description": "Fork of: https://github.com/ferdikoomen/openapi-typescript-codegen. Library that generates Typescript clients based on the OpenAPI specification.",
+    "author": "Lune",
+    "homepage": "https://github.com/lune-climate/openapi-typescript-codegen",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ferdikoomen/openapi-typescript-codegen.git"
-    },
-    "bugs": {
-        "url": "https://github.com/ferdikoomen/openapi-typescript-codegen/issues"
+        "url": "git+https://github.com/lune-climate/openapi-typescript-codegen.git"
     },
     "license": "MIT",
     "keywords": [
@@ -24,12 +21,6 @@
         "axios",
         "angular",
         "node"
-    ],
-    "maintainers": [
-        {
-            "name": "Ferdi Koomen",
-            "email": "info@madebyferdi.com"
-        }
     ],
     "main": "dist/index.js",
     "types": "types/index.d.ts",
