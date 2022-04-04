@@ -13,6 +13,7 @@ import { writeClientIndex } from './writeClientIndex';
 import { writeClientModels } from './writeClientModels';
 import { writeClientSchemas } from './writeClientSchemas';
 import { writeClientServices } from './writeClientServices';
+import { writeLuneClient } from './writeLuneClient';
 
 /**
  * Write our OpenAPI client, using the given templates at the given output
@@ -53,6 +54,7 @@ export const writeClient = async (
     const outputPathModels = resolve(outputPath, 'models');
     const outputPathSchemas = resolve(outputPath, 'schemas');
     const outputPathServices = resolve(outputPath, 'services');
+    const outputLuneClient = resolve(outputPath);
 
     if (!isSubDirectory(process.cwd(), output)) {
         throw new Error(`Output folder is not a subdirectory of the current working directory`);
@@ -112,4 +114,6 @@ export const writeClient = async (
             clientName
         );
     }
+
+    await writeLuneClient(client, templates, outputLuneClient);
 };

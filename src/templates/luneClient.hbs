@@ -1,0 +1,54 @@
+import axios, { AxiosInstance } from 'axios'
+
+import { ClientConfig } from './core/ClientConfig'
+{{#each services}}
+import { {{{name}}}Service } from './services/{{{name}}}Service.js';
+{{/each}}
+
+function applyMixins(derivedCtor: any, constructors: any[]) {
+    constructors.forEach((baseCtor) => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+            Object.defineProperty(
+                derivedCtor.prototype,
+                name,
+                Object.getOwnPropertyDescriptor(baseCtor.prototype, name) || Object.create(null),
+            )
+        })
+    })
+}
+
+export class LuneClient {
+    protected client: AxiosInstance
+    protected config: ClientConfig
+
+    constructor(apiKey: string, baseUrl: string = 'https://api.lune.co', apiVersion: string = '1') {
+        this.config = {
+            BASE_URL: `${baseUrl}/v{api-version}`,
+            VERSION: apiVersion,
+            BEARER_TOKEN: apiKey,
+        }
+        this.client = axios.create()
+    }
+}
+
+applyMixins(LuneClient, [
+    {{#if services}}
+    {{#each services}}
+    {{{name}}}Service,
+    {{/each}}
+    {{/if}}
+])
+
+// eslint-disable-next-line no-redeclare -- mixins require same name
+export interface LuneClient extends
+    {{#each services}}
+    {{{name}}}Service{{#unless @last}},{{/unless}}
+    {{/each}} {}
+
+{{#each models}}
+export type { {{{name}}} } from './models/{{{name}}}.js';
+{{/each}}
+
+{{#each services}}
+export { {{{name}}}Service } from './services/{{{name}}}Service.js';
+{{/each}}
