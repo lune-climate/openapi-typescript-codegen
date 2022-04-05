@@ -22,8 +22,11 @@ export const getType = (type: string = 'any', format?: string): Type => {
 
     const mapped = getMappedType(type, format);
     if (mapped) {
-        result.type = mapped;
-        result.base = mapped;
+        result.type = mapped.type;
+        result.base = mapped.type;
+        if (!mapped.isPrimitive) {
+            result.imports.push(mapped.type);
+        }
         return result;
     }
 
