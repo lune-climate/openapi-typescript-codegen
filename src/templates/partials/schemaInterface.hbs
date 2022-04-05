@@ -5,7 +5,7 @@
 	properties: {
 {{#if properties}}
 	{{#each properties}}
-		{{{name}}}: {{>schema}},
+		{{{camelCase name}}}: {{>schema}},
 	{{/each}}
 {{/if}}
 	},

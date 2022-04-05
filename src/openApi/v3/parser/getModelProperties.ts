@@ -1,7 +1,6 @@
 import type { Model } from '../../../client/interfaces/Model';
 import { findOneOfParentDiscriminator, mapPropertyValue } from '../../../utils/discriminator';
 import { getPattern } from '../../../utils/getPattern';
-import { convertToCamelCase } from '../../../utils/stringUtils';
 import type { OpenApi } from '../interfaces/OpenApi';
 import type { OpenApiSchema } from '../interfaces/OpenApiSchema';
 import { escapeName } from './escapeName';
@@ -36,7 +35,7 @@ export const getModelProperties = (
                 | 'enums'
                 | 'properties'
             > = {
-                name: convertToCamelCase(escapeName(propertyName)),
+                name: escapeName(propertyName),
                 description: property.description || null,
                 isDefinition: false,
                 isReadOnly: property.readOnly === true,
