@@ -25,7 +25,7 @@ export class LuneClient {
         apiKey: string,
         baseUrl: string = 'https://api.lune.co',
         apiVersion: string = '1',
-        account: string,
+        account?: string = undefined,
     ) {
         this.config = {
             BASE_URL: `${baseUrl}/v{api-version}`,
