@@ -19,6 +19,7 @@ describe('writeClientCore', () => {
         const templates: Templates = {
             index: () => 'index',
             client: () => 'client',
+            luneClient: () => 'luneClient',
             exports: {
                 model: () => 'model',
                 schema: () => 'schema',
