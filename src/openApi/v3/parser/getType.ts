@@ -24,21 +24,25 @@ export const getType = (type: string | string[] = 'any', format?: string): Type 
     // Special case for JSON Schema spec (december 2020, page 17),
     // that allows type to be an array of primitive types...
     if (Array.isArray(type)) {
-        const joinedType = type
+        const validTypes = type
             .filter(value => value !== 'null')
             .map(value => getMappedType(value, format))
-            .filter(isDefined)
-            .join(' | ');
+            .filter(isDefined);
+        const joinedType = validTypes.map(r => r.type).join(' | ');
         result.type = joinedType;
         result.base = joinedType;
         result.isNullable = type.includes('null');
+        validTypes.filter(r => !r.isPrimitive).forEach(t => result.imports.push(t.type));
         return result;
     }
 
     const mapped = getMappedType(type, format);
     if (mapped) {
-        result.type = mapped;
-        result.base = mapped;
+        result.type = mapped.type;
+        result.base = mapped.type;
+        if (!mapped.isPrimitive) {
+            result.imports.push(mapped.type);
+        }
         return result;
     }
 
