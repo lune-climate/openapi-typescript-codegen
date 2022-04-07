@@ -10,7 +10,7 @@ export type {{{name}}} = {
 	 * {{{escapeComment description}}}
 	 */
 	{{/if}}
-	{{>isReadOnly}}{{{name}}}{{>isRequired}}: {{>type parent=../name}};
+	{{>isReadOnly}}{{{camelCase name}}}{{>isRequired}}: {{>type parent=../name}};
 	{{/each}}
 };
 {{#if enums}}

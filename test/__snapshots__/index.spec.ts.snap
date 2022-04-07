@@ -654,6 +654,192 @@ export { TypesService } from './services/TypesService';
 "
 `;
 
+exports[`v2 should generate: ./test/generated/v2/luneClient.ts 1`] = `
+"import axios, { AxiosInstance } from 'axios'
+import snakeCaseKeys from 'snakecase-keys'
+import camelCaseKeys from 'camelcase-keys'
+
+import { ClientConfig } from './core/ClientConfig'
+import { CollectionFormatService } from './services/CollectionFormatService.js';
+import { ComplexService } from './services/ComplexService.js';
+import { DefaultService } from './services/DefaultService.js';
+import { DefaultsService } from './services/DefaultsService.js';
+import { DescriptionsService } from './services/DescriptionsService.js';
+import { DuplicateService } from './services/DuplicateService.js';
+import { ErrorService } from './services/ErrorService.js';
+import { HeaderService } from './services/HeaderService.js';
+import { MultipleTags1Service } from './services/MultipleTags1Service.js';
+import { MultipleTags2Service } from './services/MultipleTags2Service.js';
+import { MultipleTags3Service } from './services/MultipleTags3Service.js';
+import { NoContentService } from './services/NoContentService.js';
+import { ParametersService } from './services/ParametersService.js';
+import { ResponseService } from './services/ResponseService.js';
+import { SimpleService } from './services/SimpleService.js';
+import { TypesService } from './services/TypesService.js';
+
+function applyMixins(derivedCtor: any, constructors: any[]) {
+    constructors.forEach((baseCtor) => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+            Object.defineProperty(
+                derivedCtor.prototype,
+                name,
+                Object.getOwnPropertyDescriptor(baseCtor.prototype, name) || Object.create(null),
+            )
+        })
+    })
+}
+
+export class LuneClient {
+    protected client: AxiosInstance
+    protected config: ClientConfig
+
+    constructor(
+        apiKey: string,
+        baseUrl: string = 'https://api.lune.co',
+        apiVersion: string = '1',
+        account?: string,
+    ) {
+        this.config = {
+            BASE_URL: \`\${baseUrl}/v{api-version}\`,
+            VERSION: apiVersion,
+            BEARER_TOKEN: apiKey,
+            ACCOUNT: account,
+        }
+        this.client = axios.create()
+
+        // Convert to snake case when sending request
+        this.client.interceptors.request.use((req) => {
+            const requestCopy = { ...req }
+
+            if (requestCopy.params) {
+                requestCopy.params = snakeCaseKeys(req.params, { deep: true })
+            }
+
+            if (requestCopy.data) {
+                requestCopy.data = snakeCaseKeys(req.data, { deep: true })
+          }
+
+          return requestCopy
+        })
+
+        // Convert to camelCase when receiving request
+        client.interceptors.response.use(
+            (response) => camelCaseKeys(response.data, { deep: true }),
+            (error) => Promise.reject(error.response),
+        )
+    }
+
+    public setAccount(accountId: string) {
+        this.config.ACCOUNT = accountId
+    }
+}
+
+applyMixins(LuneClient, [
+    CollectionFormatService,
+    ComplexService,
+    DefaultService,
+    DefaultsService,
+    DescriptionsService,
+    DuplicateService,
+    ErrorService,
+    HeaderService,
+    MultipleTags1Service,
+    MultipleTags2Service,
+    MultipleTags3Service,
+    NoContentService,
+    ParametersService,
+    ResponseService,
+    SimpleService,
+    TypesService,
+])
+
+// eslint-disable-next-line no-redeclare -- mixins require same name
+export interface LuneClient extends
+    CollectionFormatService,
+        ComplexService,
+        DefaultService,
+        DefaultsService,
+        DescriptionsService,
+        DuplicateService,
+        ErrorService,
+        HeaderService,
+        MultipleTags1Service,
+        MultipleTags2Service,
+        MultipleTags3Service,
+        NoContentService,
+        ParametersService,
+        ResponseService,
+        SimpleService,
+        TypesService
+     {}
+
+export type { ArrayWithArray } from './models/ArrayWithArray.js';
+export type { ArrayWithBooleans } from './models/ArrayWithBooleans.js';
+export type { ArrayWithNumbers } from './models/ArrayWithNumbers.js';
+export type { ArrayWithProperties } from './models/ArrayWithProperties.js';
+export type { ArrayWithReferences } from './models/ArrayWithReferences.js';
+export type { ArrayWithStrings } from './models/ArrayWithStrings.js';
+export type { CommentWithBackticks } from './models/CommentWithBackticks.js';
+export type { CommentWithBreaks } from './models/CommentWithBreaks.js';
+export type { CommentWithExpressionPlaceholders } from './models/CommentWithExpressionPlaceholders.js';
+export type { CommentWithQuotes } from './models/CommentWithQuotes.js';
+export type { CommentWithReservedCharacters } from './models/CommentWithReservedCharacters.js';
+export type { CommentWithSlashes } from './models/CommentWithSlashes.js';
+export type { Date } from './models/Date.js';
+export type { DictionaryWithArray } from './models/DictionaryWithArray.js';
+export type { DictionaryWithDictionary } from './models/DictionaryWithDictionary.js';
+export type { DictionaryWithProperties } from './models/DictionaryWithProperties.js';
+export type { DictionaryWithReference } from './models/DictionaryWithReference.js';
+export type { DictionaryWithString } from './models/DictionaryWithString.js';
+export type { EnumFromDescription } from './models/EnumFromDescription.js';
+export type { EnumWithExtensions } from './models/EnumWithExtensions.js';
+export type { EnumWithNumbers } from './models/EnumWithNumbers.js';
+export type { EnumWithStrings } from './models/EnumWithStrings.js';
+export type { ModelThatExtends } from './models/ModelThatExtends.js';
+export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends.js';
+export type { ModelWithArray } from './models/ModelWithArray.js';
+export type { ModelWithBoolean } from './models/ModelWithBoolean.js';
+export type { ModelWithCircularReference } from './models/ModelWithCircularReference.js';
+export type { ModelWithDictionary } from './models/ModelWithDictionary.js';
+export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports.js';
+export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties.js';
+export type { ModelWithEnum } from './models/ModelWithEnum.js';
+export type { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
+export type { ModelWithInteger } from './models/ModelWithInteger.js';
+export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
+export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
+export type { ModelWithNullableString } from './models/ModelWithNullableString.js';
+export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties.js';
+export type { ModelWithPattern } from './models/ModelWithPattern.js';
+export type { ModelWithProperties } from './models/ModelWithProperties.js';
+export type { ModelWithReference } from './models/ModelWithReference.js';
+export type { ModelWithString } from './models/ModelWithString.js';
+export type { SimpleBoolean } from './models/SimpleBoolean.js';
+export type { SimpleFile } from './models/SimpleFile.js';
+export type { SimpleInteger } from './models/SimpleInteger.js';
+export type { SimpleReference } from './models/SimpleReference.js';
+export type { SimpleString } from './models/SimpleString.js';
+export type { SimpleStringWithPattern } from './models/SimpleStringWithPattern.js';
+
+export { CollectionFormatService } from './services/CollectionFormatService.js';
+export { ComplexService } from './services/ComplexService.js';
+export { DefaultService } from './services/DefaultService.js';
+export { DefaultsService } from './services/DefaultsService.js';
+export { DescriptionsService } from './services/DescriptionsService.js';
+export { DuplicateService } from './services/DuplicateService.js';
+export { ErrorService } from './services/ErrorService.js';
+export { HeaderService } from './services/HeaderService.js';
+export { MultipleTags1Service } from './services/MultipleTags1Service.js';
+export { MultipleTags2Service } from './services/MultipleTags2Service.js';
+export { MultipleTags3Service } from './services/MultipleTags3Service.js';
+export { NoContentService } from './services/NoContentService.js';
+export { ParametersService } from './services/ParametersService.js';
+export { ResponseService } from './services/ResponseService.js';
+export { SimpleService } from './services/SimpleService.js';
+export { TypesService } from './services/TypesService.js';
+"
+`;
+
 exports[`v2 should generate: ./test/generated/v2/models/ArrayWithArray.ts 1`] = `
 "/* istanbul ignore file */
 /* tslint:disable */
@@ -1347,11 +1533,11 @@ export type ModelWithProperties = {
     number?: number;
     boolean?: boolean;
     reference?: ModelWithString;
-    'property with space'?: string;
+    'propertyWithSpace'?: string;
     default?: string;
     try?: string;
-    readonly '@namespace.string'?: string;
-    readonly '@namespace.integer'?: number;
+    readonly '@namespaceString'?: string;
+    readonly '@namespaceInteger'?: number;
 };
 "
 `;
@@ -2099,7 +2285,7 @@ export const $ModelWithProperties = {
         reference: {
             type: 'ModelWithString',
         },
-        'property with space': {
+        'propertyWithSpace': {
             type: 'string',
         },
         default: {
@@ -2108,11 +2294,11 @@ export const $ModelWithProperties = {
         try: {
             type: 'string',
         },
-        '@namespace.string': {
+        '@namespaceString': {
             type: 'string',
             isReadOnly: true,
         },
-        '@namespace.integer': {
+        '@namespaceInteger': {
             type: 'number',
             isReadOnly: true,
         },
@@ -2215,11 +2401,15 @@ exports[`v2 should generate: ./test/generated/v2/services/CollectionFormatServic
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class CollectionFormatService {
+export abstract class CollectionFormatService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterArrayCsv This is an array parameter that is sent as csv format (comma-separated values)
@@ -2227,16 +2417,14 @@ export class CollectionFormatService {
      * @param parameterArrayTsv This is an array parameter that is sent as tsv format (tab-separated values)
      * @param parameterArrayPipes This is an array parameter that is sent as pipes format (pipe-separated values)
      * @param parameterArrayMulti This is an array parameter that is sent as multi format (multiple parameter instances)
-     * @throws ApiError
-     */
-    public static collectionFormat(
+    public collectionFormat(
         parameterArrayCsv: Array<string>,
         parameterArraySsv: Array<string>,
         parameterArrayTsv: Array<string>,
         parameterArrayPipes: Array<string>,
         parameterArrayMulti: Array<string>,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
             query: {
@@ -2258,19 +2446,21 @@ exports[`v2 should generate: ./test/generated/v2/services/ComplexService.ts 1`] 
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ComplexService {
+export abstract class ComplexService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterObject Parameter containing object
      * @param parameterReference Parameter containing reference
      * @returns ModelWithString Successful response
-     * @throws ApiError
-     */
-    public static complexTypes(
+    public complexTypes(
         parameterObject: {
             first?: {
                 second?: {
@@ -2279,8 +2469,8 @@ export class ComplexService {
             };
         },
         parameterReference: ModelWithString,
-    ): CancelablePromise<Array<ModelWithString>> {
-        return __request(OpenAPI, {
+    ): Promise<Result<Array<ModelWithString>, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
             query: {
@@ -2301,17 +2491,19 @@ exports[`v2 should generate: ./test/generated/v2/services/DefaultService.ts 1`] 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DefaultService {
+export abstract class DefaultService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
-     * @throws ApiError
-     */
-    public static serviceWithEmptyTag(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public serviceWithEmptyTag(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
         });
@@ -2326,11 +2518,15 @@ exports[`v2 should generate: ./test/generated/v2/services/DefaultsService.ts 1`]
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DefaultsService {
+export abstract class DefaultsService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterString This is a simple string with default value
@@ -2338,9 +2534,7 @@ export class DefaultsService {
      * @param parameterBoolean This is a simple boolean with default value
      * @param parameterEnum This is a simple enum with default value
      * @param parameterModel This is a simple model with default value
-     * @throws ApiError
-     */
-    public static callWithDefaultParameters(
+    public callWithDefaultParameters(
         parameterString: string = 'Hello World!',
         parameterNumber: number = 123,
         parameterBoolean: boolean = true,
@@ -2348,8 +2542,8 @@ export class DefaultsService {
         parameterModel: ModelWithString = {
             \\"prop\\": \\"Hello World!\\"
         },
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -2368,9 +2562,7 @@ export class DefaultsService {
      * @param parameterBoolean This is a simple boolean that is optional with default value
      * @param parameterEnum This is a simple enum that is optional with default value
      * @param parameterModel This is a simple model that is optional with default value
-     * @throws ApiError
-     */
-    public static callWithDefaultOptionalParameters(
+    public callWithDefaultOptionalParameters(
         parameterString: string = 'Hello World!',
         parameterNumber: number = 123,
         parameterBoolean: boolean = true,
@@ -2378,8 +2570,8 @@ export class DefaultsService {
         parameterModel: ModelWithString = {
             \\"prop\\": \\"Hello World!\\"
         },
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -2401,9 +2593,7 @@ export class DefaultsService {
      * @param parameterStringWithEmptyDefault This is a string with empty default
      * @param parameterStringNullableWithNoDefault This is a string that can be null with no default
      * @param parameterStringNullableWithDefault This is a string that can be null with default
-     * @throws ApiError
-     */
-    public static callToTestOrderOfParams(
+    public callToTestOrderOfParams(
         parameterStringWithNoDefault: string,
         parameterOptionalStringWithDefault: string = 'Hello World!',
         parameterOptionalStringWithEmptyDefault: string = '',
@@ -2412,8 +2602,8 @@ export class DefaultsService {
         parameterStringWithEmptyDefault: string = '',
         parameterStringNullableWithNoDefault?: string | null,
         parameterStringNullableWithDefault: string | null = null,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -2436,11 +2626,15 @@ exports[`v2 should generate: ./test/generated/v2/services/DescriptionsService.ts
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DescriptionsService {
+export abstract class DescriptionsService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterWithBreaks Testing multiline comments in string: First line
@@ -2452,17 +2646,15 @@ export class DescriptionsService {
      * @param parameterWithExpressionPlaceholders Testing expression placeholders in string: \${expression} should work
      * @param parameterWithQuotes Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
      * @param parameterWithReservedCharacters Testing reserved characters in string: * inline * and ** inline ** should work
-     * @throws ApiError
-     */
-    public static callWithDescriptions(
+    public callWithDescriptions(
         parameterWithBreaks?: string,
         parameterWithBackticks?: string,
         parameterWithSlashes?: string,
         parameterWithExpressionPlaceholders?: string,
         parameterWithQuotes?: string,
         parameterWithReservedCharacters?: string,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
             query: {
@@ -2483,47 +2675,43 @@ exports[`v2 should generate: ./test/generated/v2/services/DuplicateService.ts 1`
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DuplicateService {
+export abstract class DuplicateService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName1(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName1(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName2(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName2(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName3(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName3(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
         });
@@ -2536,21 +2724,23 @@ exports[`v2 should generate: ./test/generated/v2/services/ErrorService.ts 1`] = 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ErrorService {
+export abstract class ErrorService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param status Status code to return
      * @returns any Custom message: Successful response
-     * @throws ApiError
-     */
-    public static testErrorCode(
+    public testErrorCode(
         status: string,
-    ): CancelablePromise<any> {
-        return __request(OpenAPI, {
+    ): Promise<Result<any, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/error',
             query: {
@@ -2572,18 +2762,20 @@ exports[`v2 should generate: ./test/generated/v2/services/HeaderService.ts 1`] =
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class HeaderService {
+export abstract class HeaderService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns string Successful response
-     * @throws ApiError
-     */
-    public static callWithResultFromHeader(): CancelablePromise<string> {
-        return __request(OpenAPI, {
+    public callWithResultFromHeader(): Promise<Result<string, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/header',
             responseHeader: 'operation-location',
@@ -2601,18 +2793,20 @@ exports[`v2 should generate: ./test/generated/v2/services/MultipleTags1Service.t
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class MultipleTags1Service {
+export abstract class MultipleTags1Service {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyA(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyA(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -2620,10 +2814,8 @@ export class MultipleTags1Service {
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyB(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyB(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -2636,18 +2828,20 @@ exports[`v2 should generate: ./test/generated/v2/services/MultipleTags2Service.t
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class MultipleTags2Service {
+export abstract class MultipleTags2Service {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyA(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyA(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -2655,10 +2849,8 @@ export class MultipleTags2Service {
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyB(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyB(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -2671,18 +2863,20 @@ exports[`v2 should generate: ./test/generated/v2/services/MultipleTags3Service.t
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class MultipleTags3Service {
+export abstract class MultipleTags3Service {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyB(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyB(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -2695,18 +2889,20 @@ exports[`v2 should generate: ./test/generated/v2/services/NoContentService.ts 1`
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class NoContentService {
+export abstract class NoContentService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static callWithNoContentResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public callWithNoContentResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
         });
@@ -2719,11 +2915,15 @@ exports[`v2 should generate: ./test/generated/v2/services/ParametersService.ts 1
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ParametersService {
+export abstract class ParametersService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterHeader This is the parameter that goes into the header
@@ -2731,16 +2931,14 @@ export class ParametersService {
      * @param parameterForm This is the parameter that goes into the form data
      * @param parameterBody This is the parameter that is sent as request body
      * @param parameterPath This is the parameter that goes into the path
-     * @throws ApiError
-     */
-    public static callWithParameters(
+    public callWithParameters(
         parameterHeader: string,
         parameterQuery: string,
         parameterForm: string,
         parameterBody: string,
         parameterPath: string,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
             path: {
@@ -2768,9 +2966,7 @@ export class ParametersService {
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
      * @param _default This is the parameter with a reserved keyword
-     * @throws ApiError
-     */
-    public static callWithWeirdParameterNames(
+    public callWithWeirdParameterNames(
         parameterHeader: string,
         parameterQuery: string,
         parameterForm: string,
@@ -2779,8 +2975,8 @@ export class ParametersService {
         parameterPath2?: string,
         parameterPath3?: string,
         _default?: string,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
             path: {
@@ -2813,18 +3009,20 @@ import type { ModelThatExtends } from '../models/ModelThatExtends';
 import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends';
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ResponseService {
+export abstract class ResponseService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns ModelWithString Message for default response
-     * @throws ApiError
-     */
-    public static callWithResponse(): CancelablePromise<ModelWithString> {
-        return __request(OpenAPI, {
+    public callWithResponse(): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/response',
         });
@@ -2832,10 +3030,8 @@ export class ResponseService {
 
     /**
      * @returns ModelWithString Message for default response
-     * @throws ApiError
-     */
-    public static callWithDuplicateResponses(): CancelablePromise<ModelWithString> {
-        return __request(OpenAPI, {
+    public callWithDuplicateResponses(): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/response',
             errors: {
@@ -2851,14 +3047,12 @@ export class ResponseService {
      * @returns ModelWithString Message for default response
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
-     * @throws ApiError
-     */
-    public static callWithResponses(): CancelablePromise<{
-        readonly '@namespace.string'?: string;
-        readonly '@namespace.integer'?: number;
+    public callWithResponses(): Promise<Result<{
+        readonly '@namespaceString'?: string;
+        readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
-    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends> {
-        return __request(OpenAPI, {
+    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
             errors: {
@@ -2876,77 +3070,67 @@ exports[`v2 should generate: ./test/generated/v2/services/SimpleService.ts 1`] =
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class SimpleService {
+export abstract class SimpleService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
-     * @throws ApiError
-     */
-    public static getCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public getCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static putCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public putCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static postCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public postCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static deleteCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public deleteCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static optionsCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public optionsCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static headCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public headCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static patchCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public patchCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
         });
@@ -2959,11 +3143,15 @@ exports[`v2 should generate: ./test/generated/v2/services/TypesService.ts 1`] = 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class TypesService {
+export abstract class TypesService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterArray This is an array parameter
@@ -2978,9 +3166,7 @@ export class TypesService {
      * @returns string Response is a simple string
      * @returns boolean Response is a simple boolean
      * @returns any Response is a simple object
-     * @throws ApiError
-     */
-    public static types(
+    public types(
         parameterArray: Array<string>,
         parameterDictionary: Record<string, string>,
         parameterEnum: 'Success' | 'Warning' | 'Error',
@@ -2989,8 +3175,8 @@ export class TypesService {
         parameterBoolean: boolean = true,
         parameterObject: any = null,
         id?: number,
-    ): CancelablePromise<number | string | boolean | any> {
-        return __request(OpenAPI, {
+    ): Promise<Result<number | string | boolean | any, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/types',
             path: {
@@ -3701,6 +3887,224 @@ export { UploadService } from './services/UploadService';
 "
 `;
 
+exports[`v3 should generate: ./test/generated/v3/luneClient.ts 1`] = `
+"import axios, { AxiosInstance } from 'axios'
+import snakeCaseKeys from 'snakecase-keys'
+import camelCaseKeys from 'camelcase-keys'
+
+import { ClientConfig } from './core/ClientConfig'
+import { CollectionFormatService } from './services/CollectionFormatService.js';
+import { ComplexService } from './services/ComplexService.js';
+import { DefaultService } from './services/DefaultService.js';
+import { DefaultsService } from './services/DefaultsService.js';
+import { DescriptionsService } from './services/DescriptionsService.js';
+import { DuplicateService } from './services/DuplicateService.js';
+import { ErrorService } from './services/ErrorService.js';
+import { FormDataService } from './services/FormDataService.js';
+import { HeaderService } from './services/HeaderService.js';
+import { MultipartService } from './services/MultipartService.js';
+import { MultipleTags1Service } from './services/MultipleTags1Service.js';
+import { MultipleTags2Service } from './services/MultipleTags2Service.js';
+import { MultipleTags3Service } from './services/MultipleTags3Service.js';
+import { NoContentService } from './services/NoContentService.js';
+import { ParametersService } from './services/ParametersService.js';
+import { RequestBodyService } from './services/RequestBodyService.js';
+import { ResponseService } from './services/ResponseService.js';
+import { SimpleService } from './services/SimpleService.js';
+import { TypesService } from './services/TypesService.js';
+import { UploadService } from './services/UploadService.js';
+
+function applyMixins(derivedCtor: any, constructors: any[]) {
+    constructors.forEach((baseCtor) => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+            Object.defineProperty(
+                derivedCtor.prototype,
+                name,
+                Object.getOwnPropertyDescriptor(baseCtor.prototype, name) || Object.create(null),
+            )
+        })
+    })
+}
+
+export class LuneClient {
+    protected client: AxiosInstance
+    protected config: ClientConfig
+
+    constructor(
+        apiKey: string,
+        baseUrl: string = 'https://api.lune.co',
+        apiVersion: string = '1',
+        account?: string,
+    ) {
+        this.config = {
+            BASE_URL: \`\${baseUrl}/v{api-version}\`,
+            VERSION: apiVersion,
+            BEARER_TOKEN: apiKey,
+            ACCOUNT: account,
+        }
+        this.client = axios.create()
+
+        // Convert to snake case when sending request
+        this.client.interceptors.request.use((req) => {
+            const requestCopy = { ...req }
+
+            if (requestCopy.params) {
+                requestCopy.params = snakeCaseKeys(req.params, { deep: true })
+            }
+
+            if (requestCopy.data) {
+                requestCopy.data = snakeCaseKeys(req.data, { deep: true })
+          }
+
+          return requestCopy
+        })
+
+        // Convert to camelCase when receiving request
+        client.interceptors.response.use(
+            (response) => camelCaseKeys(response.data, { deep: true }),
+            (error) => Promise.reject(error.response),
+        )
+    }
+
+    public setAccount(accountId: string) {
+        this.config.ACCOUNT = accountId
+    }
+}
+
+applyMixins(LuneClient, [
+    CollectionFormatService,
+    ComplexService,
+    DefaultService,
+    DefaultsService,
+    DescriptionsService,
+    DuplicateService,
+    ErrorService,
+    FormDataService,
+    HeaderService,
+    MultipartService,
+    MultipleTags1Service,
+    MultipleTags2Service,
+    MultipleTags3Service,
+    NoContentService,
+    ParametersService,
+    RequestBodyService,
+    ResponseService,
+    SimpleService,
+    TypesService,
+    UploadService,
+])
+
+// eslint-disable-next-line no-redeclare -- mixins require same name
+export interface LuneClient extends
+    CollectionFormatService,
+        ComplexService,
+        DefaultService,
+        DefaultsService,
+        DescriptionsService,
+        DuplicateService,
+        ErrorService,
+        FormDataService,
+        HeaderService,
+        MultipartService,
+        MultipleTags1Service,
+        MultipleTags2Service,
+        MultipleTags3Service,
+        NoContentService,
+        ParametersService,
+        RequestBodyService,
+        ResponseService,
+        SimpleService,
+        TypesService,
+        UploadService
+     {}
+
+export type { ArrayWithArray } from './models/ArrayWithArray.js';
+export type { ArrayWithBooleans } from './models/ArrayWithBooleans.js';
+export type { ArrayWithNumbers } from './models/ArrayWithNumbers.js';
+export type { ArrayWithProperties } from './models/ArrayWithProperties.js';
+export type { ArrayWithReferences } from './models/ArrayWithReferences.js';
+export type { ArrayWithStrings } from './models/ArrayWithStrings.js';
+export type { CommentWithBackticks } from './models/CommentWithBackticks.js';
+export type { CommentWithBreaks } from './models/CommentWithBreaks.js';
+export type { CommentWithExpressionPlaceholders } from './models/CommentWithExpressionPlaceholders.js';
+export type { CommentWithQuotes } from './models/CommentWithQuotes.js';
+export type { CommentWithReservedCharacters } from './models/CommentWithReservedCharacters.js';
+export type { CommentWithSlashes } from './models/CommentWithSlashes.js';
+export type { CompositionBaseModel } from './models/CompositionBaseModel.js';
+export type { CompositionExtendedModel } from './models/CompositionExtendedModel.js';
+export type { CompositionWithAllOfAndNullable } from './models/CompositionWithAllOfAndNullable.js';
+export type { CompositionWithAnyOf } from './models/CompositionWithAnyOf.js';
+export type { CompositionWithAnyOfAndNullable } from './models/CompositionWithAnyOfAndNullable.js';
+export type { CompositionWithAnyOfAnonymous } from './models/CompositionWithAnyOfAnonymous.js';
+export type { CompositionWithOneOf } from './models/CompositionWithOneOf.js';
+export type { CompositionWithOneOfAndComplexArrayDictionary } from './models/CompositionWithOneOfAndComplexArrayDictionary.js';
+export type { CompositionWithOneOfAndNullable } from './models/CompositionWithOneOfAndNullable.js';
+export type { CompositionWithOneOfAndSimpleArrayDictionary } from './models/CompositionWithOneOfAndSimpleArrayDictionary.js';
+export type { CompositionWithOneOfAndSimpleDictionary } from './models/CompositionWithOneOfAndSimpleDictionary.js';
+export type { CompositionWithOneOfAnonymous } from './models/CompositionWithOneOfAnonymous.js';
+export type { CompositionWithOneOfDiscriminator } from './models/CompositionWithOneOfDiscriminator.js';
+export type { DictionaryWithArray } from './models/DictionaryWithArray.js';
+export type { DictionaryWithDictionary } from './models/DictionaryWithDictionary.js';
+export type { DictionaryWithProperties } from './models/DictionaryWithProperties.js';
+export type { DictionaryWithReference } from './models/DictionaryWithReference.js';
+export type { DictionaryWithString } from './models/DictionaryWithString.js';
+export type { EnumFromDescription } from './models/EnumFromDescription.js';
+export type { EnumWithExtensions } from './models/EnumWithExtensions.js';
+export type { EnumWithNumbers } from './models/EnumWithNumbers.js';
+export type { EnumWithStrings } from './models/EnumWithStrings.js';
+export type { File } from './models/File.js';
+export type { ModelCircle } from './models/ModelCircle.js';
+export type { ModelSquare } from './models/ModelSquare.js';
+export type { ModelThatExtends } from './models/ModelThatExtends.js';
+export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends.js';
+export type { ModelWithArray } from './models/ModelWithArray.js';
+export type { ModelWithBoolean } from './models/ModelWithBoolean.js';
+export type { ModelWithCircularReference } from './models/ModelWithCircularReference.js';
+export type { ModelWithDictionary } from './models/ModelWithDictionary.js';
+export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports.js';
+export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties.js';
+export type { ModelWithEnum } from './models/ModelWithEnum.js';
+export type { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
+export type { ModelWithInteger } from './models/ModelWithInteger.js';
+export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
+export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
+export type { ModelWithNullableString } from './models/ModelWithNullableString.js';
+export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties.js';
+export type { ModelWithPattern } from './models/ModelWithPattern.js';
+export type { ModelWithProperties } from './models/ModelWithProperties.js';
+export type { ModelWithReference } from './models/ModelWithReference.js';
+export type { ModelWithString } from './models/ModelWithString.js';
+export type { Pageable } from './models/Pageable.js';
+export type { SimpleBoolean } from './models/SimpleBoolean.js';
+export type { SimpleFile } from './models/SimpleFile.js';
+export type { SimpleInteger } from './models/SimpleInteger.js';
+export type { SimpleReference } from './models/SimpleReference.js';
+export type { SimpleString } from './models/SimpleString.js';
+export type { SimpleStringWithPattern } from './models/SimpleStringWithPattern.js';
+
+export { CollectionFormatService } from './services/CollectionFormatService.js';
+export { ComplexService } from './services/ComplexService.js';
+export { DefaultService } from './services/DefaultService.js';
+export { DefaultsService } from './services/DefaultsService.js';
+export { DescriptionsService } from './services/DescriptionsService.js';
+export { DuplicateService } from './services/DuplicateService.js';
+export { ErrorService } from './services/ErrorService.js';
+export { FormDataService } from './services/FormDataService.js';
+export { HeaderService } from './services/HeaderService.js';
+export { MultipartService } from './services/MultipartService.js';
+export { MultipleTags1Service } from './services/MultipleTags1Service.js';
+export { MultipleTags2Service } from './services/MultipleTags2Service.js';
+export { MultipleTags3Service } from './services/MultipleTags3Service.js';
+export { NoContentService } from './services/NoContentService.js';
+export { ParametersService } from './services/ParametersService.js';
+export { RequestBodyService } from './services/RequestBodyService.js';
+export { ResponseService } from './services/ResponseService.js';
+export { SimpleService } from './services/SimpleService.js';
+export { TypesService } from './services/TypesService.js';
+export { UploadService } from './services/UploadService.js';
+"
+`;
+
 exports[`v3 should generate: ./test/generated/v3/models/ArrayWithArray.ts 1`] = `
 "/* istanbul ignore file */
 /* tslint:disable */
@@ -4209,10 +4613,12 @@ exports[`v3 should generate: ./test/generated/v3/models/File.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
+import type { string } from './string';
+
 export type File = {
     readonly id?: string;
-    readonly updated_at?: string;
-    readonly created_at?: string;
+    readonly updatedAt?: string;
+    readonly createdAt?: string;
     mime: string;
     readonly file?: string;
 };
@@ -4597,11 +5003,11 @@ export type ModelWithProperties = {
     number?: number;
     boolean?: boolean;
     reference?: ModelWithString;
-    'property with space'?: string;
+    'propertyWithSpace'?: string;
     default?: string;
     try?: string;
-    readonly '@namespace.string'?: string;
-    readonly '@namespace.integer'?: number;
+    readonly '@namespaceString'?: string;
+    readonly '@namespaceInteger'?: number;
 };
 "
 `;
@@ -4644,9 +5050,11 @@ exports[`v3 should generate: ./test/generated/v3/models/Pageable.ts 1`] = `
 /* tslint:disable */
 /* eslint-disable */
 
+import type { integer } from './integer';
+
 export type Pageable = {
-    page?: number;
-    size?: number;
+    page?: integer;
+    size?: integer;
     sort?: Array<string>;
 };
 "
@@ -5309,12 +5717,12 @@ export const $File = {
             isReadOnly: true,
             minLength: 1,
         },
-        updated_at: {
+        updatedAt: {
             type: 'string',
             isReadOnly: true,
             format: 'date-time',
         },
-        created_at: {
+        createdAt: {
             type: 'string',
             isReadOnly: true,
             format: 'date-time',
@@ -5766,7 +6174,7 @@ export const $ModelWithProperties = {
         reference: {
             type: 'ModelWithString',
         },
-        'property with space': {
+        'propertyWithSpace': {
             type: 'string',
         },
         default: {
@@ -5775,11 +6183,11 @@ export const $ModelWithProperties = {
         try: {
             type: 'string',
         },
-        '@namespace.string': {
+        '@namespaceString': {
             type: 'string',
             isReadOnly: true,
         },
-        '@namespace.integer': {
+        '@namespaceInteger': {
             type: 'number',
             isReadOnly: true,
         },
@@ -5823,11 +6231,11 @@ exports[`v3 should generate: ./test/generated/v3/schemas/$Pageable.ts 1`] = `
 export const $Pageable = {
     properties: {
         page: {
-            type: 'number',
+            type: 'integer',
             format: 'int32',
         },
         size: {
-            type: 'number',
+            type: 'integer',
             format: 'int32',
             minimum: 1,
         },
@@ -5908,11 +6316,15 @@ exports[`v3 should generate: ./test/generated/v3/services/CollectionFormatServic
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class CollectionFormatService {
+export abstract class CollectionFormatService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterArrayCsv This is an array parameter that is sent as csv format (comma-separated values)
@@ -5920,16 +6332,14 @@ export class CollectionFormatService {
      * @param parameterArrayTsv This is an array parameter that is sent as tsv format (tab-separated values)
      * @param parameterArrayPipes This is an array parameter that is sent as pipes format (pipe-separated values)
      * @param parameterArrayMulti This is an array parameter that is sent as multi format (multiple parameter instances)
-     * @throws ApiError
-     */
-    public static collectionFormat(
+    public collectionFormat(
         parameterArrayCsv: Array<string> | null,
         parameterArraySsv: Array<string> | null,
         parameterArrayTsv: Array<string> | null,
         parameterArrayPipes: Array<string> | null,
         parameterArrayMulti: Array<string> | null,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
             query: {
@@ -5949,24 +6359,27 @@ exports[`v3 should generate: ./test/generated/v3/services/ComplexService.ts 1`] 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { integer } from '../models/integer';
 import type { ModelWithArray } from '../models/ModelWithArray';
 import type { ModelWithDictionary } from '../models/ModelWithDictionary';
 import type { ModelWithEnum } from '../models/ModelWithEnum';
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ComplexService {
+export abstract class ComplexService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterObject Parameter containing object
      * @param parameterReference Parameter containing reference
      * @returns ModelWithString Successful response
-     * @throws ApiError
-     */
-    public static complexTypes(
+    public complexTypes(
         parameterObject: {
             first?: {
                 second?: {
@@ -5975,8 +6388,8 @@ export class ComplexService {
             };
         },
         parameterReference: ModelWithString,
-    ): CancelablePromise<Array<ModelWithString>> {
-        return __request(OpenAPI, {
+    ): Promise<Result<Array<ModelWithString>, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
             query: {
@@ -5994,10 +6407,8 @@ export class ComplexService {
      * @param id
      * @param requestBody
      * @returns ModelWithString Success
-     * @throws ApiError
-     */
-    public static complexParams(
-        id: number,
+    public complexParams(
+        id: integer,
         requestBody?: {
             readonly key: string | null;
             name: string | null;
@@ -6007,12 +6418,12 @@ export class ComplexService {
             listOfStrings?: Array<string> | null;
             parameters: (ModelWithString | ModelWithEnum | ModelWithArray | ModelWithDictionary);
             readonly user?: {
-                readonly id?: number;
+                readonly id?: integer;
                 readonly name?: string | null;
             };
         },
-    ): CancelablePromise<ModelWithString> {
-        return __request(OpenAPI, {
+    ): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/complex/{id}',
             path: {
@@ -6030,17 +6441,19 @@ exports[`v3 should generate: ./test/generated/v3/services/DefaultService.ts 1`] 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DefaultService {
+export abstract class DefaultService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
-     * @throws ApiError
-     */
-    public static serviceWithEmptyTag(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public serviceWithEmptyTag(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
         });
@@ -6055,11 +6468,15 @@ exports[`v3 should generate: ./test/generated/v3/services/DefaultsService.ts 1`]
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DefaultsService {
+export abstract class DefaultsService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterString This is a simple string with default value
@@ -6067,9 +6484,7 @@ export class DefaultsService {
      * @param parameterBoolean This is a simple boolean with default value
      * @param parameterEnum This is a simple enum with default value
      * @param parameterModel This is a simple model with default value
-     * @throws ApiError
-     */
-    public static callWithDefaultParameters(
+    public callWithDefaultParameters(
         parameterString: string | null = 'Hello World!',
         parameterNumber: number | null = 123,
         parameterBoolean: boolean | null = true,
@@ -6077,8 +6492,8 @@ export class DefaultsService {
         parameterModel: ModelWithString | null = {
             \\"prop\\": \\"Hello World!\\"
         },
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -6097,9 +6512,7 @@ export class DefaultsService {
      * @param parameterBoolean This is a simple boolean that is optional with default value
      * @param parameterEnum This is a simple enum that is optional with default value
      * @param parameterModel This is a simple model that is optional with default value
-     * @throws ApiError
-     */
-    public static callWithDefaultOptionalParameters(
+    public callWithDefaultOptionalParameters(
         parameterString: string = 'Hello World!',
         parameterNumber: number = 123,
         parameterBoolean: boolean = true,
@@ -6107,8 +6520,8 @@ export class DefaultsService {
         parameterModel: ModelWithString = {
             \\"prop\\": \\"Hello World!\\"
         },
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -6130,9 +6543,7 @@ export class DefaultsService {
      * @param parameterStringWithEmptyDefault This is a string with empty default
      * @param parameterStringNullableWithNoDefault This is a string that can be null with no default
      * @param parameterStringNullableWithDefault This is a string that can be null with default
-     * @throws ApiError
-     */
-    public static callToTestOrderOfParams(
+    public callToTestOrderOfParams(
         parameterStringWithNoDefault: string,
         parameterOptionalStringWithDefault: string = 'Hello World!',
         parameterOptionalStringWithEmptyDefault: string = '',
@@ -6141,8 +6552,8 @@ export class DefaultsService {
         parameterStringWithEmptyDefault: string = '',
         parameterStringNullableWithNoDefault?: string | null,
         parameterStringNullableWithDefault: string | null = null,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -6165,11 +6576,15 @@ exports[`v3 should generate: ./test/generated/v3/services/DescriptionsService.ts
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DescriptionsService {
+export abstract class DescriptionsService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterWithBreaks Testing multiline comments in string: First line
@@ -6181,17 +6596,15 @@ export class DescriptionsService {
      * @param parameterWithExpressionPlaceholders Testing expression placeholders in string: \${expression} should work
      * @param parameterWithQuotes Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
      * @param parameterWithReservedCharacters Testing reserved characters in string: * inline * and ** inline ** should work
-     * @throws ApiError
-     */
-    public static callWithDescriptions(
+    public callWithDescriptions(
         parameterWithBreaks?: any,
         parameterWithBackticks?: any,
         parameterWithSlashes?: any,
         parameterWithExpressionPlaceholders?: any,
         parameterWithQuotes?: any,
         parameterWithReservedCharacters?: any,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
             query: {
@@ -6212,47 +6625,43 @@ exports[`v3 should generate: ./test/generated/v3/services/DuplicateService.ts 1`
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class DuplicateService {
+export abstract class DuplicateService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName1(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName1(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName2(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName2(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static duplicateName3(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public duplicateName3(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
         });
@@ -6265,21 +6674,23 @@ exports[`v3 should generate: ./test/generated/v3/services/ErrorService.ts 1`] = 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ErrorService {
+export abstract class ErrorService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param status Status code to return
      * @returns any Custom message: Successful response
-     * @throws ApiError
-     */
-    public static testErrorCode(
+    public testErrorCode(
         status: number,
-    ): CancelablePromise<any> {
-        return __request(OpenAPI, {
+    ): Promise<Result<any, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/error',
             query: {
@@ -6303,22 +6714,24 @@ exports[`v3 should generate: ./test/generated/v3/services/FormDataService.ts 1`]
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class FormDataService {
+export abstract class FormDataService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameter This is a reusable parameter
      * @param formData A reusable request body
-     * @throws ApiError
-     */
-    public static postApiFormData(
+    public postApiFormData(
         parameter?: string,
         formData?: ModelWithString,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/formData/',
             query: {
@@ -6336,18 +6749,20 @@ exports[`v3 should generate: ./test/generated/v3/services/HeaderService.ts 1`] =
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class HeaderService {
+export abstract class HeaderService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns string Successful response
-     * @throws ApiError
-     */
-    public static callWithResultFromHeader(): CancelablePromise<string> {
-        return __request(OpenAPI, {
+    public callWithResultFromHeader(): Promise<Result<string, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/header',
             responseHeader: 'operation-location',
@@ -6367,23 +6782,25 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipartService.ts 1`
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class MultipartService {
+export abstract class MultipartService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param formData
-     * @throws ApiError
-     */
-    public static multipartRequest(
+    public multipartRequest(
         formData?: {
             content?: Blob;
             data?: ModelWithString | null;
         },
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/multipart',
             formData: formData,
@@ -6393,16 +6810,14 @@ export class MultipartService {
 
     /**
      * @returns any OK
-     * @throws ApiError
-     */
-    public static multipartResponse(): CancelablePromise<{
+    public multipartResponse(): Promise<Result<{
         file?: Blob;
         metadata?: {
             foo?: string;
             bar?: string;
         };
-    }> {
-        return __request(OpenAPI, {
+    }, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multipart',
         });
@@ -6415,18 +6830,20 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags1Service.t
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class MultipleTags1Service {
+export abstract class MultipleTags1Service {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyA(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyA(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -6434,10 +6851,8 @@ export class MultipleTags1Service {
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyB(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyB(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -6450,18 +6865,20 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags2Service.t
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class MultipleTags2Service {
+export abstract class MultipleTags2Service {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyA(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyA(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -6469,10 +6886,8 @@ export class MultipleTags2Service {
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyB(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyB(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -6485,18 +6900,20 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags3Service.t
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class MultipleTags3Service {
+export abstract class MultipleTags3Service {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static dummyB(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public dummyB(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -6509,18 +6926,20 @@ exports[`v3 should generate: ./test/generated/v3/services/NoContentService.ts 1`
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class NoContentService {
+export abstract class NoContentService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns void
-     * @throws ApiError
-     */
-    public static callWithNoContentResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public callWithNoContentResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
         });
@@ -6536,11 +6955,15 @@ exports[`v3 should generate: ./test/generated/v3/services/ParametersService.ts 1
 import type { ModelWithString } from '../models/ModelWithString';
 import type { Pageable } from '../models/Pageable';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ParametersService {
+export abstract class ParametersService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterHeader This is the parameter that goes into the header
@@ -6549,17 +6972,15 @@ export class ParametersService {
      * @param parameterCookie This is the parameter that goes into the cookie
      * @param parameterPath This is the parameter that goes into the path
      * @param requestBody This is the parameter that goes into the body
-     * @throws ApiError
-     */
-    public static callWithParameters(
+    public callWithParameters(
         parameterHeader: string | null,
         parameterQuery: string | null,
         parameterForm: string | null,
         parameterCookie: string | null,
         parameterPath: string | null,
         requestBody: ModelWithString | null,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
             path: {
@@ -6592,9 +7013,7 @@ export class ParametersService {
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
      * @param _default This is the parameter with a reserved keyword
-     * @throws ApiError
-     */
-    public static callWithWeirdParameterNames(
+    public callWithWeirdParameterNames(
         parameterHeader: string | null,
         parameterQuery: string | null,
         parameterForm: string | null,
@@ -6604,8 +7023,8 @@ export class ParametersService {
         parameterPath2?: string,
         parameterPath3?: string,
         _default?: string,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
             path: {
@@ -6634,13 +7053,11 @@ export class ParametersService {
     /**
      * @param requestBody This is a required parameter
      * @param parameter This is an optional parameter
-     * @throws ApiError
-     */
-    public static getCallWithOptionalParam(
+    public getCallWithOptionalParam(
         requestBody: ModelWithString,
         parameter?: string,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/parameters/',
             query: {
@@ -6654,13 +7071,11 @@ export class ParametersService {
     /**
      * @param parameter This is a required parameter
      * @param requestBody This is an optional parameter
-     * @throws ApiError
-     */
-    public static postCallWithOptionalParam(
+    public postCallWithOptionalParam(
         parameter: Pageable,
         requestBody?: ModelWithString,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/',
             query: {
@@ -6680,22 +7095,24 @@ exports[`v3 should generate: ./test/generated/v3/services/RequestBodyService.ts 
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class RequestBodyService {
+export abstract class RequestBodyService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameter This is a reusable parameter
      * @param requestBody A reusable request body
-     * @throws ApiError
-     */
-    public static postApiRequestBody(
+    public postApiRequestBody(
         parameter?: string,
         requestBody?: ModelWithString,
-    ): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/requestBody/',
             query: {
@@ -6717,18 +7134,20 @@ import type { ModelThatExtends } from '../models/ModelThatExtends';
 import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends';
 import type { ModelWithString } from '../models/ModelWithString';
 
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class ResponseService {
+export abstract class ResponseService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @returns ModelWithString
-     * @throws ApiError
-     */
-    public static callWithResponse(): CancelablePromise<ModelWithString> {
-        return __request(OpenAPI, {
+    public callWithResponse(): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/response',
         });
@@ -6736,10 +7155,8 @@ export class ResponseService {
 
     /**
      * @returns ModelWithString Message for default response
-     * @throws ApiError
-     */
-    public static callWithDuplicateResponses(): CancelablePromise<ModelWithString> {
-        return __request(OpenAPI, {
+    public callWithDuplicateResponses(): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/response',
             errors: {
@@ -6755,14 +7172,12 @@ export class ResponseService {
      * @returns ModelWithString Message for default response
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
-     * @throws ApiError
-     */
-    public static callWithResponses(): CancelablePromise<{
-        readonly '@namespace.string'?: string;
-        readonly '@namespace.integer'?: number;
+    public callWithResponses(): Promise<Result<{
+        readonly '@namespaceString'?: string;
+        readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
-    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends> {
-        return __request(OpenAPI, {
+    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
             errors: {
@@ -6780,77 +7195,67 @@ exports[`v3 should generate: ./test/generated/v3/services/SimpleService.ts 1`] =
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class SimpleService {
+export abstract class SimpleService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
-     * @throws ApiError
-     */
-    public static getCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public getCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static putCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public putCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static postCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public postCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static deleteCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public deleteCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static optionsCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public optionsCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static headCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public headCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
-     * @throws ApiError
-     */
-    public static patchCallWithoutParametersAndResponse(): CancelablePromise<void> {
-        return __request(OpenAPI, {
+    public patchCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
         });
@@ -6863,11 +7268,17 @@ exports[`v3 should generate: ./test/generated/v3/services/TypesService.ts 1`] = 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import type { integer } from '../models/integer';
 
-export class TypesService {
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
+
+export abstract class TypesService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param parameterArray This is an array parameter
@@ -6882,9 +7293,7 @@ export class TypesService {
      * @returns string Response is a simple string
      * @returns boolean Response is a simple boolean
      * @returns any Response is a simple object
-     * @throws ApiError
-     */
-    public static types(
+    public types(
         parameterArray: Array<string> | null,
         parameterDictionary: any,
         parameterEnum: 'Success' | 'Warning' | 'Error' | null,
@@ -6892,9 +7301,9 @@ export class TypesService {
         parameterString: string | null = 'default',
         parameterBoolean: boolean | null = true,
         parameterObject: any = null,
-        id?: number,
-    ): CancelablePromise<number | string | boolean | any> {
-        return __request(OpenAPI, {
+        id?: integer,
+    ): Promise<Result<number | string | boolean | any, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/types',
             path: {
@@ -6919,21 +7328,23 @@ exports[`v3 should generate: ./test/generated/v3/services/UploadService.ts 1`] =
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import { ClientConfig } from '../core/ClientConfig.js'
+import { request as __request } from '../core/request.js'
+import { ApiError } from '../core/ApiError.js'
+import { AxiosInstance } from 'axios'
+import { Result } from 'ts-results-es'
 
-export class UploadService {
+export abstract class UploadService {
+    protected abstract client: AxiosInstance
+    protected abstract config: ClientConfig
 
     /**
      * @param file Supply a file reference for upload
      * @returns boolean
-     * @throws ApiError
-     */
-    public static uploadFile(
+    public uploadFile(
         file: Blob,
-    ): CancelablePromise<boolean> {
-        return __request(OpenAPI, {
+    ): Promise<Result<boolean, ApiError>> {
+        return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/upload',
             formData: {
