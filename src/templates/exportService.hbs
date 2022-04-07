@@ -69,6 +69,7 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 	{{#each results}}
 	 * @returns {{{type}}} {{#if description}}{{{escapeComment description}}}{{/if}}
 	{{/each}}
+   */
 	{{#if @root.exportClient}}
 	{{#equals @root.httpClient 'angular'}}
 	public {{{name}}}({{>parameters}}): Observable<{{>result}}> {
