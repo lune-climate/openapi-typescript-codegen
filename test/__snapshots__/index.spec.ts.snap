@@ -2417,6 +2417,7 @@ export abstract class CollectionFormatService {
      * @param parameterArrayTsv This is an array parameter that is sent as tsv format (tab-separated values)
      * @param parameterArrayPipes This is an array parameter that is sent as pipes format (pipe-separated values)
      * @param parameterArrayMulti This is an array parameter that is sent as multi format (multiple parameter instances)
+     */
     public collectionFormat(
         parameterArrayCsv: Array<string>,
         parameterArraySsv: Array<string>,
@@ -2460,6 +2461,7 @@ export abstract class ComplexService {
      * @param parameterObject Parameter containing object
      * @param parameterReference Parameter containing reference
      * @returns ModelWithString Successful response
+     */
     public complexTypes(
         parameterObject: {
             first?: {
@@ -2502,6 +2504,7 @@ export abstract class DefaultService {
     protected abstract config: ClientConfig
 
     /**
+     */
     public serviceWithEmptyTag(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2534,6 +2537,7 @@ export abstract class DefaultsService {
      * @param parameterBoolean This is a simple boolean with default value
      * @param parameterEnum This is a simple enum with default value
      * @param parameterModel This is a simple model with default value
+     */
     public callWithDefaultParameters(
         parameterString: string = 'Hello World!',
         parameterNumber: number = 123,
@@ -2562,6 +2566,7 @@ export abstract class DefaultsService {
      * @param parameterBoolean This is a simple boolean that is optional with default value
      * @param parameterEnum This is a simple enum that is optional with default value
      * @param parameterModel This is a simple model that is optional with default value
+     */
     public callWithDefaultOptionalParameters(
         parameterString: string = 'Hello World!',
         parameterNumber: number = 123,
@@ -2593,6 +2598,7 @@ export abstract class DefaultsService {
      * @param parameterStringWithEmptyDefault This is a string with empty default
      * @param parameterStringNullableWithNoDefault This is a string that can be null with no default
      * @param parameterStringNullableWithDefault This is a string that can be null with default
+     */
     public callToTestOrderOfParams(
         parameterStringWithNoDefault: string,
         parameterOptionalStringWithDefault: string = 'Hello World!',
@@ -2646,6 +2652,7 @@ export abstract class DescriptionsService {
      * @param parameterWithExpressionPlaceholders Testing expression placeholders in string: \${expression} should work
      * @param parameterWithQuotes Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
      * @param parameterWithReservedCharacters Testing reserved characters in string: * inline * and ** inline ** should work
+     */
     public callWithDescriptions(
         parameterWithBreaks?: string,
         parameterWithBackticks?: string,
@@ -2686,6 +2693,7 @@ export abstract class DuplicateService {
     protected abstract config: ClientConfig
 
     /**
+     */
     public duplicateName(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2694,6 +2702,7 @@ export abstract class DuplicateService {
     }
 
     /**
+     */
     public duplicateName1(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -2702,6 +2711,7 @@ export abstract class DuplicateService {
     }
 
     /**
+     */
     public duplicateName2(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PUT',
@@ -2710,6 +2720,7 @@ export abstract class DuplicateService {
     }
 
     /**
+     */
     public duplicateName3(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'DELETE',
@@ -2737,6 +2748,7 @@ export abstract class ErrorService {
     /**
      * @param status Status code to return
      * @returns any Custom message: Successful response
+     */
     public testErrorCode(
         status: string,
     ): Promise<Result<any, ApiError>> {
@@ -2774,6 +2786,7 @@ export abstract class HeaderService {
 
     /**
      * @returns string Successful response
+     */
     public callWithResultFromHeader(): Promise<Result<string, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -2805,6 +2818,7 @@ export abstract class MultipleTags1Service {
 
     /**
      * @returns void
+     */
     public dummyA(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2814,6 +2828,7 @@ export abstract class MultipleTags1Service {
 
     /**
      * @returns void
+     */
     public dummyB(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2840,6 +2855,7 @@ export abstract class MultipleTags2Service {
 
     /**
      * @returns void
+     */
     public dummyA(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2849,6 +2865,7 @@ export abstract class MultipleTags2Service {
 
     /**
      * @returns void
+     */
     public dummyB(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2875,6 +2892,7 @@ export abstract class MultipleTags3Service {
 
     /**
      * @returns void
+     */
     public dummyB(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2901,6 +2919,7 @@ export abstract class NoContentService {
 
     /**
      * @returns void
+     */
     public callWithNoContentResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -2931,6 +2950,7 @@ export abstract class ParametersService {
      * @param parameterForm This is the parameter that goes into the form data
      * @param parameterBody This is the parameter that is sent as request body
      * @param parameterPath This is the parameter that goes into the path
+     */
     public callWithParameters(
         parameterHeader: string,
         parameterQuery: string,
@@ -2966,6 +2986,7 @@ export abstract class ParametersService {
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
      * @param _default This is the parameter with a reserved keyword
+     */
     public callWithWeirdParameterNames(
         parameterHeader: string,
         parameterQuery: string,
@@ -3021,6 +3042,7 @@ export abstract class ResponseService {
 
     /**
      * @returns ModelWithString Message for default response
+     */
     public callWithResponse(): Promise<Result<ModelWithString, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -3030,6 +3052,7 @@ export abstract class ResponseService {
 
     /**
      * @returns ModelWithString Message for default response
+     */
     public callWithDuplicateResponses(): Promise<Result<ModelWithString, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -3047,6 +3070,7 @@ export abstract class ResponseService {
      * @returns ModelWithString Message for default response
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
+     */
     public callWithResponses(): Promise<Result<{
         readonly '@namespaceString'?: string;
         readonly '@namespaceInteger'?: number;
@@ -3081,6 +3105,7 @@ export abstract class SimpleService {
     protected abstract config: ClientConfig
 
     /**
+     */
     public getCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -3089,6 +3114,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public putCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PUT',
@@ -3097,6 +3123,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public postCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -3105,6 +3132,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public deleteCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'DELETE',
@@ -3113,6 +3141,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public optionsCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'OPTIONS',
@@ -3121,6 +3150,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public headCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'HEAD',
@@ -3129,6 +3159,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public patchCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PATCH',
@@ -3166,6 +3197,7 @@ export abstract class TypesService {
      * @returns string Response is a simple string
      * @returns boolean Response is a simple boolean
      * @returns any Response is a simple object
+     */
     public types(
         parameterArray: Array<string>,
         parameterDictionary: Record<string, string>,
@@ -6332,6 +6364,7 @@ export abstract class CollectionFormatService {
      * @param parameterArrayTsv This is an array parameter that is sent as tsv format (tab-separated values)
      * @param parameterArrayPipes This is an array parameter that is sent as pipes format (pipe-separated values)
      * @param parameterArrayMulti This is an array parameter that is sent as multi format (multiple parameter instances)
+     */
     public collectionFormat(
         parameterArrayCsv: Array<string> | null,
         parameterArraySsv: Array<string> | null,
@@ -6379,6 +6412,7 @@ export abstract class ComplexService {
      * @param parameterObject Parameter containing object
      * @param parameterReference Parameter containing reference
      * @returns ModelWithString Successful response
+     */
     public complexTypes(
         parameterObject: {
             first?: {
@@ -6407,6 +6441,7 @@ export abstract class ComplexService {
      * @param id
      * @param requestBody
      * @returns ModelWithString Success
+     */
     public complexParams(
         id: integer,
         requestBody?: {
@@ -6452,6 +6487,7 @@ export abstract class DefaultService {
     protected abstract config: ClientConfig
 
     /**
+     */
     public serviceWithEmptyTag(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6484,6 +6520,7 @@ export abstract class DefaultsService {
      * @param parameterBoolean This is a simple boolean with default value
      * @param parameterEnum This is a simple enum with default value
      * @param parameterModel This is a simple model with default value
+     */
     public callWithDefaultParameters(
         parameterString: string | null = 'Hello World!',
         parameterNumber: number | null = 123,
@@ -6512,6 +6549,7 @@ export abstract class DefaultsService {
      * @param parameterBoolean This is a simple boolean that is optional with default value
      * @param parameterEnum This is a simple enum that is optional with default value
      * @param parameterModel This is a simple model that is optional with default value
+     */
     public callWithDefaultOptionalParameters(
         parameterString: string = 'Hello World!',
         parameterNumber: number = 123,
@@ -6543,6 +6581,7 @@ export abstract class DefaultsService {
      * @param parameterStringWithEmptyDefault This is a string with empty default
      * @param parameterStringNullableWithNoDefault This is a string that can be null with no default
      * @param parameterStringNullableWithDefault This is a string that can be null with default
+     */
     public callToTestOrderOfParams(
         parameterStringWithNoDefault: string,
         parameterOptionalStringWithDefault: string = 'Hello World!',
@@ -6596,6 +6635,7 @@ export abstract class DescriptionsService {
      * @param parameterWithExpressionPlaceholders Testing expression placeholders in string: \${expression} should work
      * @param parameterWithQuotes Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
      * @param parameterWithReservedCharacters Testing reserved characters in string: * inline * and ** inline ** should work
+     */
     public callWithDescriptions(
         parameterWithBreaks?: any,
         parameterWithBackticks?: any,
@@ -6636,6 +6676,7 @@ export abstract class DuplicateService {
     protected abstract config: ClientConfig
 
     /**
+     */
     public duplicateName(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6644,6 +6685,7 @@ export abstract class DuplicateService {
     }
 
     /**
+     */
     public duplicateName1(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -6652,6 +6694,7 @@ export abstract class DuplicateService {
     }
 
     /**
+     */
     public duplicateName2(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PUT',
@@ -6660,6 +6703,7 @@ export abstract class DuplicateService {
     }
 
     /**
+     */
     public duplicateName3(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'DELETE',
@@ -6687,6 +6731,7 @@ export abstract class ErrorService {
     /**
      * @param status Status code to return
      * @returns any Custom message: Successful response
+     */
     public testErrorCode(
         status: number,
     ): Promise<Result<any, ApiError>> {
@@ -6727,6 +6772,7 @@ export abstract class FormDataService {
     /**
      * @param parameter This is a reusable parameter
      * @param formData A reusable request body
+     */
     public postApiFormData(
         parameter?: string,
         formData?: ModelWithString,
@@ -6761,6 +6807,7 @@ export abstract class HeaderService {
 
     /**
      * @returns string Successful response
+     */
     public callWithResultFromHeader(): Promise<Result<string, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -6794,6 +6841,7 @@ export abstract class MultipartService {
 
     /**
      * @param formData
+     */
     public multipartRequest(
         formData?: {
             content?: Blob;
@@ -6810,6 +6858,7 @@ export abstract class MultipartService {
 
     /**
      * @returns any OK
+     */
     public multipartResponse(): Promise<Result<{
         file?: Blob;
         metadata?: {
@@ -6842,6 +6891,7 @@ export abstract class MultipleTags1Service {
 
     /**
      * @returns void
+     */
     public dummyA(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6851,6 +6901,7 @@ export abstract class MultipleTags1Service {
 
     /**
      * @returns void
+     */
     public dummyB(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6877,6 +6928,7 @@ export abstract class MultipleTags2Service {
 
     /**
      * @returns void
+     */
     public dummyA(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6886,6 +6938,7 @@ export abstract class MultipleTags2Service {
 
     /**
      * @returns void
+     */
     public dummyB(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6912,6 +6965,7 @@ export abstract class MultipleTags3Service {
 
     /**
      * @returns void
+     */
     public dummyB(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6938,6 +6992,7 @@ export abstract class NoContentService {
 
     /**
      * @returns void
+     */
     public callWithNoContentResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -6972,6 +7027,7 @@ export abstract class ParametersService {
      * @param parameterCookie This is the parameter that goes into the cookie
      * @param parameterPath This is the parameter that goes into the path
      * @param requestBody This is the parameter that goes into the body
+     */
     public callWithParameters(
         parameterHeader: string | null,
         parameterQuery: string | null,
@@ -7013,6 +7069,7 @@ export abstract class ParametersService {
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
      * @param _default This is the parameter with a reserved keyword
+     */
     public callWithWeirdParameterNames(
         parameterHeader: string | null,
         parameterQuery: string | null,
@@ -7053,6 +7110,7 @@ export abstract class ParametersService {
     /**
      * @param requestBody This is a required parameter
      * @param parameter This is an optional parameter
+     */
     public getCallWithOptionalParam(
         requestBody: ModelWithString,
         parameter?: string,
@@ -7071,6 +7129,7 @@ export abstract class ParametersService {
     /**
      * @param parameter This is a required parameter
      * @param requestBody This is an optional parameter
+     */
     public postCallWithOptionalParam(
         parameter: Pageable,
         requestBody?: ModelWithString,
@@ -7108,6 +7167,7 @@ export abstract class RequestBodyService {
     /**
      * @param parameter This is a reusable parameter
      * @param requestBody A reusable request body
+     */
     public postApiRequestBody(
         parameter?: string,
         requestBody?: ModelWithString,
@@ -7146,6 +7206,7 @@ export abstract class ResponseService {
 
     /**
      * @returns ModelWithString
+     */
     public callWithResponse(): Promise<Result<ModelWithString, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -7155,6 +7216,7 @@ export abstract class ResponseService {
 
     /**
      * @returns ModelWithString Message for default response
+     */
     public callWithDuplicateResponses(): Promise<Result<ModelWithString, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -7172,6 +7234,7 @@ export abstract class ResponseService {
      * @returns ModelWithString Message for default response
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
+     */
     public callWithResponses(): Promise<Result<{
         readonly '@namespaceString'?: string;
         readonly '@namespaceInteger'?: number;
@@ -7206,6 +7269,7 @@ export abstract class SimpleService {
     protected abstract config: ClientConfig
 
     /**
+     */
     public getCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
@@ -7214,6 +7278,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public putCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PUT',
@@ -7222,6 +7287,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public postCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -7230,6 +7296,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public deleteCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'DELETE',
@@ -7238,6 +7305,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public optionsCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'OPTIONS',
@@ -7246,6 +7314,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public headCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'HEAD',
@@ -7254,6 +7323,7 @@ export abstract class SimpleService {
     }
 
     /**
+     */
     public patchCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PATCH',
@@ -7293,6 +7363,7 @@ export abstract class TypesService {
      * @returns string Response is a simple string
      * @returns boolean Response is a simple boolean
      * @returns any Response is a simple object
+     */
     public types(
         parameterArray: Array<string> | null,
         parameterDictionary: any,
@@ -7341,6 +7412,7 @@ export abstract class UploadService {
     /**
      * @param file Supply a file reference for upload
      * @returns boolean
+     */
     public uploadFile(
         file: Blob,
     ): Promise<Result<boolean, ApiError>> {
