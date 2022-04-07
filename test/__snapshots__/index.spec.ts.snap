@@ -656,6 +656,8 @@ export { TypesService } from './services/TypesService';
 
 exports[`v2 should generate: ./test/generated/v2/luneClient.ts 1`] = `
 "import axios, { AxiosInstance } from 'axios'
+import snakeCaseKeys from 'snakecase-keys'
+import camelCaseKeys from 'camelcase-keys'
 
 import { ClientConfig } from './core/ClientConfig'
 import { CollectionFormatService } from './services/CollectionFormatService.js';
@@ -704,6 +706,27 @@ export class LuneClient {
             ACCOUNT: account,
         }
         this.client = axios.create()
+
+        // Convert to snake case when sending request
+        this.client.interceptors.request.use((req) => {
+            const requestCopy = { ...req }
+
+            if (requestCopy.params) {
+                requestCopy.params = snakeCaseKeys(req.params, { deep: true })
+            }
+
+            if (requestCopy.data) {
+                requestCopy.data = snakeCaseKeys(req.data, { deep: true })
+          }
+
+          return requestCopy
+        })
+
+        // Convert to camelCase when receiving request
+        client.interceptors.response.use(
+            (response) => camelCaseKeys(response.data, { deep: true }),
+            (error) => Promise.reject(error.response),
+        )
     }
 
     public setAccount(accountId: string) {
@@ -1510,11 +1533,11 @@ export type ModelWithProperties = {
     number?: number;
     boolean?: boolean;
     reference?: ModelWithString;
-    'property with space'?: string;
+    'propertyWithSpace'?: string;
     default?: string;
     try?: string;
-    readonly '@namespace.string'?: string;
-    readonly '@namespace.integer'?: number;
+    readonly '@namespaceString'?: string;
+    readonly '@namespaceInteger'?: number;
 };
 "
 `;
@@ -2262,7 +2285,7 @@ export const $ModelWithProperties = {
         reference: {
             type: 'ModelWithString',
         },
-        'property with space': {
+        'propertyWithSpace': {
             type: 'string',
         },
         default: {
@@ -2271,11 +2294,11 @@ export const $ModelWithProperties = {
         try: {
             type: 'string',
         },
-        '@namespace.string': {
+        '@namespaceString': {
             type: 'string',
             isReadOnly: true,
         },
-        '@namespace.integer': {
+        '@namespaceInteger': {
             type: 'number',
             isReadOnly: true,
         },
@@ -3025,8 +3048,8 @@ export abstract class ResponseService {
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
     public callWithResponses(): Promise<Result<{
-        readonly '@namespace.string'?: string;
-        readonly '@namespace.integer'?: number;
+        readonly '@namespaceString'?: string;
+        readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
     } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
         return __request(this.client, this.config, {
@@ -3866,6 +3889,8 @@ export { UploadService } from './services/UploadService';
 
 exports[`v3 should generate: ./test/generated/v3/luneClient.ts 1`] = `
 "import axios, { AxiosInstance } from 'axios'
+import snakeCaseKeys from 'snakecase-keys'
+import camelCaseKeys from 'camelcase-keys'
 
 import { ClientConfig } from './core/ClientConfig'
 import { CollectionFormatService } from './services/CollectionFormatService.js';
@@ -3918,6 +3943,27 @@ export class LuneClient {
             ACCOUNT: account,
         }
         this.client = axios.create()
+
+        // Convert to snake case when sending request
+        this.client.interceptors.request.use((req) => {
+            const requestCopy = { ...req }
+
+            if (requestCopy.params) {
+                requestCopy.params = snakeCaseKeys(req.params, { deep: true })
+            }
+
+            if (requestCopy.data) {
+                requestCopy.data = snakeCaseKeys(req.data, { deep: true })
+          }
+
+          return requestCopy
+        })
+
+        // Convert to camelCase when receiving request
+        client.interceptors.response.use(
+            (response) => camelCaseKeys(response.data, { deep: true }),
+            (error) => Promise.reject(error.response),
+        )
     }
 
     public setAccount(accountId: string) {
@@ -4571,8 +4617,8 @@ import type { string } from './string';
 
 export type File = {
     readonly id?: string;
-    readonly updated_at?: string;
-    readonly created_at?: string;
+    readonly updatedAt?: string;
+    readonly createdAt?: string;
     mime: string;
     readonly file?: string;
 };
@@ -4957,11 +5003,11 @@ export type ModelWithProperties = {
     number?: number;
     boolean?: boolean;
     reference?: ModelWithString;
-    'property with space'?: string;
+    'propertyWithSpace'?: string;
     default?: string;
     try?: string;
-    readonly '@namespace.string'?: string;
-    readonly '@namespace.integer'?: number;
+    readonly '@namespaceString'?: string;
+    readonly '@namespaceInteger'?: number;
 };
 "
 `;
@@ -5671,12 +5717,12 @@ export const $File = {
             isReadOnly: true,
             minLength: 1,
         },
-        updated_at: {
+        updatedAt: {
             type: 'string',
             isReadOnly: true,
             format: 'date-time',
         },
-        created_at: {
+        createdAt: {
             type: 'string',
             isReadOnly: true,
             format: 'date-time',
@@ -6128,7 +6174,7 @@ export const $ModelWithProperties = {
         reference: {
             type: 'ModelWithString',
         },
-        'property with space': {
+        'propertyWithSpace': {
             type: 'string',
         },
         default: {
@@ -6137,11 +6183,11 @@ export const $ModelWithProperties = {
         try: {
             type: 'string',
         },
-        '@namespace.string': {
+        '@namespaceString': {
             type: 'string',
             isReadOnly: true,
         },
-        '@namespace.integer': {
+        '@namespaceInteger': {
             type: 'number',
             isReadOnly: true,
         },
@@ -7127,8 +7173,8 @@ export abstract class ResponseService {
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
     public callWithResponses(): Promise<Result<{
-        readonly '@namespace.string'?: string;
-        readonly '@namespace.integer'?: number;
+        readonly '@namespaceString'?: string;
+        readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
     } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
         return __request(this.client, this.config, {
