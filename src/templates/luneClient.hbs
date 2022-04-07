@@ -53,7 +53,7 @@ export class LuneClient {
         })
 
         // Convert to camelCase when receiving request
-        client.interceptors.response.use(
+        this.client.interceptors.response.use(
             (response) => camelCaseKeys(response.data, { deep: true }),
             (error) => Promise.reject(error.response),
         )
