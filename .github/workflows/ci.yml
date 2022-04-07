@@ -27,5 +27,3 @@ jobs:
         run: npm run release
       - name: Run unit tests
         run: npm run test:coverage
-      - name: Run e2e tests
-        run: npm run test:e2e
