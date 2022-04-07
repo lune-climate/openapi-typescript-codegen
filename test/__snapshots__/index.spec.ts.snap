@@ -2445,7 +2445,7 @@ exports[`v2 should generate: ./test/generated/v2/services/ComplexService.ts 1`] 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -2519,7 +2519,7 @@ exports[`v2 should generate: ./test/generated/v2/services/DefaultsService.ts 1`]
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -3026,9 +3026,9 @@ exports[`v2 should generate: ./test/generated/v2/services/ResponseService.ts 1`]
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelThatExtends } from '../models/ModelThatExtends';
-import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends';
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelThatExtends } from '../models/ModelThatExtends.js';
+import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends.js';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -6392,11 +6392,11 @@ exports[`v3 should generate: ./test/generated/v3/services/ComplexService.ts 1`] 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { integer } from '../models/integer';
-import type { ModelWithArray } from '../models/ModelWithArray';
-import type { ModelWithDictionary } from '../models/ModelWithDictionary';
-import type { ModelWithEnum } from '../models/ModelWithEnum';
-import type { ModelWithString } from '../models/ModelWithString';
+import type { integer } from '../models/integer.js';
+import type { ModelWithArray } from '../models/ModelWithArray.js';
+import type { ModelWithDictionary } from '../models/ModelWithDictionary.js';
+import type { ModelWithEnum } from '../models/ModelWithEnum.js';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -6502,7 +6502,7 @@ exports[`v3 should generate: ./test/generated/v3/services/DefaultsService.ts 1`]
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -6757,7 +6757,7 @@ exports[`v3 should generate: ./test/generated/v3/services/FormDataService.ts 1`]
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -6827,7 +6827,7 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipartService.ts 1`
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -7007,8 +7007,8 @@ exports[`v3 should generate: ./test/generated/v3/services/ParametersService.ts 1
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString';
-import type { Pageable } from '../models/Pageable';
+import type { ModelWithString } from '../models/ModelWithString.js';
+import type { Pageable } from '../models/Pageable.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -7152,7 +7152,7 @@ exports[`v3 should generate: ./test/generated/v3/services/RequestBodyService.ts 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -7190,9 +7190,9 @@ exports[`v3 should generate: ./test/generated/v3/services/ResponseService.ts 1`]
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelThatExtends } from '../models/ModelThatExtends';
-import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends';
-import type { ModelWithString } from '../models/ModelWithString';
+import type { ModelThatExtends } from '../models/ModelThatExtends.js';
+import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends.js';
+import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
@@ -7338,7 +7338,7 @@ exports[`v3 should generate: ./test/generated/v3/services/TypesService.ts 1`] = 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { integer } from '../models/integer';
+import type { integer } from '../models/integer.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
