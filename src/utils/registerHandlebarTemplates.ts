@@ -60,6 +60,7 @@ import templateLuneClient from '../templates/luneClient.hbs';
 import partialBase from '../templates/partials/base.hbs';
 import partialExportComposition from '../templates/partials/exportComposition.hbs';
 import partialExportEnum from '../templates/partials/exportEnum.hbs';
+import partialExportCompanionEnum from '../templates/partials/exportCompanionEnum.hbs';
 import partialExportInterface from '../templates/partials/exportInterface.hbs';
 import partialExportType from '../templates/partials/exportType.hbs';
 import partialHeader from '../templates/partials/header.hbs';
@@ -142,6 +143,7 @@ export const registerHandlebarTemplates = (root: {
 
     // Partials for the generations of the models, services, etc.
     Handlebars.registerPartial('exportEnum', Handlebars.template(partialExportEnum));
+    Handlebars.registerPartial('exportCompanionEnum', Handlebars.template(partialExportCompanionEnum));
     Handlebars.registerPartial('exportInterface', Handlebars.template(partialExportInterface));
     Handlebars.registerPartial('exportComposition', Handlebars.template(partialExportComposition));
     Handlebars.registerPartial('exportType', Handlebars.template(partialExportType));

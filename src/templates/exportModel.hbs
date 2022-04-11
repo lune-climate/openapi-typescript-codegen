@@ -18,6 +18,7 @@ import type { {{{this}}} } from './{{{this}}}';
 {{else equals export 'enum'}}
 {{#if @root.useUnionTypes}}
 {{>exportType}}
+{{>exportCompanionEnum}}
 {{else}}
 {{>exportEnum}}
 {{/if}}

@@ -776,8 +776,11 @@ export type { DictionaryWithReference } from './models/DictionaryWithReference.j
 export type { DictionaryWithString } from './models/DictionaryWithString.js';
 export type { EnumFromDescription } from './models/EnumFromDescription.js';
 export type { EnumWithExtensions } from './models/EnumWithExtensions.js';
+export { EnumWithExtensionsEnum } from './models/EnumWithExtensions.js';
 export type { EnumWithNumbers } from './models/EnumWithNumbers.js';
+export { EnumWithNumbersEnum } from './models/EnumWithNumbers.js';
 export type { EnumWithStrings } from './models/EnumWithStrings.js';
+export { EnumWithStringsEnum } from './models/EnumWithStrings.js';
 export type { ModelThatExtends } from './models/ModelThatExtends.js';
 export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends.js';
 export type { ModelWithArray } from './models/ModelWithArray.js';
@@ -4048,8 +4051,11 @@ export type { DictionaryWithReference } from './models/DictionaryWithReference.j
 export type { DictionaryWithString } from './models/DictionaryWithString.js';
 export type { EnumFromDescription } from './models/EnumFromDescription.js';
 export type { EnumWithExtensions } from './models/EnumWithExtensions.js';
+export { EnumWithExtensionsEnum } from './models/EnumWithExtensions.js';
 export type { EnumWithNumbers } from './models/EnumWithNumbers.js';
+export { EnumWithNumbersEnum } from './models/EnumWithNumbers.js';
 export type { EnumWithStrings } from './models/EnumWithStrings.js';
+export { EnumWithStringsEnum } from './models/EnumWithStrings.js';
 export type { File } from './models/File.js';
 export type { ModelCircle } from './models/ModelCircle.js';
 export type { ModelSquare } from './models/ModelSquare.js';
