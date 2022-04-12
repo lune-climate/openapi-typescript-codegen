@@ -775,9 +775,9 @@ export type { DictionaryWithProperties } from './models/DictionaryWithProperties
 export type { DictionaryWithReference } from './models/DictionaryWithReference.js';
 export type { DictionaryWithString } from './models/DictionaryWithString.js';
 export type { EnumFromDescription } from './models/EnumFromDescription.js';
-export type { EnumWithExtensions } from './models/EnumWithExtensions.js';
-export type { EnumWithNumbers } from './models/EnumWithNumbers.js';
-export type { EnumWithStrings } from './models/EnumWithStrings.js';
+export { EnumWithExtensions } from './models/EnumWithExtensions.js';
+export { EnumWithNumbers } from './models/EnumWithNumbers.js';
+export { EnumWithStrings } from './models/EnumWithStrings.js';
 export type { ModelThatExtends } from './models/ModelThatExtends.js';
 export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends.js';
 export type { ModelWithArray } from './models/ModelWithArray.js';
@@ -786,8 +786,8 @@ export type { ModelWithCircularReference } from './models/ModelWithCircularRefer
 export type { ModelWithDictionary } from './models/ModelWithDictionary.js';
 export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports.js';
 export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties.js';
-export type { ModelWithEnum } from './models/ModelWithEnum.js';
-export type { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
+export { ModelWithEnum } from './models/ModelWithEnum.js';
+export { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
 export type { ModelWithInteger } from './models/ModelWithInteger.js';
 export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
 export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
@@ -4047,9 +4047,9 @@ export type { DictionaryWithProperties } from './models/DictionaryWithProperties
 export type { DictionaryWithReference } from './models/DictionaryWithReference.js';
 export type { DictionaryWithString } from './models/DictionaryWithString.js';
 export type { EnumFromDescription } from './models/EnumFromDescription.js';
-export type { EnumWithExtensions } from './models/EnumWithExtensions.js';
-export type { EnumWithNumbers } from './models/EnumWithNumbers.js';
-export type { EnumWithStrings } from './models/EnumWithStrings.js';
+export { EnumWithExtensions } from './models/EnumWithExtensions.js';
+export { EnumWithNumbers } from './models/EnumWithNumbers.js';
+export { EnumWithStrings } from './models/EnumWithStrings.js';
 export type { File } from './models/File.js';
 export type { ModelCircle } from './models/ModelCircle.js';
 export type { ModelSquare } from './models/ModelSquare.js';
@@ -4061,8 +4061,8 @@ export type { ModelWithCircularReference } from './models/ModelWithCircularRefer
 export type { ModelWithDictionary } from './models/ModelWithDictionary.js';
 export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports.js';
 export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties.js';
-export type { ModelWithEnum } from './models/ModelWithEnum.js';
-export type { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
+export { ModelWithEnum } from './models/ModelWithEnum.js';
+export { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
 export type { ModelWithInteger } from './models/ModelWithInteger.js';
 export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
 export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
