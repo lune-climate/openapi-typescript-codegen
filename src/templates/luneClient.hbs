@@ -62,7 +62,15 @@ export interface LuneClient extends
     {{/each}} {}
 
 {{#each models}}
+{{#if @root.useUnionTypes}}
 export type { {{{name}}} } from './models/{{{name}}}.js';
+{{else if enum}}
+export { {{{name}}} } from './models/{{{name}}}.js';
+{{else if enums}}
+export { {{{name}}} } from './models/{{{name}}}.js';
+{{else}}
+export type { {{{name}}} } from './models/{{{name}}}.js';
+{{/if}}
 {{/each}}
 
 {{#each services}}
