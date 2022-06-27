@@ -84,7 +84,7 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 		return __request(OpenAPI, this.http, {
 	{{else}}
 	public {{{name}}}({{>parameters}}): Promise<Result<{{>result}}, ApiError>> {
-		return __request(this.client, this.config, {
+		return __request(this.client, this.config, accountId, {
 	{{/equals}}
 	{{/if}}
 			method: '{{{method}}}',

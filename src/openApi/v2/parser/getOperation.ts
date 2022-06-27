@@ -104,6 +104,28 @@ export const getOperation = (
     }
 
     operation.parameters = operation.parameters.sort(sortByRequired);
+    // Last parameter should be the `Lune-Account` header per method override.
+    operation.parameters.push({
+        in: 'query',
+        export: 'generic',
+        prop: 'accountId',
+        name: 'accountId',
+        type: 'string',
+        base: 'string',
+        template: null,
+        link: null,
+        description: 'Account Id to be used to perform the API call',
+        default: undefined,
+        isDefinition: false,
+        isReadOnly: false,
+        isRequired: false,
+        isNullable: false,
+        imports: [],
+        enum: [],
+        enums: [],
+        properties: [],
+        mediaType: null,
+    });
 
     return operation;
 };
