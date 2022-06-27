@@ -111,11 +111,7 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			},
 			{{/if}}
 			{{#if parametersQuery}}
-			query: {
-				{{#each parametersQuery}}
-				'{{{prop}}}': {{{name}}},
-				{{/each}}
-			},
+			query: queryParams,
 			{{/if}}
 			{{#if parametersForm}}
 			formData: {
