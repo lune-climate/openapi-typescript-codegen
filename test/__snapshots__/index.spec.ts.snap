@@ -2452,7 +2452,7 @@ export abstract class CollectionFormatService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
             query: {
@@ -2513,7 +2513,7 @@ export abstract class ComplexService {
             accountId?: string;
         },
     ): Promise<Result<Array<ModelWithString>, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
             query: {
@@ -2555,7 +2555,7 @@ export abstract class DefaultService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
         });
@@ -2614,7 +2614,7 @@ export abstract class DefaultsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -2661,7 +2661,7 @@ export abstract class DefaultsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -2720,7 +2720,7 @@ export abstract class DefaultsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -2794,7 +2794,7 @@ export abstract class DescriptionsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
             query: {
@@ -2836,7 +2836,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
         });
@@ -2853,7 +2853,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
         });
@@ -2870,7 +2870,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
         });
@@ -2887,7 +2887,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
         });
@@ -2929,7 +2929,7 @@ export abstract class ErrorService {
             accountId?: string;
         },
     ): Promise<Result<any, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/error',
             query: {
@@ -2973,7 +2973,7 @@ export abstract class HeaderService {
             accountId?: string;
         },
     ): Promise<Result<string, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/header',
             responseHeader: 'operation-location',
@@ -3013,7 +3013,7 @@ export abstract class MultipleTags1Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -3031,7 +3031,7 @@ export abstract class MultipleTags1Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -3066,7 +3066,7 @@ export abstract class MultipleTags2Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -3084,7 +3084,7 @@ export abstract class MultipleTags2Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -3119,7 +3119,7 @@ export abstract class MultipleTags3Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -3154,7 +3154,7 @@ export abstract class NoContentService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
         });
@@ -3203,7 +3203,7 @@ export abstract class ParametersService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
             path: {
@@ -3257,7 +3257,7 @@ export abstract class ParametersService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
             path: {
@@ -3313,7 +3313,7 @@ export abstract class ResponseService {
             accountId?: string;
         },
     ): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/response',
         });
@@ -3331,7 +3331,7 @@ export abstract class ResponseService {
             accountId?: string;
         },
     ): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/response',
             errors: {
@@ -3361,7 +3361,7 @@ export abstract class ResponseService {
         readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
     } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
             errors: {
@@ -3400,7 +3400,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
         });
@@ -3417,7 +3417,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
         });
@@ -3434,7 +3434,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
         });
@@ -3451,7 +3451,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
         });
@@ -3468,7 +3468,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
         });
@@ -3485,7 +3485,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
         });
@@ -3502,7 +3502,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
         });
@@ -3573,7 +3573,7 @@ export abstract class TypesService {
             accountId?: string;
         },
     ): Promise<Result<number | string | boolean | any, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/types',
             path: {
@@ -6764,7 +6764,7 @@ export abstract class CollectionFormatService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
             query: {
@@ -6829,7 +6829,7 @@ export abstract class ComplexService {
             accountId?: string;
         },
     ): Promise<Result<Array<ModelWithString>, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
             query: {
@@ -6871,7 +6871,7 @@ export abstract class ComplexService {
             accountId?: string;
         },
     ): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/complex/{id}',
             path: {
@@ -6919,7 +6919,7 @@ export abstract class DefaultService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
         });
@@ -6978,7 +6978,7 @@ export abstract class DefaultsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -7025,7 +7025,7 @@ export abstract class DefaultsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -7084,7 +7084,7 @@ export abstract class DefaultsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
             query: {
@@ -7158,7 +7158,7 @@ export abstract class DescriptionsService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
             query: {
@@ -7200,7 +7200,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
         });
@@ -7217,7 +7217,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
         });
@@ -7234,7 +7234,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
         });
@@ -7251,7 +7251,7 @@ export abstract class DuplicateService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
         });
@@ -7293,7 +7293,7 @@ export abstract class ErrorService {
             accountId?: string;
         },
     ): Promise<Result<any, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/error',
             query: {
@@ -7345,7 +7345,7 @@ export abstract class FormDataService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/formData/',
             query: {
@@ -7385,7 +7385,7 @@ export abstract class HeaderService {
             accountId?: string;
         },
     ): Promise<Result<string, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/header',
             responseHeader: 'operation-location',
@@ -7431,7 +7431,7 @@ export abstract class MultipartService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/multipart',
             formData: formData,
@@ -7457,7 +7457,7 @@ export abstract class MultipartService {
             bar?: string;
         };
     }, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multipart',
         });
@@ -7492,7 +7492,7 @@ export abstract class MultipleTags1Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -7510,7 +7510,7 @@ export abstract class MultipleTags1Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -7545,7 +7545,7 @@ export abstract class MultipleTags2Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
@@ -7563,7 +7563,7 @@ export abstract class MultipleTags2Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -7598,7 +7598,7 @@ export abstract class MultipleTags3Service {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -7633,7 +7633,7 @@ export abstract class NoContentService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
         });
@@ -7685,7 +7685,7 @@ export abstract class ParametersService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
             path: {
@@ -7743,7 +7743,7 @@ export abstract class ParametersService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
             path: {
@@ -7788,7 +7788,7 @@ export abstract class ParametersService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/parameters/',
             query: {
@@ -7818,7 +7818,7 @@ export abstract class ParametersService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/',
             query: {
@@ -7867,7 +7867,7 @@ export abstract class RequestBodyService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/requestBody/',
             query: {
@@ -7912,7 +7912,7 @@ export abstract class ResponseService {
             accountId?: string;
         },
     ): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/response',
         });
@@ -7930,7 +7930,7 @@ export abstract class ResponseService {
             accountId?: string;
         },
     ): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/response',
             errors: {
@@ -7960,7 +7960,7 @@ export abstract class ResponseService {
         readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
     } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
             errors: {
@@ -7999,7 +7999,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
         });
@@ -8016,7 +8016,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
         });
@@ -8033,7 +8033,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
         });
@@ -8050,7 +8050,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
         });
@@ -8067,7 +8067,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
         });
@@ -8084,7 +8084,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
         });
@@ -8101,7 +8101,7 @@ export abstract class SimpleService {
             accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
         });
@@ -8174,7 +8174,7 @@ export abstract class TypesService {
             accountId?: string;
         },
     ): Promise<Result<number | string | boolean | any, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/types',
             path: {
@@ -8223,7 +8223,7 @@ export abstract class UploadService {
             accountId?: string;
         },
     ): Promise<Result<boolean, ApiError>> {
-        return __request(this.client, this.config, options, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/upload',
             formData: {
