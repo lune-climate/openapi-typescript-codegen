@@ -2456,11 +2456,11 @@ export abstract class CollectionFormatService {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
             query: {
-                'parameterArrayCSV': data.parameterArrayCsv,
-                'parameterArraySSV': data.parameterArraySsv,
-                'parameterArrayTSV': data.parameterArrayTsv,
-                'parameterArrayPipes': data.parameterArrayPipes,
-                'parameterArrayMulti': data.parameterArrayMulti,
+                'parameterArrayCSV': data?.parameterArrayCsv,
+                'parameterArraySSV': data?.parameterArraySsv,
+                'parameterArrayTSV': data?.parameterArrayTsv,
+                'parameterArrayPipes': data?.parameterArrayPipes,
+                'parameterArrayMulti': data?.parameterArrayMulti,
             },
         });
     }
@@ -2517,8 +2517,8 @@ export abstract class ComplexService {
             method: 'GET',
             url: '/api/v{api-version}/complex',
             query: {
-                'parameterObject': data.parameterObject,
-                'parameterReference': data.parameterReference,
+                'parameterObject': data?.parameterObject,
+                'parameterReference': data?.parameterReference,
             },
             errors: {
                 400: \`400 server error\`,
@@ -2618,11 +2618,11 @@ export abstract class DefaultsService {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
             query: {
-                'parameterString': data.parameterString,
-                'parameterNumber': data.parameterNumber,
-                'parameterBoolean': data.parameterBoolean,
-                'parameterEnum': data.parameterEnum,
-                'parameterModel': data.parameterModel,
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
             },
         });
     }
@@ -2665,11 +2665,11 @@ export abstract class DefaultsService {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
             query: {
-                'parameterString': data.parameterString,
-                'parameterNumber': data.parameterNumber,
-                'parameterBoolean': data.parameterBoolean,
-                'parameterEnum': data.parameterEnum,
-                'parameterModel': data.parameterModel,
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
             },
         });
     }
@@ -2724,14 +2724,14 @@ export abstract class DefaultsService {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
             query: {
-                'parameterOptionalStringWithDefault': data.parameterOptionalStringWithDefault,
-                'parameterOptionalStringWithEmptyDefault': data.parameterOptionalStringWithEmptyDefault,
-                'parameterOptionalStringWithNoDefault': data.parameterOptionalStringWithNoDefault,
-                'parameterStringWithDefault': data.parameterStringWithDefault,
-                'parameterStringWithEmptyDefault': data.parameterStringWithEmptyDefault,
-                'parameterStringWithNoDefault': data.parameterStringWithNoDefault,
-                'parameterStringNullableWithNoDefault': data.parameterStringNullableWithNoDefault,
-                'parameterStringNullableWithDefault': data.parameterStringNullableWithDefault,
+                'parameterOptionalStringWithDefault': data?.parameterOptionalStringWithDefault,
+                'parameterOptionalStringWithEmptyDefault': data?.parameterOptionalStringWithEmptyDefault,
+                'parameterOptionalStringWithNoDefault': data?.parameterOptionalStringWithNoDefault,
+                'parameterStringWithDefault': data?.parameterStringWithDefault,
+                'parameterStringWithEmptyDefault': data?.parameterStringWithEmptyDefault,
+                'parameterStringWithNoDefault': data?.parameterStringWithNoDefault,
+                'parameterStringNullableWithNoDefault': data?.parameterStringNullableWithNoDefault,
+                'parameterStringNullableWithDefault': data?.parameterStringNullableWithDefault,
             },
         });
     }
@@ -2798,12 +2798,12 @@ export abstract class DescriptionsService {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
             query: {
-                'parameterWithBreaks': data.parameterWithBreaks,
-                'parameterWithBackticks': data.parameterWithBackticks,
-                'parameterWithSlashes': data.parameterWithSlashes,
-                'parameterWithExpressionPlaceholders': data.parameterWithExpressionPlaceholders,
-                'parameterWithQuotes': data.parameterWithQuotes,
-                'parameterWithReservedCharacters': data.parameterWithReservedCharacters,
+                'parameterWithBreaks': data?.parameterWithBreaks,
+                'parameterWithBackticks': data?.parameterWithBackticks,
+                'parameterWithSlashes': data?.parameterWithSlashes,
+                'parameterWithExpressionPlaceholders': data?.parameterWithExpressionPlaceholders,
+                'parameterWithQuotes': data?.parameterWithQuotes,
+                'parameterWithReservedCharacters': data?.parameterWithReservedCharacters,
             },
         });
     }
@@ -2933,7 +2933,7 @@ export abstract class ErrorService {
             method: 'POST',
             url: '/api/v{api-version}/error',
             query: {
-                'status': data.status,
+                'status': data?.status,
             },
             errors: {
                 500: \`Custom message: Internal Server Error\`,
@@ -3213,7 +3213,7 @@ export abstract class ParametersService {
                 'parameterHeader': parameterHeader,
             },
             query: {
-                'parameterQuery': data.parameterQuery,
+                'parameterQuery': data?.parameterQuery,
             },
             formData: {
                 'parameterForm': parameterForm,
@@ -3269,8 +3269,8 @@ export abstract class ParametersService {
                 'parameter.header': parameterHeader,
             },
             query: {
-                'default': data._default,
-                'parameter-query': data.parameterQuery,
+                'default': data?._default,
+                'parameter-query': data?.parameterQuery,
             },
             formData: {
                 'parameter_form': parameterForm,
@@ -3580,13 +3580,13 @@ export abstract class TypesService {
                 'id': id,
             },
             query: {
-                'parameterNumber': data.parameterNumber,
-                'parameterString': data.parameterString,
-                'parameterBoolean': data.parameterBoolean,
-                'parameterObject': data.parameterObject,
-                'parameterArray': data.parameterArray,
-                'parameterDictionary': data.parameterDictionary,
-                'parameterEnum': data.parameterEnum,
+                'parameterNumber': data?.parameterNumber,
+                'parameterString': data?.parameterString,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterObject': data?.parameterObject,
+                'parameterArray': data?.parameterArray,
+                'parameterDictionary': data?.parameterDictionary,
+                'parameterEnum': data?.parameterEnum,
             },
         });
     }
@@ -6768,11 +6768,11 @@ export abstract class CollectionFormatService {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
             query: {
-                'parameterArrayCSV': data.parameterArrayCsv,
-                'parameterArraySSV': data.parameterArraySsv,
-                'parameterArrayTSV': data.parameterArrayTsv,
-                'parameterArrayPipes': data.parameterArrayPipes,
-                'parameterArrayMulti': data.parameterArrayMulti,
+                'parameterArrayCSV': data?.parameterArrayCsv,
+                'parameterArraySSV': data?.parameterArraySsv,
+                'parameterArrayTSV': data?.parameterArrayTsv,
+                'parameterArrayPipes': data?.parameterArrayPipes,
+                'parameterArrayMulti': data?.parameterArrayMulti,
             },
         });
     }
@@ -6833,8 +6833,8 @@ export abstract class ComplexService {
             method: 'GET',
             url: '/api/v{api-version}/complex',
             query: {
-                'parameterObject': data.parameterObject,
-                'parameterReference': data.parameterReference,
+                'parameterObject': data?.parameterObject,
+                'parameterReference': data?.parameterReference,
             },
             errors: {
                 400: \`400 server error\`,
@@ -6878,14 +6878,14 @@ export abstract class ComplexService {
                 'id': id,
             },
             body: {
-                'key': data.key,
-                'name': data.name,
-                'enabled': data.enabled,
-                'type': data.type,
-                'listOfModels': data.listOfModels,
-                'listOfStrings': data.listOfStrings,
-                'parameters': data.parameters,
-                'user': data.user,
+                'key': data?.key,
+                'name': data?.name,
+                'enabled': data?.enabled,
+                'type': data?.type,
+                'listOfModels': data?.listOfModels,
+                'listOfStrings': data?.listOfStrings,
+                'parameters': data?.parameters,
+                'user': data?.user,
             },
             mediaType: 'application/json-patch+json',
         });
@@ -6982,11 +6982,11 @@ export abstract class DefaultsService {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
             query: {
-                'parameterString': data.parameterString,
-                'parameterNumber': data.parameterNumber,
-                'parameterBoolean': data.parameterBoolean,
-                'parameterEnum': data.parameterEnum,
-                'parameterModel': data.parameterModel,
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
             },
         });
     }
@@ -7029,11 +7029,11 @@ export abstract class DefaultsService {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
             query: {
-                'parameterString': data.parameterString,
-                'parameterNumber': data.parameterNumber,
-                'parameterBoolean': data.parameterBoolean,
-                'parameterEnum': data.parameterEnum,
-                'parameterModel': data.parameterModel,
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
             },
         });
     }
@@ -7088,14 +7088,14 @@ export abstract class DefaultsService {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
             query: {
-                'parameterOptionalStringWithDefault': data.parameterOptionalStringWithDefault,
-                'parameterOptionalStringWithEmptyDefault': data.parameterOptionalStringWithEmptyDefault,
-                'parameterOptionalStringWithNoDefault': data.parameterOptionalStringWithNoDefault,
-                'parameterStringWithDefault': data.parameterStringWithDefault,
-                'parameterStringWithEmptyDefault': data.parameterStringWithEmptyDefault,
-                'parameterStringWithNoDefault': data.parameterStringWithNoDefault,
-                'parameterStringNullableWithNoDefault': data.parameterStringNullableWithNoDefault,
-                'parameterStringNullableWithDefault': data.parameterStringNullableWithDefault,
+                'parameterOptionalStringWithDefault': data?.parameterOptionalStringWithDefault,
+                'parameterOptionalStringWithEmptyDefault': data?.parameterOptionalStringWithEmptyDefault,
+                'parameterOptionalStringWithNoDefault': data?.parameterOptionalStringWithNoDefault,
+                'parameterStringWithDefault': data?.parameterStringWithDefault,
+                'parameterStringWithEmptyDefault': data?.parameterStringWithEmptyDefault,
+                'parameterStringWithNoDefault': data?.parameterStringWithNoDefault,
+                'parameterStringNullableWithNoDefault': data?.parameterStringNullableWithNoDefault,
+                'parameterStringNullableWithDefault': data?.parameterStringNullableWithDefault,
             },
         });
     }
@@ -7162,12 +7162,12 @@ export abstract class DescriptionsService {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
             query: {
-                'parameterWithBreaks': data.parameterWithBreaks,
-                'parameterWithBackticks': data.parameterWithBackticks,
-                'parameterWithSlashes': data.parameterWithSlashes,
-                'parameterWithExpressionPlaceholders': data.parameterWithExpressionPlaceholders,
-                'parameterWithQuotes': data.parameterWithQuotes,
-                'parameterWithReservedCharacters': data.parameterWithReservedCharacters,
+                'parameterWithBreaks': data?.parameterWithBreaks,
+                'parameterWithBackticks': data?.parameterWithBackticks,
+                'parameterWithSlashes': data?.parameterWithSlashes,
+                'parameterWithExpressionPlaceholders': data?.parameterWithExpressionPlaceholders,
+                'parameterWithQuotes': data?.parameterWithQuotes,
+                'parameterWithReservedCharacters': data?.parameterWithReservedCharacters,
             },
         });
     }
@@ -7297,7 +7297,7 @@ export abstract class ErrorService {
             method: 'POST',
             url: '/api/v{api-version}/error',
             query: {
-                'status': data.status,
+                'status': data?.status,
             },
             errors: {
                 500: \`Custom message: Internal Server Error\`,
@@ -7349,7 +7349,7 @@ export abstract class FormDataService {
             method: 'POST',
             url: '/api/v{api-version}/formData/',
             query: {
-                'parameter': data.parameter,
+                'parameter': data?.parameter,
             },
             formData: formData,
             mediaType: 'multipart/form-data',
@@ -7698,7 +7698,7 @@ export abstract class ParametersService {
                 'parameterHeader': parameterHeader,
             },
             query: {
-                'parameterQuery': data.parameterQuery,
+                'parameterQuery': data?.parameterQuery,
             },
             formData: {
                 'parameterForm': parameterForm,
@@ -7758,8 +7758,8 @@ export abstract class ParametersService {
                 'parameter.header': parameterHeader,
             },
             query: {
-                'default': data._default,
-                'parameter-query': data.parameterQuery,
+                'default': data?._default,
+                'parameter-query': data?.parameterQuery,
             },
             formData: {
                 'parameter_form': parameterForm,
@@ -7792,7 +7792,7 @@ export abstract class ParametersService {
             method: 'GET',
             url: '/api/v{api-version}/parameters/',
             query: {
-                'parameter': data.parameter,
+                'parameter': data?.parameter,
             },
             body: {
             },
@@ -7822,7 +7822,7 @@ export abstract class ParametersService {
             method: 'POST',
             url: '/api/v{api-version}/parameters/',
             query: {
-                'parameter': data.parameter,
+                'parameter': data?.parameter,
             },
             body: {
             },
@@ -7871,7 +7871,7 @@ export abstract class RequestBodyService {
             method: 'POST',
             url: '/api/v{api-version}/requestBody/',
             query: {
-                'parameter': data.parameter,
+                'parameter': data?.parameter,
             },
             body: {
             },
@@ -8181,13 +8181,13 @@ export abstract class TypesService {
                 'id': id,
             },
             query: {
-                'parameterNumber': data.parameterNumber,
-                'parameterString': data.parameterString,
-                'parameterBoolean': data.parameterBoolean,
-                'parameterObject': data.parameterObject,
-                'parameterArray': data.parameterArray,
-                'parameterDictionary': data.parameterDictionary,
-                'parameterEnum': data.parameterEnum,
+                'parameterNumber': data?.parameterNumber,
+                'parameterString': data?.parameterString,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterObject': data?.parameterObject,
+                'parameterArray': data?.parameterArray,
+                'parameterDictionary': data?.parameterDictionary,
+                'parameterEnum': data?.parameterEnum,
             },
         });
     }

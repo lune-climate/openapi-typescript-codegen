@@ -113,7 +113,7 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			{{#if parametersQuery}}
 			query: {
 				{{#each parametersQuery}}
-				'{{{prop}}}': data.{{{name}}},
+				'{{{prop}}}': data?.{{{name}}},
 				{{/each}}
 			},
 			{{/if}}
@@ -131,7 +131,7 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			{{#equals parametersBody.in 'body'}}
 			body: {
 				{{#each parametersBody.properties}}
-				'{{{name}}}': data.{{{name}}},
+				'{{{name}}}': data?.{{{name}}},
 				{{/each}}
 			},
 			{{/equals}}
