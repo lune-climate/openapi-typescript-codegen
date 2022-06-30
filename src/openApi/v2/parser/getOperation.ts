@@ -1,4 +1,5 @@
 import type { Operation } from '../../../client/interfaces/Operation';
+import { OperationParameter } from '../../../client/interfaces/OperationParameter';
 import type { OperationParameters } from '../../../client/interfaces/OperationParameters';
 import type { OpenApi } from '../interfaces/OpenApi';
 import type { OpenApiOperation } from '../interfaces/OpenApiOperation';
@@ -47,8 +48,40 @@ export const getOperation = (
     // Parse the operation parameters (path, query, body, etc).
     if (op.parameters) {
         const parameters = getOperationParameters(openApi, op.parameters);
+
+        // We want to treat query parameters as a single object with all the parameters inside. This
+        // allows for better and more concise usage (named parameters). For that, extract them from
+        // the parameters, create a fake operation for them and addem them individually as single object
+        const queryParams = parameters.parameters.filter(p => p.in === 'query');
+        if (queryParams.length !== 0) {
+            const queryParamsObject: OperationParameter = {
+                in: 'query',
+                export: 'interface',
+                prop: 'queryParams',
+                name: 'queryParams',
+                type: 'any',
+                base: 'any',
+                template: null,
+                link: null,
+                description: null,
+                default: undefined,
+                isDefinition: false,
+                isReadOnly: false,
+                isRequired: !!queryParams.find(p => p.isRequired),
+                isNullable: !!!queryParams.find(p => !p.isNullable),
+                imports: [],
+                enum: [],
+                enums: [],
+                properties: queryParams,
+                mediaType: null,
+            };
+
+            operation.parameters.push(queryParamsObject);
+        }
+
+        const newParams = parameters.parameters.filter(p => p.in !== 'query');
         operation.imports.push(...parameters.imports);
-        operation.parameters.push(...parameters.parameters);
+        operation.parameters.push(...newParams);
         operation.parametersPath.push(...parameters.parametersPath);
         operation.parametersQuery.push(...parameters.parametersQuery);
         operation.parametersForm.push(...parameters.parametersForm);

@@ -2419,29 +2419,36 @@ export abstract class CollectionFormatService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterArrayCsv This is an array parameter that is sent as csv format (comma-separated values)
-     * @param parameterArraySsv This is an array parameter that is sent as ssv format (space-separated values)
-     * @param parameterArrayTsv This is an array parameter that is sent as tsv format (tab-separated values)
-     * @param parameterArrayPipes This is an array parameter that is sent as pipes format (pipe-separated values)
-     * @param parameterArrayMulti This is an array parameter that is sent as multi format (multiple parameter instances)
+     * @param queryParams
      */
     public collectionFormat(
-        parameterArrayCsv: Array<string>,
-        parameterArraySsv: Array<string>,
-        parameterArrayTsv: Array<string>,
-        parameterArrayPipes: Array<string>,
-        parameterArrayMulti: Array<string>,
+        queryParams: {
+            /**
+             * This is an array parameter that is sent as csv format (comma-separated values)
+             */
+            parameterArrayCsv: Array<string>;
+            /**
+             * This is an array parameter that is sent as ssv format (space-separated values)
+             */
+            parameterArraySsv: Array<string>;
+            /**
+             * This is an array parameter that is sent as tsv format (tab-separated values)
+             */
+            parameterArrayTsv: Array<string>;
+            /**
+             * This is an array parameter that is sent as pipes format (pipe-separated values)
+             */
+            parameterArrayPipes: Array<string>;
+            /**
+             * This is an array parameter that is sent as multi format (multiple parameter instances)
+             */
+            parameterArrayMulti: Array<string>;
+        },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
-            query: {
-                'parameterArrayCSV': parameterArrayCsv,
-                'parameterArraySSV': parameterArraySsv,
-                'parameterArrayTSV': parameterArrayTsv,
-                'parameterArrayPipes': parameterArrayPipes,
-                'parameterArrayMulti': parameterArrayMulti,
-            },
+            query: queryParams,
         });
     }
 
@@ -2465,27 +2472,31 @@ export abstract class ComplexService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterObject Parameter containing object
-     * @param parameterReference Parameter containing reference
+     * @param queryParams
      * @returns ModelWithString Successful response
      */
     public complexTypes(
-        parameterObject: {
-            first?: {
-                second?: {
-                    third?: string;
+        queryParams: {
+            /**
+             * Parameter containing object
+             */
+            parameterObject: {
+                first?: {
+                    second?: {
+                        third?: string;
+                    };
                 };
             };
+            /**
+             * Parameter containing reference
+             */
+            parameterReference: ModelWithString;
         },
-        parameterReference: ModelWithString,
     ): Promise<Result<Array<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
-            query: {
-                'parameterObject': parameterObject,
-                'parameterReference': parameterReference,
-            },
+            query: queryParams,
             errors: {
                 400: \`400 server error\`,
                 500: \`500 server error\`,
@@ -2539,96 +2550,116 @@ export abstract class DefaultsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterString This is a simple string with default value
-     * @param parameterNumber This is a simple number with default value
-     * @param parameterBoolean This is a simple boolean with default value
-     * @param parameterEnum This is a simple enum with default value
-     * @param parameterModel This is a simple model with default value
+     * @param queryParams
      */
     public callWithDefaultParameters(
-        parameterString: string = 'Hello World!',
-        parameterNumber: number = 123,
-        parameterBoolean: boolean = true,
-        parameterEnum: 'Success' | 'Warning' | 'Error' = 'Success',
-        parameterModel: ModelWithString = {
-            \\"prop\\": \\"Hello World!\\"
+        queryParams: {
+            /**
+             * This is a simple string with default value
+             */
+            parameterString: string;
+            /**
+             * This is a simple number with default value
+             */
+            parameterNumber: number;
+            /**
+             * This is a simple boolean with default value
+             */
+            parameterBoolean: boolean;
+            /**
+             * This is a simple enum with default value
+             */
+            parameterEnum: 'Success' | 'Warning' | 'Error';
+            /**
+             * This is a simple model with default value
+             */
+            parameterModel: ModelWithString;
         },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
-            query: {
-                'parameterString': parameterString,
-                'parameterNumber': parameterNumber,
-                'parameterBoolean': parameterBoolean,
-                'parameterEnum': parameterEnum,
-                'parameterModel': parameterModel,
-            },
+            query: queryParams,
         });
     }
 
     /**
-     * @param parameterString This is a simple string that is optional with default value
-     * @param parameterNumber This is a simple number that is optional with default value
-     * @param parameterBoolean This is a simple boolean that is optional with default value
-     * @param parameterEnum This is a simple enum that is optional with default value
-     * @param parameterModel This is a simple model that is optional with default value
+     * @param queryParams
      */
     public callWithDefaultOptionalParameters(
-        parameterString: string = 'Hello World!',
-        parameterNumber: number = 123,
-        parameterBoolean: boolean = true,
-        parameterEnum: 'Success' | 'Warning' | 'Error' = 'Success',
-        parameterModel: ModelWithString = {
-            \\"prop\\": \\"Hello World!\\"
+        queryParams?: {
+            /**
+             * This is a simple string that is optional with default value
+             */
+            parameterString: string;
+            /**
+             * This is a simple number that is optional with default value
+             */
+            parameterNumber: number;
+            /**
+             * This is a simple boolean that is optional with default value
+             */
+            parameterBoolean: boolean;
+            /**
+             * This is a simple enum that is optional with default value
+             */
+            parameterEnum: 'Success' | 'Warning' | 'Error';
+            /**
+             * This is a simple model that is optional with default value
+             */
+            parameterModel: ModelWithString;
         },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
-            query: {
-                'parameterString': parameterString,
-                'parameterNumber': parameterNumber,
-                'parameterBoolean': parameterBoolean,
-                'parameterEnum': parameterEnum,
-                'parameterModel': parameterModel,
-            },
+            query: queryParams,
         });
     }
 
     /**
-     * @param parameterStringWithNoDefault This is a string with no default
-     * @param parameterOptionalStringWithDefault This is a optional string with default
-     * @param parameterOptionalStringWithEmptyDefault This is a optional string with empty default
-     * @param parameterOptionalStringWithNoDefault This is a optional string with no default
-     * @param parameterStringWithDefault This is a string with default
-     * @param parameterStringWithEmptyDefault This is a string with empty default
-     * @param parameterStringNullableWithNoDefault This is a string that can be null with no default
-     * @param parameterStringNullableWithDefault This is a string that can be null with default
+     * @param queryParams
      */
     public callToTestOrderOfParams(
-        parameterStringWithNoDefault: string,
-        parameterOptionalStringWithDefault: string = 'Hello World!',
-        parameterOptionalStringWithEmptyDefault: string = '',
-        parameterOptionalStringWithNoDefault?: string,
-        parameterStringWithDefault: string = 'Hello World!',
-        parameterStringWithEmptyDefault: string = '',
-        parameterStringNullableWithNoDefault?: string | null,
-        parameterStringNullableWithDefault: string | null = null,
+        queryParams: {
+            /**
+             * This is a optional string with default
+             */
+            parameterOptionalStringWithDefault: string;
+            /**
+             * This is a optional string with empty default
+             */
+            parameterOptionalStringWithEmptyDefault: string;
+            /**
+             * This is a optional string with no default
+             */
+            parameterOptionalStringWithNoDefault?: string;
+            /**
+             * This is a string with default
+             */
+            parameterStringWithDefault: string;
+            /**
+             * This is a string with empty default
+             */
+            parameterStringWithEmptyDefault: string;
+            /**
+             * This is a string with no default
+             */
+            parameterStringWithNoDefault: string;
+            /**
+             * This is a string that can be null with no default
+             */
+            parameterStringNullableWithNoDefault?: string | null;
+            /**
+             * This is a string that can be null with default
+             */
+            parameterStringNullableWithDefault: string | null;
+        },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
-            query: {
-                'parameterOptionalStringWithDefault': parameterOptionalStringWithDefault,
-                'parameterOptionalStringWithEmptyDefault': parameterOptionalStringWithEmptyDefault,
-                'parameterOptionalStringWithNoDefault': parameterOptionalStringWithNoDefault,
-                'parameterStringWithDefault': parameterStringWithDefault,
-                'parameterStringWithEmptyDefault': parameterStringWithEmptyDefault,
-                'parameterStringWithNoDefault': parameterStringWithNoDefault,
-                'parameterStringNullableWithNoDefault': parameterStringNullableWithNoDefault,
-                'parameterStringNullableWithDefault': parameterStringNullableWithDefault,
-            },
+            query: queryParams,
         });
     }
 
@@ -2650,35 +2681,43 @@ export abstract class DescriptionsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterWithBreaks Testing multiline comments in string: First line
-     * Second line
-     *
-     * Fourth line
-     * @param parameterWithBackticks Testing backticks in string: \`backticks\` and \`\`\`multiple backticks\`\`\` should work
-     * @param parameterWithSlashes Testing slashes in string: \\\\backwards\\\\\\\\\\\\ and /forwards/// should work
-     * @param parameterWithExpressionPlaceholders Testing expression placeholders in string: \${expression} should work
-     * @param parameterWithQuotes Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
-     * @param parameterWithReservedCharacters Testing reserved characters in string: * inline * and ** inline ** should work
+     * @param queryParams
      */
     public callWithDescriptions(
-        parameterWithBreaks?: string,
-        parameterWithBackticks?: string,
-        parameterWithSlashes?: string,
-        parameterWithExpressionPlaceholders?: string,
-        parameterWithQuotes?: string,
-        parameterWithReservedCharacters?: string,
+        queryParams?: {
+            /**
+             * Testing multiline comments in string: First line
+             * Second line
+             *
+             * Fourth line
+             */
+            parameterWithBreaks?: string;
+            /**
+             * Testing backticks in string: \`backticks\` and \`\`\`multiple backticks\`\`\` should work
+             */
+            parameterWithBackticks?: string;
+            /**
+             * Testing slashes in string: \\\\backwards\\\\\\\\\\\\ and /forwards/// should work
+             */
+            parameterWithSlashes?: string;
+            /**
+             * Testing expression placeholders in string: \${expression} should work
+             */
+            parameterWithExpressionPlaceholders?: string;
+            /**
+             * Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
+             */
+            parameterWithQuotes?: string;
+            /**
+             * Testing reserved characters in string: * inline * and ** inline ** should work
+             */
+            parameterWithReservedCharacters?: string;
+        },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
-            query: {
-                'parameterWithBreaks': parameterWithBreaks,
-                'parameterWithBackticks': parameterWithBackticks,
-                'parameterWithSlashes': parameterWithSlashes,
-                'parameterWithExpressionPlaceholders': parameterWithExpressionPlaceholders,
-                'parameterWithQuotes': parameterWithQuotes,
-                'parameterWithReservedCharacters': parameterWithReservedCharacters,
-            },
+            query: queryParams,
         });
     }
 
@@ -2753,18 +2792,21 @@ export abstract class ErrorService {
     protected abstract config: ClientConfig
 
     /**
-     * @param status Status code to return
+     * @param queryParams
      * @returns any Custom message: Successful response
      */
     public testErrorCode(
-        status: string,
+        queryParams: {
+            /**
+             * Status code to return
+             */
+            status: string;
+        },
     ): Promise<Result<any, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/error',
-            query: {
-                'status': status,
-            },
+            query: queryParams,
             errors: {
                 500: \`Custom message: Internal Server Error\`,
                 501: \`Custom message: Not Implemented\`,
@@ -2952,15 +2994,20 @@ export abstract class ParametersService {
     protected abstract config: ClientConfig
 
     /**
+     * @param queryParams
      * @param parameterHeader This is the parameter that goes into the header
-     * @param parameterQuery This is the parameter that goes into the query params
      * @param parameterForm This is the parameter that goes into the form data
      * @param parameterBody This is the parameter that is sent as request body
      * @param parameterPath This is the parameter that goes into the path
      */
     public callWithParameters(
+        queryParams: {
+            /**
+             * This is the parameter that goes into the query params
+             */
+            parameterQuery: string;
+        },
         parameterHeader: string,
-        parameterQuery: string,
         parameterForm: string,
         parameterBody: string,
         parameterPath: string,
@@ -2974,9 +3021,7 @@ export abstract class ParametersService {
             headers: {
                 'parameterHeader': parameterHeader,
             },
-            query: {
-                'parameterQuery': parameterQuery,
-            },
+            query: queryParams,
             formData: {
                 'parameterForm': parameterForm,
             },
@@ -2985,24 +3030,31 @@ export abstract class ParametersService {
     }
 
     /**
+     * @param queryParams
      * @param parameterHeader This is the parameter that goes into the request header
-     * @param parameterQuery This is the parameter that goes into the request query params
      * @param parameterForm This is the parameter that goes into the request form data
      * @param parameterBody This is the parameter that is sent as request body
      * @param parameterPath1 This is the parameter that goes into the path
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
-     * @param _default This is the parameter with a reserved keyword
      */
     public callWithWeirdParameterNames(
+        queryParams: {
+            /**
+             * This is the parameter with a reserved keyword
+             */
+            default?: string;
+            /**
+             * This is the parameter that goes into the request query params
+             */
+            parameterQuery: string;
+        },
         parameterHeader: string,
-        parameterQuery: string,
         parameterForm: string,
         parameterBody: string,
         parameterPath1?: string,
         parameterPath2?: string,
         parameterPath3?: string,
-        _default?: string,
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -3015,10 +3067,7 @@ export abstract class ParametersService {
             headers: {
                 'parameter.header': parameterHeader,
             },
-            query: {
-                'default': _default,
-                'parameter-query': parameterQuery,
-            },
+            query: queryParams,
             formData: {
                 'parameter_form': parameterForm,
             },
@@ -3192,13 +3241,7 @@ export abstract class TypesService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterArray This is an array parameter
-     * @param parameterDictionary This is a dictionary parameter
-     * @param parameterEnum This is an enum parameter
-     * @param parameterNumber This is a number parameter
-     * @param parameterString This is a string parameter
-     * @param parameterBoolean This is a boolean parameter
-     * @param parameterObject This is an object parameter
+     * @param queryParams
      * @param id This is a number parameter
      * @returns number Response is a simple number
      * @returns string Response is a simple string
@@ -3206,13 +3249,36 @@ export abstract class TypesService {
      * @returns any Response is a simple object
      */
     public types(
-        parameterArray: Array<string>,
-        parameterDictionary: Record<string, string>,
-        parameterEnum: 'Success' | 'Warning' | 'Error',
-        parameterNumber: number = 123,
-        parameterString: string = 'default',
-        parameterBoolean: boolean = true,
-        parameterObject: any = null,
+        queryParams: {
+            /**
+             * This is a number parameter
+             */
+            parameterNumber: number;
+            /**
+             * This is a string parameter
+             */
+            parameterString: string;
+            /**
+             * This is a boolean parameter
+             */
+            parameterBoolean: boolean;
+            /**
+             * This is an object parameter
+             */
+            parameterObject: any;
+            /**
+             * This is an array parameter
+             */
+            parameterArray: Array<string>;
+            /**
+             * This is a dictionary parameter
+             */
+            parameterDictionary: Record<string, string>;
+            /**
+             * This is an enum parameter
+             */
+            parameterEnum: 'Success' | 'Warning' | 'Error';
+        },
         id?: number,
     ): Promise<Result<number | string | boolean | any, ApiError>> {
         return __request(this.client, this.config, {
@@ -3221,15 +3287,7 @@ export abstract class TypesService {
             path: {
                 'id': id,
             },
-            query: {
-                'parameterNumber': parameterNumber,
-                'parameterString': parameterString,
-                'parameterBoolean': parameterBoolean,
-                'parameterObject': parameterObject,
-                'parameterArray': parameterArray,
-                'parameterDictionary': parameterDictionary,
-                'parameterEnum': parameterEnum,
-            },
+            query: queryParams,
         });
     }
 
@@ -6373,29 +6431,36 @@ export abstract class CollectionFormatService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterArrayCsv This is an array parameter that is sent as csv format (comma-separated values)
-     * @param parameterArraySsv This is an array parameter that is sent as ssv format (space-separated values)
-     * @param parameterArrayTsv This is an array parameter that is sent as tsv format (tab-separated values)
-     * @param parameterArrayPipes This is an array parameter that is sent as pipes format (pipe-separated values)
-     * @param parameterArrayMulti This is an array parameter that is sent as multi format (multiple parameter instances)
+     * @param queryParams
      */
     public collectionFormat(
-        parameterArrayCsv: Array<string> | null,
-        parameterArraySsv: Array<string> | null,
-        parameterArrayTsv: Array<string> | null,
-        parameterArrayPipes: Array<string> | null,
-        parameterArrayMulti: Array<string> | null,
+        queryParams: {
+            /**
+             * This is an array parameter that is sent as csv format (comma-separated values)
+             */
+            parameterArrayCsv: Array<string> | null;
+            /**
+             * This is an array parameter that is sent as ssv format (space-separated values)
+             */
+            parameterArraySsv: Array<string> | null;
+            /**
+             * This is an array parameter that is sent as tsv format (tab-separated values)
+             */
+            parameterArrayTsv: Array<string> | null;
+            /**
+             * This is an array parameter that is sent as pipes format (pipe-separated values)
+             */
+            parameterArrayPipes: Array<string> | null;
+            /**
+             * This is an array parameter that is sent as multi format (multiple parameter instances)
+             */
+            parameterArrayMulti: Array<string> | null;
+        } | null,
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
-            query: {
-                'parameterArrayCSV': parameterArrayCsv,
-                'parameterArraySSV': parameterArraySsv,
-                'parameterArrayTSV': parameterArrayTsv,
-                'parameterArrayPipes': parameterArrayPipes,
-                'parameterArrayMulti': parameterArrayMulti,
-            },
+            query: queryParams,
         });
     }
 
@@ -6423,27 +6488,31 @@ export abstract class ComplexService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterObject Parameter containing object
-     * @param parameterReference Parameter containing reference
+     * @param queryParams
      * @returns ModelWithString Successful response
      */
     public complexTypes(
-        parameterObject: {
-            first?: {
-                second?: {
-                    third?: string;
+        queryParams: {
+            /**
+             * Parameter containing object
+             */
+            parameterObject: {
+                first?: {
+                    second?: {
+                        third?: string;
+                    };
                 };
             };
+            /**
+             * Parameter containing reference
+             */
+            parameterReference: ModelWithString;
         },
-        parameterReference: ModelWithString,
     ): Promise<Result<Array<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
-            query: {
-                'parameterObject': parameterObject,
-                'parameterReference': parameterReference,
-            },
+            query: queryParams,
             errors: {
                 400: \`400 server error\`,
                 500: \`500 server error\`,
@@ -6529,96 +6598,116 @@ export abstract class DefaultsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterString This is a simple string with default value
-     * @param parameterNumber This is a simple number with default value
-     * @param parameterBoolean This is a simple boolean with default value
-     * @param parameterEnum This is a simple enum with default value
-     * @param parameterModel This is a simple model with default value
+     * @param queryParams
      */
     public callWithDefaultParameters(
-        parameterString: string | null = 'Hello World!',
-        parameterNumber: number | null = 123,
-        parameterBoolean: boolean | null = true,
-        parameterEnum: 'Success' | 'Warning' | 'Error' = 'Success',
-        parameterModel: ModelWithString | null = {
-            \\"prop\\": \\"Hello World!\\"
+        queryParams?: {
+            /**
+             * This is a simple string with default value
+             */
+            parameterString: string | null;
+            /**
+             * This is a simple number with default value
+             */
+            parameterNumber: number | null;
+            /**
+             * This is a simple boolean with default value
+             */
+            parameterBoolean: boolean | null;
+            /**
+             * This is a simple enum with default value
+             */
+            parameterEnum: 'Success' | 'Warning' | 'Error';
+            /**
+             * This is a simple model with default value
+             */
+            parameterModel: ModelWithString | null;
         },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
-            query: {
-                'parameterString': parameterString,
-                'parameterNumber': parameterNumber,
-                'parameterBoolean': parameterBoolean,
-                'parameterEnum': parameterEnum,
-                'parameterModel': parameterModel,
-            },
+            query: queryParams,
         });
     }
 
     /**
-     * @param parameterString This is a simple string that is optional with default value
-     * @param parameterNumber This is a simple number that is optional with default value
-     * @param parameterBoolean This is a simple boolean that is optional with default value
-     * @param parameterEnum This is a simple enum that is optional with default value
-     * @param parameterModel This is a simple model that is optional with default value
+     * @param queryParams
      */
     public callWithDefaultOptionalParameters(
-        parameterString: string = 'Hello World!',
-        parameterNumber: number = 123,
-        parameterBoolean: boolean = true,
-        parameterEnum: 'Success' | 'Warning' | 'Error' = 'Success',
-        parameterModel: ModelWithString = {
-            \\"prop\\": \\"Hello World!\\"
+        queryParams?: {
+            /**
+             * This is a simple string that is optional with default value
+             */
+            parameterString: string;
+            /**
+             * This is a simple number that is optional with default value
+             */
+            parameterNumber: number;
+            /**
+             * This is a simple boolean that is optional with default value
+             */
+            parameterBoolean: boolean;
+            /**
+             * This is a simple enum that is optional with default value
+             */
+            parameterEnum: 'Success' | 'Warning' | 'Error';
+            /**
+             * This is a simple model that is optional with default value
+             */
+            parameterModel: ModelWithString;
         },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
-            query: {
-                'parameterString': parameterString,
-                'parameterNumber': parameterNumber,
-                'parameterBoolean': parameterBoolean,
-                'parameterEnum': parameterEnum,
-                'parameterModel': parameterModel,
-            },
+            query: queryParams,
         });
     }
 
     /**
-     * @param parameterStringWithNoDefault This is a string with no default
-     * @param parameterOptionalStringWithDefault This is a optional string with default
-     * @param parameterOptionalStringWithEmptyDefault This is a optional string with empty default
-     * @param parameterOptionalStringWithNoDefault This is a optional string with no default
-     * @param parameterStringWithDefault This is a string with default
-     * @param parameterStringWithEmptyDefault This is a string with empty default
-     * @param parameterStringNullableWithNoDefault This is a string that can be null with no default
-     * @param parameterStringNullableWithDefault This is a string that can be null with default
+     * @param queryParams
      */
     public callToTestOrderOfParams(
-        parameterStringWithNoDefault: string,
-        parameterOptionalStringWithDefault: string = 'Hello World!',
-        parameterOptionalStringWithEmptyDefault: string = '',
-        parameterOptionalStringWithNoDefault?: string,
-        parameterStringWithDefault: string = 'Hello World!',
-        parameterStringWithEmptyDefault: string = '',
-        parameterStringNullableWithNoDefault?: string | null,
-        parameterStringNullableWithDefault: string | null = null,
+        queryParams: {
+            /**
+             * This is a optional string with default
+             */
+            parameterOptionalStringWithDefault: string;
+            /**
+             * This is a optional string with empty default
+             */
+            parameterOptionalStringWithEmptyDefault: string;
+            /**
+             * This is a optional string with no default
+             */
+            parameterOptionalStringWithNoDefault?: string;
+            /**
+             * This is a string with default
+             */
+            parameterStringWithDefault: string;
+            /**
+             * This is a string with empty default
+             */
+            parameterStringWithEmptyDefault: string;
+            /**
+             * This is a string with no default
+             */
+            parameterStringWithNoDefault: string;
+            /**
+             * This is a string that can be null with no default
+             */
+            parameterStringNullableWithNoDefault?: string | null;
+            /**
+             * This is a string that can be null with default
+             */
+            parameterStringNullableWithDefault: string | null;
+        },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
-            query: {
-                'parameterOptionalStringWithDefault': parameterOptionalStringWithDefault,
-                'parameterOptionalStringWithEmptyDefault': parameterOptionalStringWithEmptyDefault,
-                'parameterOptionalStringWithNoDefault': parameterOptionalStringWithNoDefault,
-                'parameterStringWithDefault': parameterStringWithDefault,
-                'parameterStringWithEmptyDefault': parameterStringWithEmptyDefault,
-                'parameterStringWithNoDefault': parameterStringWithNoDefault,
-                'parameterStringNullableWithNoDefault': parameterStringNullableWithNoDefault,
-                'parameterStringNullableWithDefault': parameterStringNullableWithDefault,
-            },
+            query: queryParams,
         });
     }
 
@@ -6640,35 +6729,43 @@ export abstract class DescriptionsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterWithBreaks Testing multiline comments in string: First line
-     * Second line
-     *
-     * Fourth line
-     * @param parameterWithBackticks Testing backticks in string: \`backticks\` and \`\`\`multiple backticks\`\`\` should work
-     * @param parameterWithSlashes Testing slashes in string: \\\\backwards\\\\\\\\\\\\ and /forwards/// should work
-     * @param parameterWithExpressionPlaceholders Testing expression placeholders in string: \${expression} should work
-     * @param parameterWithQuotes Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
-     * @param parameterWithReservedCharacters Testing reserved characters in string: * inline * and ** inline ** should work
+     * @param queryParams
      */
     public callWithDescriptions(
-        parameterWithBreaks?: any,
-        parameterWithBackticks?: any,
-        parameterWithSlashes?: any,
-        parameterWithExpressionPlaceholders?: any,
-        parameterWithQuotes?: any,
-        parameterWithReservedCharacters?: any,
+        queryParams?: {
+            /**
+             * Testing multiline comments in string: First line
+             * Second line
+             *
+             * Fourth line
+             */
+            parameterWithBreaks?: any;
+            /**
+             * Testing backticks in string: \`backticks\` and \`\`\`multiple backticks\`\`\` should work
+             */
+            parameterWithBackticks?: any;
+            /**
+             * Testing slashes in string: \\\\backwards\\\\\\\\\\\\ and /forwards/// should work
+             */
+            parameterWithSlashes?: any;
+            /**
+             * Testing expression placeholders in string: \${expression} should work
+             */
+            parameterWithExpressionPlaceholders?: any;
+            /**
+             * Testing quotes in string: 'single quote''' and \\"double quotes\\"\\"\\" should work
+             */
+            parameterWithQuotes?: any;
+            /**
+             * Testing reserved characters in string: * inline * and ** inline ** should work
+             */
+            parameterWithReservedCharacters?: any;
+        },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
-            query: {
-                'parameterWithBreaks': parameterWithBreaks,
-                'parameterWithBackticks': parameterWithBackticks,
-                'parameterWithSlashes': parameterWithSlashes,
-                'parameterWithExpressionPlaceholders': parameterWithExpressionPlaceholders,
-                'parameterWithQuotes': parameterWithQuotes,
-                'parameterWithReservedCharacters': parameterWithReservedCharacters,
-            },
+            query: queryParams,
         });
     }
 
@@ -6743,18 +6840,21 @@ export abstract class ErrorService {
     protected abstract config: ClientConfig
 
     /**
-     * @param status Status code to return
+     * @param queryParams
      * @returns any Custom message: Successful response
      */
     public testErrorCode(
-        status: number,
+        queryParams: {
+            /**
+             * Status code to return
+             */
+            status: number;
+        },
     ): Promise<Result<any, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/error',
-            query: {
-                'status': status,
-            },
+            query: queryParams,
             errors: {
                 500: \`Custom message: Internal Server Error\`,
                 501: \`Custom message: Not Implemented\`,
@@ -6784,19 +6884,22 @@ export abstract class FormDataService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameter This is a reusable parameter
+     * @param queryParams
      * @param formData A reusable request body
      */
     public postApiFormData(
-        parameter?: string,
+        queryParams?: {
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
+        },
         formData?: ModelWithString,
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/formData/',
-            query: {
-                'parameter': parameter,
-            },
+            query: queryParams,
             formData: formData,
             mediaType: 'multipart/form-data',
         });
@@ -7035,16 +7138,21 @@ export abstract class ParametersService {
     protected abstract config: ClientConfig
 
     /**
+     * @param queryParams
      * @param parameterHeader This is the parameter that goes into the header
-     * @param parameterQuery This is the parameter that goes into the query params
      * @param parameterForm This is the parameter that goes into the form data
      * @param parameterCookie This is the parameter that goes into the cookie
      * @param parameterPath This is the parameter that goes into the path
      * @param requestBody This is the parameter that goes into the body
      */
     public callWithParameters(
+        queryParams: {
+            /**
+             * This is the parameter that goes into the query params
+             */
+            parameterQuery: string | null;
+        } | null,
         parameterHeader: string | null,
-        parameterQuery: string | null,
         parameterForm: string | null,
         parameterCookie: string | null,
         parameterPath: string | null,
@@ -7062,9 +7170,7 @@ export abstract class ParametersService {
             headers: {
                 'parameterHeader': parameterHeader,
             },
-            query: {
-                'parameterQuery': parameterQuery,
-            },
+            query: queryParams,
             formData: {
                 'parameterForm': parameterForm,
             },
@@ -7074,26 +7180,33 @@ export abstract class ParametersService {
     }
 
     /**
+     * @param queryParams
      * @param parameterHeader This is the parameter that goes into the request header
-     * @param parameterQuery This is the parameter that goes into the request query params
      * @param parameterForm This is the parameter that goes into the request form data
      * @param parameterCookie This is the parameter that goes into the cookie
      * @param requestBody This is the parameter that goes into the body
      * @param parameterPath1 This is the parameter that goes into the path
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
-     * @param _default This is the parameter with a reserved keyword
      */
     public callWithWeirdParameterNames(
+        queryParams: {
+            /**
+             * This is the parameter with a reserved keyword
+             */
+            default?: string;
+            /**
+             * This is the parameter that goes into the request query params
+             */
+            parameterQuery: string | null;
+        },
         parameterHeader: string | null,
-        parameterQuery: string | null,
         parameterForm: string | null,
         parameterCookie: string | null,
         requestBody: ModelWithString | null,
         parameterPath1?: string,
         parameterPath2?: string,
         parameterPath3?: string,
-        _default?: string,
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
@@ -7109,10 +7222,7 @@ export abstract class ParametersService {
             headers: {
                 'parameter.header': parameterHeader,
             },
-            query: {
-                'default': _default,
-                'parameter-query': parameterQuery,
-            },
+            query: queryParams,
             formData: {
                 'parameter_form': parameterForm,
             },
@@ -7123,37 +7233,43 @@ export abstract class ParametersService {
 
     /**
      * @param requestBody This is a required parameter
-     * @param parameter This is an optional parameter
+     * @param queryParams
      */
     public getCallWithOptionalParam(
         requestBody: ModelWithString,
-        parameter?: string,
+        queryParams?: {
+            /**
+             * This is an optional parameter
+             */
+            parameter?: string;
+        },
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'GET',
             url: '/api/v{api-version}/parameters/',
-            query: {
-                'parameter': parameter,
-            },
+            query: queryParams,
             body: requestBody,
             mediaType: 'application/json',
         });
     }
 
     /**
-     * @param parameter This is a required parameter
+     * @param queryParams
      * @param requestBody This is an optional parameter
      */
     public postCallWithOptionalParam(
-        parameter: Pageable,
+        queryParams: {
+            /**
+             * This is a required parameter
+             */
+            parameter: Pageable;
+        },
         requestBody?: ModelWithString,
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/',
-            query: {
-                'parameter': parameter,
-            },
+            query: queryParams,
             body: requestBody,
             mediaType: 'application/json',
         });
@@ -7179,19 +7295,22 @@ export abstract class RequestBodyService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameter This is a reusable parameter
+     * @param queryParams
      * @param requestBody A reusable request body
      */
     public postApiRequestBody(
-        parameter?: string,
+        queryParams?: {
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
+        },
         requestBody?: ModelWithString,
     ): Promise<Result<void, ApiError>> {
         return __request(this.client, this.config, {
             method: 'POST',
             url: '/api/v{api-version}/requestBody/',
-            query: {
-                'parameter': parameter,
-            },
+            query: queryParams,
             body: requestBody,
             mediaType: 'application/json',
         });
@@ -7365,13 +7484,7 @@ export abstract class TypesService {
     protected abstract config: ClientConfig
 
     /**
-     * @param parameterArray This is an array parameter
-     * @param parameterDictionary This is a dictionary parameter
-     * @param parameterEnum This is an enum parameter
-     * @param parameterNumber This is a number parameter
-     * @param parameterString This is a string parameter
-     * @param parameterBoolean This is a boolean parameter
-     * @param parameterObject This is an object parameter
+     * @param queryParams
      * @param id This is a number parameter
      * @returns number Response is a simple number
      * @returns string Response is a simple string
@@ -7379,13 +7492,36 @@ export abstract class TypesService {
      * @returns any Response is a simple object
      */
     public types(
-        parameterArray: Array<string> | null,
-        parameterDictionary: any,
-        parameterEnum: 'Success' | 'Warning' | 'Error' | null,
-        parameterNumber: number = 123,
-        parameterString: string | null = 'default',
-        parameterBoolean: boolean | null = true,
-        parameterObject: any = null,
+        queryParams: {
+            /**
+             * This is a number parameter
+             */
+            parameterNumber: number;
+            /**
+             * This is a string parameter
+             */
+            parameterString: string | null;
+            /**
+             * This is a boolean parameter
+             */
+            parameterBoolean: boolean | null;
+            /**
+             * This is an object parameter
+             */
+            parameterObject: any;
+            /**
+             * This is an array parameter
+             */
+            parameterArray: Array<string> | null;
+            /**
+             * This is a dictionary parameter
+             */
+            parameterDictionary: any;
+            /**
+             * This is an enum parameter
+             */
+            parameterEnum: 'Success' | 'Warning' | 'Error' | null;
+        },
         id?: integer,
     ): Promise<Result<number | string | boolean | any, ApiError>> {
         return __request(this.client, this.config, {
@@ -7394,15 +7530,7 @@ export abstract class TypesService {
             path: {
                 'id': id,
             },
-            query: {
-                'parameterNumber': parameterNumber,
-                'parameterString': parameterString,
-                'parameterBoolean': parameterBoolean,
-                'parameterObject': parameterObject,
-                'parameterArray': parameterArray,
-                'parameterDictionary': parameterDictionary,
-                'parameterEnum': parameterEnum,
-            },
+            query: queryParams,
         });
     }
 
