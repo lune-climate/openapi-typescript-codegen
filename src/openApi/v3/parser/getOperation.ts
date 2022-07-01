@@ -65,7 +65,7 @@ export const getOperation = (
         base: 'any',
         template: null,
         link: null,
-        description: null,
+        description: 'Request data',
         default: undefined,
         isDefinition: false,
         isReadOnly: false,

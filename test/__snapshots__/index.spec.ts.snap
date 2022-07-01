@@ -6731,7 +6731,7 @@ export abstract class CollectionFormatService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public collectionFormat(
@@ -6801,7 +6801,7 @@ export abstract class ComplexService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      * @returns ModelWithString Successful response
      */
@@ -6845,7 +6845,7 @@ export abstract class ComplexService {
 
     /**
      * @param id
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      * @returns ModelWithString Success
      */
@@ -6945,7 +6945,7 @@ export abstract class DefaultsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public callWithDefaultParameters(
@@ -6992,7 +6992,7 @@ export abstract class DefaultsService {
     }
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public callWithDefaultOptionalParameters(
@@ -7039,7 +7039,7 @@ export abstract class DefaultsService {
     }
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public callToTestOrderOfParams(
@@ -7118,7 +7118,7 @@ export abstract class DescriptionsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public callWithDescriptions(
@@ -7275,7 +7275,7 @@ export abstract class ErrorService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      * @returns any Custom message: Successful response
      */
@@ -7326,7 +7326,7 @@ export abstract class FormDataService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public postApiFormData(
@@ -7418,7 +7418,7 @@ export abstract class MultipartService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public multipartRequest(
@@ -7665,7 +7665,7 @@ export abstract class ParametersService {
      * @param parameterForm This is the parameter that goes into the form data
      * @param parameterCookie This is the parameter that goes into the cookie
      * @param parameterPath This is the parameter that goes into the path
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public callWithParameters(
@@ -7719,7 +7719,7 @@ export abstract class ParametersService {
      * @param parameterHeader This is the parameter that goes into the request header
      * @param parameterForm This is the parameter that goes into the request form data
      * @param parameterCookie This is the parameter that goes into the cookie
-     * @param data
+     * @param data Request data
      * @param parameterPath1 This is the parameter that goes into the path
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
@@ -7782,7 +7782,7 @@ export abstract class ParametersService {
     }
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public getCallWithOptionalParam(
@@ -7817,7 +7817,7 @@ export abstract class ParametersService {
     }
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public postCallWithOptionalParam(
@@ -7869,7 +7869,7 @@ export abstract class RequestBodyService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param options Additional operation options
      */
     public postApiRequestBody(
@@ -8151,7 +8151,7 @@ export abstract class TypesService {
     protected abstract config: ClientConfig
 
     /**
-     * @param data
+     * @param data Request data
      * @param id This is a number parameter
      * @param options Additional operation options
      * @returns number Response is a simple number
