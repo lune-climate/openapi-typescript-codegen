@@ -3218,8 +3218,7 @@ export abstract class ParametersService {
             formData: {
                 'parameterForm': parameterForm,
             },
-            body: {
-            },
+            body: data?.parameterBody,
         });
     }
 
@@ -3275,8 +3274,7 @@ export abstract class ParametersService {
             formData: {
                 'parameter_form': parameterForm,
             },
-            body: {
-            },
+            body: data?.parameterBody,
         });
     }
 
@@ -6887,6 +6885,7 @@ export abstract class ComplexService {
                 'parameters': data?.parameters,
                 'user': data?.user,
             },
+            body: data?.requestBody,
             mediaType: 'application/json-patch+json',
         });
     }
@@ -7353,7 +7352,7 @@ export abstract class FormDataService {
             query: {
                 'parameter': data?.parameter,
             },
-            formData: formData,
+            formData: ModelWithString,
             mediaType: 'multipart/form-data',
         });
     }
@@ -7711,6 +7710,7 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
+            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7777,6 +7777,7 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
+            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7812,6 +7813,7 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
+            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7847,6 +7849,7 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
+            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7899,6 +7902,7 @@ export abstract class RequestBodyService {
             body: {
                 'prop': data?.prop,
             },
+            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }

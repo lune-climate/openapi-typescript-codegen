@@ -105,6 +105,11 @@ export const getOperation = (
         operation.imports.push(...requestBody.imports);
         operation.parametersBody = requestBody;
         dataParameter.properties.push(...requestBody.properties);
+        // if the requestBody is an array, there are no properties to showcase. We instead want to
+        // use the whole model as the parameter
+        if (requestBody.export === 'array') {
+            dataParameter.properties.push(requestBody);
+        }
         dataParameter.isRequired = requestBody.isRequired ? true : dataParameter.isRequired;
     }
 

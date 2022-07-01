@@ -129,11 +129,16 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			formData: {{{parametersBody.name}}},
 			{{/equals}}
 			{{#equals parametersBody.in 'body'}}
+			{{#if parametersBody.properties}}
 			body: {
 				{{#each parametersBody.properties}}
 				'{{{name}}}': data?.{{{camelCase name}}},
 				{{/each}}
 			},
+			{{/if}}
+			{{#if parametersBody.export}}
+			body: data?.{{{camelCase parametersBody.name}}},
+			{{/if}}
 			{{/equals}}
 			{{#if parametersBody.mediaType}}
 			mediaType: '{{{parametersBody.mediaType}}}',
