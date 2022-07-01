@@ -3269,7 +3269,7 @@ export abstract class ParametersService {
                 'parameter.header': parameterHeader,
             },
             query: {
-                'default': data?._default,
+                'default': data?.default,
                 'parameter-query': data?.parameterQuery,
             },
             formData: {
@@ -7315,8 +7315,6 @@ exports[`v3 should generate: ./test/generated/v3/services/FormDataService.ts 1`]
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString.js';
-
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
 import { ApiError } from '../core/ApiError.js'
@@ -7337,6 +7335,10 @@ export abstract class FormDataService {
              * This is a reusable parameter
              */
             parameter?: string;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
         options?: {
             /**
@@ -7646,7 +7648,6 @@ exports[`v3 should generate: ./test/generated/v3/services/ParametersService.ts 1
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString.js';
 import type { Pageable } from '../models/Pageable.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
@@ -7677,6 +7678,10 @@ export abstract class ParametersService {
              * This is the parameter that goes into the query params
              */
             parameterQuery: string | null;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
         options?: {
             /**
@@ -7704,6 +7709,7 @@ export abstract class ParametersService {
                 'parameterForm': parameterForm,
             },
             body: {
+                'prop': data?.prop,
             },
             mediaType: 'application/json',
         });
@@ -7732,6 +7738,10 @@ export abstract class ParametersService {
              * This is the parameter with a reserved keyword
              */
             default?: string;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
         parameterPath1?: string,
         parameterPath2?: string,
@@ -7758,13 +7768,14 @@ export abstract class ParametersService {
                 'parameter.header': parameterHeader,
             },
             query: {
-                'default': data?._default,
+                'default': data?.default,
                 'parameter-query': data?.parameterQuery,
             },
             formData: {
                 'parameter_form': parameterForm,
             },
             body: {
+                'prop': data?.prop,
             },
             mediaType: 'application/json',
         });
@@ -7780,6 +7791,10 @@ export abstract class ParametersService {
              * This is an optional parameter
              */
             parameter?: string;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
         options?: {
             /**
@@ -7795,6 +7810,7 @@ export abstract class ParametersService {
                 'parameter': data?.parameter,
             },
             body: {
+                'prop': data?.prop,
             },
             mediaType: 'application/json',
         });
@@ -7810,6 +7826,10 @@ export abstract class ParametersService {
              * This is a required parameter
              */
             parameter: Pageable;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
         options?: {
             /**
@@ -7825,6 +7845,7 @@ export abstract class ParametersService {
                 'parameter': data?.parameter,
             },
             body: {
+                'prop': data?.prop,
             },
             mediaType: 'application/json',
         });
@@ -7837,8 +7858,6 @@ exports[`v3 should generate: ./test/generated/v3/services/RequestBodyService.ts 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString.js';
-
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
 import { ApiError } from '../core/ApiError.js'
@@ -7859,6 +7878,10 @@ export abstract class RequestBodyService {
              * This is a reusable parameter
              */
             parameter?: string;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
         options?: {
             /**
@@ -7874,6 +7897,7 @@ export abstract class RequestBodyService {
                 'parameter': data?.parameter,
             },
             body: {
+                'prop': data?.prop,
             },
             mediaType: 'application/json',
         });

@@ -4,6 +4,9 @@ import type { OpenApi } from '../interfaces/OpenApi';
 import type { OpenApiRequestBody } from '../interfaces/OpenApiRequestBody';
 import { getContent } from './getContent';
 import { getModel } from './getModel';
+import { getModelComposition } from './getModelComposition';
+import { getModelProperties } from './getModelProperties';
+import { getRef } from './getRef';
 import { getType } from './getType';
 
 export const getOperationRequestBody = (openApi: OpenApi, body: OpenApiRequestBody): OperationParameter => {
@@ -42,11 +45,16 @@ export const getOperationRequestBody = (openApi: OpenApi, body: OpenApiRequestBo
                     break;
             }
             if (content.schema.$ref) {
-                const model = getType(content.schema.$ref);
-                requestBody.export = 'reference';
+                // We want to extract a requestBody reference as an interface since we're not interested
+                // in the base type, but the properties of it.
+                const definitionType = getType(content.schema.$ref);
+                const reference = getRef(openApi, content.schema);
+                const model = getModel(openApi, reference, true, definitionType.base);
+
                 requestBody.type = model.type;
                 requestBody.base = model.base;
                 requestBody.template = model.template;
+                requestBody.properties.push(...model.properties);
                 requestBody.imports.push(...model.imports);
                 return requestBody;
             } else {
