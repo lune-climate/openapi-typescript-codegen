@@ -6885,7 +6885,6 @@ export abstract class ComplexService {
                 'parameters': data?.parameters,
                 'user': data?.user,
             },
-            body: data?.requestBody,
             mediaType: 'application/json-patch+json',
         });
     }
@@ -7710,7 +7709,6 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
-            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7777,7 +7775,6 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
-            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7813,7 +7810,6 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
-            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7849,7 +7845,6 @@ export abstract class ParametersService {
             body: {
                 'prop': data?.prop,
             },
-            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }
@@ -7902,7 +7897,6 @@ export abstract class RequestBodyService {
             body: {
                 'prop': data?.prop,
             },
-            body: data?.modelWithString,
             mediaType: 'application/json',
         });
     }

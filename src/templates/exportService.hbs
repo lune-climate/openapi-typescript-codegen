@@ -135,9 +135,10 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 				'{{{name}}}': data?.{{{camelCase name}}},
 				{{/each}}
 			},
-			{{/if}}
+			{{else}}
 			{{#if parametersBody.export}}
 			body: data?.{{{camelCase parametersBody.name}}},
+			{{/if}}
 			{{/if}}
 			{{/equals}}
 			{{#if parametersBody.mediaType}}
