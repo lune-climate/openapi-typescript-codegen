@@ -2420,6 +2420,7 @@ export abstract class CollectionFormatService {
 
     /**
      * @param queryParams
+     * @param options Additional operation options
      */
     public collectionFormat(
         queryParams: {
@@ -2444,11 +2445,23 @@ export abstract class CollectionFormatService {
              */
             parameterArrayMulti: Array<string>;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
-            query: queryParams,
+            query: {
+                'parameterArrayCSV': data?.parameterArrayCsv,
+                'parameterArraySSV': data?.parameterArraySsv,
+                'parameterArrayTSV': data?.parameterArrayTsv,
+                'parameterArrayPipes': data?.parameterArrayPipes,
+                'parameterArrayMulti': data?.parameterArrayMulti,
+            },
         });
     }
 
@@ -2473,6 +2486,7 @@ export abstract class ComplexService {
 
     /**
      * @param queryParams
+     * @param options Additional operation options
      * @returns ModelWithString Successful response
      */
     public complexTypes(
@@ -2492,11 +2506,20 @@ export abstract class ComplexService {
              */
             parameterReference: ModelWithString;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<Array<ModelWithString>, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
-            query: queryParams,
+            query: {
+                'parameterObject': data?.parameterObject,
+                'parameterReference': data?.parameterReference,
+            },
             errors: {
                 400: \`400 server error\`,
                 500: \`500 server error\`,
@@ -2522,9 +2545,17 @@ export abstract class DefaultService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      */
-    public serviceWithEmptyTag(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public serviceWithEmptyTag(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
         });
@@ -2551,6 +2582,7 @@ export abstract class DefaultsService {
 
     /**
      * @param queryParams
+     * @param options Additional operation options
      */
     public callWithDefaultParameters(
         queryParams: {
@@ -2575,16 +2607,29 @@ export abstract class DefaultsService {
              */
             parameterModel: ModelWithString;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
-            query: queryParams,
+            query: {
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
+            },
         });
     }
 
     /**
      * @param queryParams
+     * @param options Additional operation options
      */
     public callWithDefaultOptionalParameters(
         queryParams?: {
@@ -2609,16 +2654,29 @@ export abstract class DefaultsService {
              */
             parameterModel: ModelWithString;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
-            query: queryParams,
+            query: {
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
+            },
         });
     }
 
     /**
      * @param queryParams
+     * @param options Additional operation options
      */
     public callToTestOrderOfParams(
         queryParams: {
@@ -2655,11 +2713,26 @@ export abstract class DefaultsService {
              */
             parameterStringNullableWithDefault: string | null;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
-            query: queryParams,
+            query: {
+                'parameterOptionalStringWithDefault': data?.parameterOptionalStringWithDefault,
+                'parameterOptionalStringWithEmptyDefault': data?.parameterOptionalStringWithEmptyDefault,
+                'parameterOptionalStringWithNoDefault': data?.parameterOptionalStringWithNoDefault,
+                'parameterStringWithDefault': data?.parameterStringWithDefault,
+                'parameterStringWithEmptyDefault': data?.parameterStringWithEmptyDefault,
+                'parameterStringWithNoDefault': data?.parameterStringWithNoDefault,
+                'parameterStringNullableWithNoDefault': data?.parameterStringNullableWithNoDefault,
+                'parameterStringNullableWithDefault': data?.parameterStringNullableWithDefault,
+            },
         });
     }
 
@@ -2682,6 +2755,7 @@ export abstract class DescriptionsService {
 
     /**
      * @param queryParams
+     * @param options Additional operation options
      */
     public callWithDescriptions(
         queryParams?: {
@@ -2713,11 +2787,24 @@ export abstract class DescriptionsService {
              */
             parameterWithReservedCharacters?: string;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
-            query: queryParams,
+            query: {
+                'parameterWithBreaks': data?.parameterWithBreaks,
+                'parameterWithBackticks': data?.parameterWithBackticks,
+                'parameterWithSlashes': data?.parameterWithSlashes,
+                'parameterWithExpressionPlaceholders': data?.parameterWithExpressionPlaceholders,
+                'parameterWithQuotes': data?.parameterWithQuotes,
+                'parameterWithReservedCharacters': data?.parameterWithReservedCharacters,
+            },
         });
     }
 
@@ -2739,36 +2826,68 @@ export abstract class DuplicateService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName1(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName1(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName2(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName2(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName3(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName3(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
         });
@@ -2793,6 +2912,7 @@ export abstract class ErrorService {
 
     /**
      * @param queryParams
+     * @param options Additional operation options
      * @returns any Custom message: Successful response
      */
     public testErrorCode(
@@ -2802,11 +2922,19 @@ export abstract class ErrorService {
              */
             status: string;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<any, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/error',
-            query: queryParams,
+            query: {
+                'status': data?.status,
+            },
             errors: {
                 500: \`Custom message: Internal Server Error\`,
                 501: \`Custom message: Not Implemented\`,
@@ -2834,10 +2962,18 @@ export abstract class HeaderService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns string Successful response
      */
-    public callWithResultFromHeader(): Promise<Result<string, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithResultFromHeader(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<string, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/header',
             responseHeader: 'operation-location',
@@ -2866,20 +3002,36 @@ export abstract class MultipleTags1Service {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyA(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyA(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyB(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyB(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -2903,20 +3055,36 @@ export abstract class MultipleTags2Service {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyA(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyA(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyB(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyB(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -2940,10 +3108,18 @@ export abstract class MultipleTags3Service {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyB(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyB(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -2967,10 +3143,18 @@ export abstract class NoContentService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public callWithNoContentResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithNoContentResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
         });
@@ -2999,6 +3183,7 @@ export abstract class ParametersService {
      * @param parameterForm This is the parameter that goes into the form data
      * @param parameterBody This is the parameter that is sent as request body
      * @param parameterPath This is the parameter that goes into the path
+     * @param options Additional operation options
      */
     public callWithParameters(
         queryParams: {
@@ -3011,8 +3196,14 @@ export abstract class ParametersService {
         parameterForm: string,
         parameterBody: string,
         parameterPath: string,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
             path: {
@@ -3021,11 +3212,13 @@ export abstract class ParametersService {
             headers: {
                 'parameterHeader': parameterHeader,
             },
-            query: queryParams,
+            query: {
+                'parameterQuery': data?.parameterQuery,
+            },
             formData: {
                 'parameterForm': parameterForm,
             },
-            body: parameterBody,
+            body: data?.parameterBody,
         });
     }
 
@@ -3037,6 +3230,7 @@ export abstract class ParametersService {
      * @param parameterPath1 This is the parameter that goes into the path
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
+     * @param options Additional operation options
      */
     public callWithWeirdParameterNames(
         queryParams: {
@@ -3055,8 +3249,14 @@ export abstract class ParametersService {
         parameterPath1?: string,
         parameterPath2?: string,
         parameterPath3?: string,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
             path: {
@@ -3067,11 +3267,14 @@ export abstract class ParametersService {
             headers: {
                 'parameter.header': parameterHeader,
             },
-            query: queryParams,
+            query: {
+                'default': data?.default,
+                'parameter-query': data?.parameterQuery,
+            },
             formData: {
                 'parameter_form': parameterForm,
             },
-            body: parameterBody,
+            body: data?.parameterBody,
         });
     }
 
@@ -3097,20 +3300,36 @@ export abstract class ResponseService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns ModelWithString Message for default response
      */
-    public callWithResponse(): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/response',
         });
     }
 
     /**
+     * @param options Additional operation options
      * @returns ModelWithString Message for default response
      */
-    public callWithDuplicateResponses(): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithDuplicateResponses(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/response',
             errors: {
@@ -3122,17 +3341,25 @@ export abstract class ResponseService {
     }
 
     /**
+     * @param options Additional operation options
      * @returns any Message for 200 response
      * @returns ModelWithString Message for default response
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
      */
-    public callWithResponses(): Promise<Result<{
+    public callWithResponses(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<{
         readonly '@namespaceString'?: string;
         readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
     } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
             errors: {
@@ -3161,63 +3388,119 @@ export abstract class SimpleService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      */
-    public getCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public getCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public putCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public putCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public postCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public postCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public deleteCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public deleteCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public optionsCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public optionsCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public headCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public headCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public patchCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public patchCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
         });
@@ -3243,6 +3526,7 @@ export abstract class TypesService {
     /**
      * @param queryParams
      * @param id This is a number parameter
+     * @param options Additional operation options
      * @returns number Response is a simple number
      * @returns string Response is a simple string
      * @returns boolean Response is a simple boolean
@@ -3280,14 +3564,28 @@ export abstract class TypesService {
             parameterEnum: 'Success' | 'Warning' | 'Error';
         },
         id?: number,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<number | string | boolean | any, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/types',
             path: {
                 'id': id,
             },
-            query: queryParams,
+            query: {
+                'parameterNumber': data?.parameterNumber,
+                'parameterString': data?.parameterString,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterObject': data?.parameterObject,
+                'parameterArray': data?.parameterArray,
+                'parameterDictionary': data?.parameterDictionary,
+                'parameterEnum': data?.parameterEnum,
+            },
         });
     }
 
@@ -6431,10 +6729,11 @@ export abstract class CollectionFormatService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      */
     public collectionFormat(
-        queryParams: {
+        data: {
             /**
              * This is an array parameter that is sent as csv format (comma-separated values)
              */
@@ -6455,12 +6754,24 @@ export abstract class CollectionFormatService {
              * This is an array parameter that is sent as multi format (multiple parameter instances)
              */
             parameterArrayMulti: Array<string> | null;
-        } | null,
+        },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
-            query: queryParams,
+            query: {
+                'parameterArrayCSV': data?.parameterArrayCsv,
+                'parameterArraySSV': data?.parameterArraySsv,
+                'parameterArrayTSV': data?.parameterArrayTsv,
+                'parameterArrayPipes': data?.parameterArrayPipes,
+                'parameterArrayMulti': data?.parameterArrayMulti,
+            },
         });
     }
 
@@ -6488,11 +6799,12 @@ export abstract class ComplexService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      * @returns ModelWithString Successful response
      */
     public complexTypes(
-        queryParams: {
+        data: {
             /**
              * Parameter containing object
              */
@@ -6508,11 +6820,20 @@ export abstract class ComplexService {
              */
             parameterReference: ModelWithString;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<Array<ModelWithString>, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
-            query: queryParams,
+            query: {
+                'parameterObject': data?.parameterObject,
+                'parameterReference': data?.parameterReference,
+            },
             errors: {
                 400: \`400 server error\`,
                 500: \`500 server error\`,
@@ -6522,32 +6843,48 @@ export abstract class ComplexService {
 
     /**
      * @param id
-     * @param requestBody
+     * @param data Request data
+     * @param options Additional operation options
      * @returns ModelWithString Success
      */
     public complexParams(
         id: integer,
-        requestBody?: {
+        data?: {
             readonly key: string | null;
             name: string | null;
-            enabled?: boolean;
             readonly type: 'Monkey' | 'Horse' | 'Bird';
+            parameters: (ModelWithString | ModelWithEnum | ModelWithArray | ModelWithDictionary);
+            enabled?: boolean;
             listOfModels?: Array<ModelWithString> | null;
             listOfStrings?: Array<string> | null;
-            parameters: (ModelWithString | ModelWithEnum | ModelWithArray | ModelWithDictionary);
             readonly user?: {
                 readonly id?: integer;
                 readonly name?: string | null;
             };
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/complex/{id}',
             path: {
                 'id': id,
             },
-            body: requestBody,
+            body: {
+                'key': data?.key,
+                'name': data?.name,
+                'enabled': data?.enabled,
+                'type': data?.type,
+                'listOfModels': data?.listOfModels,
+                'listOfStrings': data?.listOfStrings,
+                'parameters': data?.parameters,
+                'user': data?.user,
+            },
             mediaType: 'application/json-patch+json',
         });
     }
@@ -6570,9 +6907,17 @@ export abstract class DefaultService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      */
-    public serviceWithEmptyTag(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public serviceWithEmptyTag(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
         });
@@ -6598,10 +6943,11 @@ export abstract class DefaultsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      */
     public callWithDefaultParameters(
-        queryParams?: {
+        data?: {
             /**
              * This is a simple string with default value
              */
@@ -6623,19 +6969,32 @@ export abstract class DefaultsService {
              */
             parameterModel: ModelWithString | null;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
-            query: queryParams,
+            query: {
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
+            },
         });
     }
 
     /**
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      */
     public callWithDefaultOptionalParameters(
-        queryParams?: {
+        data?: {
             /**
              * This is a simple string that is optional with default value
              */
@@ -6657,19 +7016,36 @@ export abstract class DefaultsService {
              */
             parameterModel: ModelWithString;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
-            query: queryParams,
+            query: {
+                'parameterString': data?.parameterString,
+                'parameterNumber': data?.parameterNumber,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterEnum': data?.parameterEnum,
+                'parameterModel': data?.parameterModel,
+            },
         });
     }
 
     /**
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      */
     public callToTestOrderOfParams(
-        queryParams: {
+        data: {
+            /**
+             * This is a string with no default
+             */
+            parameterStringWithNoDefault: string;
             /**
              * This is a optional string with default
              */
@@ -6691,10 +7067,6 @@ export abstract class DefaultsService {
              */
             parameterStringWithEmptyDefault: string;
             /**
-             * This is a string with no default
-             */
-            parameterStringWithNoDefault: string;
-            /**
              * This is a string that can be null with no default
              */
             parameterStringNullableWithNoDefault?: string | null;
@@ -6703,11 +7075,26 @@ export abstract class DefaultsService {
              */
             parameterStringNullableWithDefault: string | null;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
-            query: queryParams,
+            query: {
+                'parameterOptionalStringWithDefault': data?.parameterOptionalStringWithDefault,
+                'parameterOptionalStringWithEmptyDefault': data?.parameterOptionalStringWithEmptyDefault,
+                'parameterOptionalStringWithNoDefault': data?.parameterOptionalStringWithNoDefault,
+                'parameterStringWithDefault': data?.parameterStringWithDefault,
+                'parameterStringWithEmptyDefault': data?.parameterStringWithEmptyDefault,
+                'parameterStringWithNoDefault': data?.parameterStringWithNoDefault,
+                'parameterStringNullableWithNoDefault': data?.parameterStringNullableWithNoDefault,
+                'parameterStringNullableWithDefault': data?.parameterStringNullableWithDefault,
+            },
         });
     }
 
@@ -6729,10 +7116,11 @@ export abstract class DescriptionsService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      */
     public callWithDescriptions(
-        queryParams?: {
+        data?: {
             /**
              * Testing multiline comments in string: First line
              * Second line
@@ -6761,11 +7149,24 @@ export abstract class DescriptionsService {
              */
             parameterWithReservedCharacters?: any;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
-            query: queryParams,
+            query: {
+                'parameterWithBreaks': data?.parameterWithBreaks,
+                'parameterWithBackticks': data?.parameterWithBackticks,
+                'parameterWithSlashes': data?.parameterWithSlashes,
+                'parameterWithExpressionPlaceholders': data?.parameterWithExpressionPlaceholders,
+                'parameterWithQuotes': data?.parameterWithQuotes,
+                'parameterWithReservedCharacters': data?.parameterWithReservedCharacters,
+            },
         });
     }
 
@@ -6787,36 +7188,68 @@ export abstract class DuplicateService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName1(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName1(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName2(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName2(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public duplicateName3(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public duplicateName3(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
         });
@@ -6840,21 +7273,30 @@ export abstract class ErrorService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      * @returns any Custom message: Successful response
      */
     public testErrorCode(
-        queryParams: {
+        data: {
             /**
              * Status code to return
              */
             status: number;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<any, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/error',
-            query: queryParams,
+            query: {
+                'status': data?.status,
+            },
             errors: {
                 500: \`Custom message: Internal Server Error\`,
                 501: \`Custom message: Not Implemented\`,
@@ -6871,8 +7313,6 @@ exports[`v3 should generate: ./test/generated/v3/services/FormDataService.ts 1`]
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString.js';
-
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
 import { ApiError } from '../core/ApiError.js'
@@ -6884,23 +7324,34 @@ export abstract class FormDataService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
-     * @param formData A reusable request body
+     * @param data Request data
+     * @param options Additional operation options
      */
     public postApiFormData(
-        queryParams?: {
+        data?: {
             /**
              * This is a reusable parameter
              */
             parameter?: string;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
-        formData?: ModelWithString,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/formData/',
-            query: queryParams,
-            formData: formData,
+            query: {
+                'parameter': data?.parameter,
+            },
+            formData: ModelWithString,
             mediaType: 'multipart/form-data',
         });
     }
@@ -6923,10 +7374,18 @@ export abstract class HeaderService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns string Successful response
      */
-    public callWithResultFromHeader(): Promise<Result<string, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithResultFromHeader(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<string, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/header',
             responseHeader: 'operation-location',
@@ -6957,15 +7416,22 @@ export abstract class MultipartService {
     protected abstract config: ClientConfig
 
     /**
-     * @param formData
+     * @param data Request data
+     * @param options Additional operation options
      */
     public multipartRequest(
-        formData?: {
+        data?: {
             content?: Blob;
             data?: ModelWithString | null;
         },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/multipart',
             formData: formData,
@@ -6974,16 +7440,24 @@ export abstract class MultipartService {
     }
 
     /**
+     * @param options Additional operation options
      * @returns any OK
      */
-    public multipartResponse(): Promise<Result<{
+    public multipartResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<{
         file?: Blob;
         metadata?: {
             foo?: string;
             bar?: string;
         };
     }, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multipart',
         });
@@ -7007,20 +7481,36 @@ export abstract class MultipleTags1Service {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyA(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyA(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyB(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyB(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -7044,20 +7534,36 @@ export abstract class MultipleTags2Service {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyA(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyA(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyB(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyB(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -7081,10 +7587,18 @@ export abstract class MultipleTags3Service {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public dummyB(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public dummyB(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
         });
@@ -7108,10 +7622,18 @@ export abstract class NoContentService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns void
      */
-    public callWithNoContentResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithNoContentResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
         });
@@ -7124,7 +7646,6 @@ exports[`v3 should generate: ./test/generated/v3/services/ParametersService.ts 1
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString.js';
 import type { Pageable } from '../models/Pageable.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
@@ -7138,27 +7659,36 @@ export abstract class ParametersService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
      * @param parameterHeader This is the parameter that goes into the header
      * @param parameterForm This is the parameter that goes into the form data
      * @param parameterCookie This is the parameter that goes into the cookie
      * @param parameterPath This is the parameter that goes into the path
-     * @param requestBody This is the parameter that goes into the body
+     * @param data Request data
+     * @param options Additional operation options
      */
     public callWithParameters(
-        queryParams: {
-            /**
-             * This is the parameter that goes into the query params
-             */
-            parameterQuery: string | null;
-        } | null,
         parameterHeader: string | null,
         parameterForm: string | null,
         parameterCookie: string | null,
         parameterPath: string | null,
-        requestBody: ModelWithString | null,
+        data: {
+            /**
+             * This is the parameter that goes into the query params
+             */
+            parameterQuery: string | null;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
+        },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
             path: {
@@ -7170,45 +7700,58 @@ export abstract class ParametersService {
             headers: {
                 'parameterHeader': parameterHeader,
             },
-            query: queryParams,
+            query: {
+                'parameterQuery': data?.parameterQuery,
+            },
             formData: {
                 'parameterForm': parameterForm,
             },
-            body: requestBody,
+            body: {
+                'prop': data?.prop,
+            },
             mediaType: 'application/json',
         });
     }
 
     /**
-     * @param queryParams
      * @param parameterHeader This is the parameter that goes into the request header
      * @param parameterForm This is the parameter that goes into the request form data
      * @param parameterCookie This is the parameter that goes into the cookie
-     * @param requestBody This is the parameter that goes into the body
+     * @param data Request data
      * @param parameterPath1 This is the parameter that goes into the path
      * @param parameterPath2 This is the parameter that goes into the path
      * @param parameterPath3 This is the parameter that goes into the path
+     * @param options Additional operation options
      */
     public callWithWeirdParameterNames(
-        queryParams: {
+        parameterHeader: string | null,
+        parameterForm: string | null,
+        parameterCookie: string | null,
+        data: {
+            /**
+             * This is the parameter that goes into the request query params
+             */
+            parameterQuery: string | null;
             /**
              * This is the parameter with a reserved keyword
              */
             default?: string;
             /**
-             * This is the parameter that goes into the request query params
+             * This is a simple string property
              */
-            parameterQuery: string | null;
+            prop?: string;
         },
-        parameterHeader: string | null,
-        parameterForm: string | null,
-        parameterCookie: string | null,
-        requestBody: ModelWithString | null,
         parameterPath1?: string,
         parameterPath2?: string,
         parameterPath3?: string,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
             path: {
@@ -7222,55 +7765,86 @@ export abstract class ParametersService {
             headers: {
                 'parameter.header': parameterHeader,
             },
-            query: queryParams,
+            query: {
+                'default': data?.default,
+                'parameter-query': data?.parameterQuery,
+            },
             formData: {
                 'parameter_form': parameterForm,
             },
-            body: requestBody,
+            body: {
+                'prop': data?.prop,
+            },
             mediaType: 'application/json',
         });
     }
 
     /**
-     * @param requestBody This is a required parameter
-     * @param queryParams
+     * @param data Request data
+     * @param options Additional operation options
      */
     public getCallWithOptionalParam(
-        requestBody: ModelWithString,
-        queryParams?: {
+        data: {
             /**
              * This is an optional parameter
              */
             parameter?: string;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
+        },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
         },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/parameters/',
-            query: queryParams,
-            body: requestBody,
+            query: {
+                'parameter': data?.parameter,
+            },
+            body: {
+                'prop': data?.prop,
+            },
             mediaType: 'application/json',
         });
     }
 
     /**
-     * @param queryParams
-     * @param requestBody This is an optional parameter
+     * @param data Request data
+     * @param options Additional operation options
      */
     public postCallWithOptionalParam(
-        queryParams: {
+        data: {
             /**
              * This is a required parameter
              */
             parameter: Pageable;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
-        requestBody?: ModelWithString,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/',
-            query: queryParams,
-            body: requestBody,
+            query: {
+                'parameter': data?.parameter,
+            },
+            body: {
+                'prop': data?.prop,
+            },
             mediaType: 'application/json',
         });
     }
@@ -7282,8 +7856,6 @@ exports[`v3 should generate: ./test/generated/v3/services/RequestBodyService.ts 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { ModelWithString } from '../models/ModelWithString.js';
-
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
 import { ApiError } from '../core/ApiError.js'
@@ -7295,23 +7867,36 @@ export abstract class RequestBodyService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
-     * @param requestBody A reusable request body
+     * @param data Request data
+     * @param options Additional operation options
      */
     public postApiRequestBody(
-        queryParams?: {
+        data?: {
             /**
              * This is a reusable parameter
              */
             parameter?: string;
+            /**
+             * This is a simple string property
+             */
+            prop?: string;
         },
-        requestBody?: ModelWithString,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/requestBody/',
-            query: queryParams,
-            body: requestBody,
+            query: {
+                'parameter': data?.parameter,
+            },
+            body: {
+                'prop': data?.prop,
+            },
             mediaType: 'application/json',
         });
     }
@@ -7338,20 +7923,36 @@ export abstract class ResponseService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      * @returns ModelWithString
      */
-    public callWithResponse(): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/response',
         });
     }
 
     /**
+     * @param options Additional operation options
      * @returns ModelWithString Message for default response
      */
-    public callWithDuplicateResponses(): Promise<Result<ModelWithString, ApiError>> {
-        return __request(this.client, this.config, {
+    public callWithDuplicateResponses(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<ModelWithString, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/response',
             errors: {
@@ -7363,17 +7964,25 @@ export abstract class ResponseService {
     }
 
     /**
+     * @param options Additional operation options
      * @returns any Message for 200 response
      * @returns ModelWithString Message for default response
      * @returns ModelThatExtends Message for 201 response
      * @returns ModelThatExtendsExtends Message for 202 response
      */
-    public callWithResponses(): Promise<Result<{
+    public callWithResponses(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<{
         readonly '@namespaceString'?: string;
         readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
     } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
             errors: {
@@ -7402,63 +8011,119 @@ export abstract class SimpleService {
     protected abstract config: ClientConfig
 
     /**
+     * @param options Additional operation options
      */
-    public getCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public getCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public putCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public putCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public postCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public postCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public deleteCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public deleteCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public optionsCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public optionsCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public headCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public headCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
         });
     }
 
     /**
+     * @param options Additional operation options
      */
-    public patchCallWithoutParametersAndResponse(): Promise<Result<void, ApiError>> {
-        return __request(this.client, this.config, {
+    public patchCallWithoutParametersAndResponse(
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
         });
@@ -7484,15 +8149,28 @@ export abstract class TypesService {
     protected abstract config: ClientConfig
 
     /**
-     * @param queryParams
+     * @param data Request data
      * @param id This is a number parameter
+     * @param options Additional operation options
      * @returns number Response is a simple number
      * @returns string Response is a simple string
      * @returns boolean Response is a simple boolean
      * @returns any Response is a simple object
      */
     public types(
-        queryParams: {
+        data: {
+            /**
+             * This is an array parameter
+             */
+            parameterArray: Array<string> | null;
+            /**
+             * This is a dictionary parameter
+             */
+            parameterDictionary: any;
+            /**
+             * This is an enum parameter
+             */
+            parameterEnum: 'Success' | 'Warning' | 'Error' | null;
             /**
              * This is a number parameter
              */
@@ -7509,28 +8187,30 @@ export abstract class TypesService {
              * This is an object parameter
              */
             parameterObject: any;
-            /**
-             * This is an array parameter
-             */
-            parameterArray: Array<string> | null;
-            /**
-             * This is a dictionary parameter
-             */
-            parameterDictionary: any;
-            /**
-             * This is an enum parameter
-             */
-            parameterEnum: 'Success' | 'Warning' | 'Error' | null;
         },
         id?: integer,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<number | string | boolean | any, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/types',
             path: {
                 'id': id,
             },
-            query: queryParams,
+            query: {
+                'parameterNumber': data?.parameterNumber,
+                'parameterString': data?.parameterString,
+                'parameterBoolean': data?.parameterBoolean,
+                'parameterObject': data?.parameterObject,
+                'parameterArray': data?.parameterArray,
+                'parameterDictionary': data?.parameterDictionary,
+                'parameterEnum': data?.parameterEnum,
+            },
         });
     }
 
@@ -7553,12 +8233,19 @@ export abstract class UploadService {
 
     /**
      * @param file Supply a file reference for upload
+     * @param options Additional operation options
      * @returns boolean
      */
     public uploadFile(
         file: Blob,
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
     ): Promise<Result<boolean, ApiError>> {
-        return __request(this.client, this.config, {
+        return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/upload',
             formData: {

@@ -1,3 +1,4 @@
+import { Model } from '../../../client/interfaces/Model';
 import type { Operation } from '../../../client/interfaces/Operation';
 import { OperationParameter } from '../../../client/interfaces/OperationParameter';
 import type { OperationParameters } from '../../../client/interfaces/OperationParameters';
@@ -104,6 +105,48 @@ export const getOperation = (
     }
 
     operation.parameters = operation.parameters.sort(sortByRequired);
+    // Add an options object parameter for options on the methods themselves. Currently allow an account
+    // override that can use `Lune-Account` header to override target account on a per endpoint basis.
+    operation.parameters.push({
+        in: 'query',
+        export: 'interface',
+        prop: 'options',
+        name: 'options',
+        type: 'any',
+        base: 'any',
+        template: null,
+        link: null,
+        description: 'Additional operation options',
+        default: undefined,
+        isDefinition: false,
+        isReadOnly: false,
+        isRequired: false,
+        isNullable: false,
+        imports: [],
+        enum: [],
+        enums: [],
+        properties: [
+            {
+                export: 'generic',
+                name: 'accountId',
+                type: 'string',
+                base: 'string',
+                template: null,
+                link: null,
+                description: 'Account Id to be used to perform the API call',
+                default: undefined,
+                isDefinition: false,
+                isReadOnly: false,
+                isRequired: false,
+                isNullable: false,
+                imports: [],
+                enum: [],
+                enums: [],
+                properties: [],
+            } as Model,
+        ],
+        mediaType: null,
+    });
 
     return operation;
 };

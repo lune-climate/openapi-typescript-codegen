@@ -84,7 +84,7 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 		return __request(OpenAPI, this.http, {
 	{{else}}
 	public {{{name}}}({{>parameters}}): Promise<Result<{{>result}}, ApiError>> {
-		return __request(this.client, this.config, {
+		return __request(this.client, this.config, options || {}, {
 	{{/equals}}
 	{{/if}}
 			method: '{{{method}}}',
@@ -111,7 +111,11 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			},
 			{{/if}}
 			{{#if parametersQuery}}
-			query: queryParams,
+			query: {
+				{{#each parametersQuery}}
+				'{{{prop}}}': data?.{{{camelCase name}}},
+				{{/each}}
+			},
 			{{/if}}
 			{{#if parametersForm}}
 			formData: {
@@ -125,7 +129,17 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			formData: {{{parametersBody.name}}},
 			{{/equals}}
 			{{#equals parametersBody.in 'body'}}
-			body: {{{parametersBody.name}}},
+			{{#if parametersBody.properties}}
+			body: {
+				{{#each parametersBody.properties}}
+				'{{{name}}}': data?.{{{camelCase name}}},
+				{{/each}}
+			},
+			{{else}}
+			{{#if parametersBody.export}}
+			body: data?.{{{camelCase parametersBody.name}}},
+			{{/if}}
+			{{/if}}
 			{{/equals}}
 			{{#if parametersBody.mediaType}}
 			mediaType: '{{{parametersBody.mediaType}}}',
