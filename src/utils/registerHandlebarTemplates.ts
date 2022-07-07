@@ -66,6 +66,7 @@ import partialHeader from '../templates/partials/header.hbs';
 import partialIsNullable from '../templates/partials/isNullable.hbs';
 import partialIsReadOnly from '../templates/partials/isReadOnly.hbs';
 import partialIsRequired from '../templates/partials/isRequired.hbs';
+import partialIsRequiredStrict from '../templates/partials/isRequiredStrict.hbs';
 import partialParameters from '../templates/partials/parameters.hbs';
 import partialResult from '../templates/partials/result.hbs';
 import partialSchema from '../templates/partials/schema.hbs';
@@ -149,6 +150,7 @@ export const registerHandlebarTemplates = (root: {
     Handlebars.registerPartial('isNullable', Handlebars.template(partialIsNullable));
     Handlebars.registerPartial('isReadOnly', Handlebars.template(partialIsReadOnly));
     Handlebars.registerPartial('isRequired', Handlebars.template(partialIsRequired));
+    Handlebars.registerPartial('isRequiredStrict', Handlebars.template(partialIsRequiredStrict));
     Handlebars.registerPartial('parameters', Handlebars.template(partialParameters));
     Handlebars.registerPartial('result', Handlebars.template(partialResult));
     Handlebars.registerPartial('schema', Handlebars.template(partialSchema));
