@@ -2612,23 +2612,23 @@ export abstract class DefaultsService {
             /**
              * This is a simple string that is optional with default value
              */
-            parameterString: string;
+            parameterString?: string;
             /**
              * This is a simple number that is optional with default value
              */
-            parameterNumber: number;
+            parameterNumber?: number;
             /**
              * This is a simple boolean that is optional with default value
              */
-            parameterBoolean: boolean;
+            parameterBoolean?: boolean;
             /**
              * This is a simple enum that is optional with default value
              */
-            parameterEnum: 'Success' | 'Warning' | 'Error';
+            parameterEnum?: 'Success' | 'Warning' | 'Error';
             /**
              * This is a simple model that is optional with default value
              */
-            parameterModel: ModelWithString;
+            parameterModel?: ModelWithString;
         },
         options?: {
             /**
@@ -2659,11 +2659,11 @@ export abstract class DefaultsService {
             /**
              * This is a optional string with default
              */
-            parameterOptionalStringWithDefault: string;
+            parameterOptionalStringWithDefault?: string;
             /**
              * This is a optional string with empty default
              */
-            parameterOptionalStringWithEmptyDefault: string;
+            parameterOptionalStringWithEmptyDefault?: string;
             /**
              * This is a optional string with no default
              */
@@ -2687,7 +2687,7 @@ export abstract class DefaultsService {
             /**
              * This is a string that can be null with default
              */
-            parameterStringNullableWithDefault: string | null;
+            parameterStringNullableWithDefault?: string | null;
         },
         options?: {
             /**
@@ -6903,23 +6903,23 @@ export abstract class DefaultsService {
             /**
              * This is a simple string with default value
              */
-            parameterString: string | null;
+            parameterString?: string | null;
             /**
              * This is a simple number with default value
              */
-            parameterNumber: number | null;
+            parameterNumber?: number | null;
             /**
              * This is a simple boolean with default value
              */
-            parameterBoolean: boolean | null;
+            parameterBoolean?: boolean | null;
             /**
              * This is a simple enum with default value
              */
-            parameterEnum: 'Success' | 'Warning' | 'Error';
+            parameterEnum?: 'Success' | 'Warning' | 'Error';
             /**
              * This is a simple model with default value
              */
-            parameterModel: ModelWithString | null;
+            parameterModel?: ModelWithString | null;
         },
         options?: {
             /**
@@ -6950,23 +6950,23 @@ export abstract class DefaultsService {
             /**
              * This is a simple string that is optional with default value
              */
-            parameterString: string;
+            parameterString?: string;
             /**
              * This is a simple number that is optional with default value
              */
-            parameterNumber: number;
+            parameterNumber?: number;
             /**
              * This is a simple boolean that is optional with default value
              */
-            parameterBoolean: boolean;
+            parameterBoolean?: boolean;
             /**
              * This is a simple enum that is optional with default value
              */
-            parameterEnum: 'Success' | 'Warning' | 'Error';
+            parameterEnum?: 'Success' | 'Warning' | 'Error';
             /**
              * This is a simple model that is optional with default value
              */
-            parameterModel: ModelWithString;
+            parameterModel?: ModelWithString;
         },
         options?: {
             /**
@@ -7001,11 +7001,11 @@ export abstract class DefaultsService {
             /**
              * This is a optional string with default
              */
-            parameterOptionalStringWithDefault: string;
+            parameterOptionalStringWithDefault?: string;
             /**
              * This is a optional string with empty default
              */
-            parameterOptionalStringWithEmptyDefault: string;
+            parameterOptionalStringWithEmptyDefault?: string;
             /**
              * This is a optional string with no default
              */
@@ -7025,7 +7025,7 @@ export abstract class DefaultsService {
             /**
              * This is a string that can be null with default
              */
-            parameterStringNullableWithDefault: string | null;
+            parameterStringNullableWithDefault?: string | null;
         },
         options?: {
             /**

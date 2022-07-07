@@ -7,9 +7,9 @@
  */
 {{/if}}
 {{#if ../parent}}
-{{>isReadOnly}}{{{camelCase name}}}{{>isRequired}}: {{>type parent=../parent}};
+{{>isReadOnly}}{{{camelCase name}}}{{>isRequiredStrict}}: {{>type parent=../parent}};
 {{else}}
-{{>isReadOnly}}{{{camelCase name}}}{{>isRequired}}: {{>type}};
+{{>isReadOnly}}{{{camelCase name}}}{{>isRequiredStrict}}: {{>type}};
 {{/if}}
 {{/each}}
 }{{>isNullable}}
