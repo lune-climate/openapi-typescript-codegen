@@ -53,6 +53,7 @@ export const getOperationRequestBody = (openApi: OpenApi, body: OpenApiRequestBo
                 const model = getModel(openApi, reference, true, definitionType.base);
 
                 requestBody.name = model.name;
+                requestBody.default = model.default;
                 requestBody.export = model.export;
                 requestBody.type = model.type;
                 requestBody.base = model.base;
@@ -82,6 +83,7 @@ export const getOperationRequestBody = (openApi: OpenApi, body: OpenApiRequestBo
                 return requestBody;
             } else {
                 const model = getModel(openApi, content.schema);
+                requestBody.default = model.default;
                 requestBody.export = model.export;
                 requestBody.type = model.type;
                 requestBody.base = model.base;
