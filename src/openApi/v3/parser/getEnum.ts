@@ -7,7 +7,6 @@ export const getEnum = (values?: (string | number)[]): Enum[] => {
             .filter((value, index, arr) => {
                 return arr.indexOf(value) === index;
             })
-            .filter(isDefined)
             .map(value => {
                 if (typeof value === 'number') {
                     return {
@@ -22,7 +21,7 @@ export const getEnum = (values?: (string | number)[]): Enum[] => {
                         .replace(/\W+/g, '_')
                         .replace(/^(\d+)/g, '_$1')
                         .replace(/([a-z])([A-Z]+)/g, '$1_$2')
-                        .toUpperCase(),
+                        .toUpperCase() || '__EMPTY__',
                     value: `'${value.replace(/'/g, "\\'")}'`,
                     type: 'string',
                     description: null,
