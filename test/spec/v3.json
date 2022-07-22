@@ -1017,7 +1017,8 @@
                             "enum": [
                                 "Success",
                                 "Warning",
-                                "Error"
+                                "Error",
+                                ""
                             ],
                             "nullable": true
                         }
