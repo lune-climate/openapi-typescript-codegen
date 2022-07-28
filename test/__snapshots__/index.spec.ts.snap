@@ -5167,7 +5167,7 @@ export namespace ModelWithEmptyStringEnum {
     export enum test {
         ENUM1 = 'Enum1',
         ENUM2 = 'Enum2',
-        '' = '',
+        __EMPTY__ = '',
     }
 
 

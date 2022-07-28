@@ -26,11 +26,7 @@ export namespace {{{name}}} {
 	{{/if}}
 	export enum {{{name}}} {
 		{{#each enum}}
-		{{#equals name ''}}
-		'' = {{{value}}},
-		{{else}}
 		{{{name}}} = {{{value}}},
-		{{/equals}}
 		{{/each}}
 	}
 
