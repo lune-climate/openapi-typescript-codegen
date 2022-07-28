@@ -1,5 +1,4 @@
 import type { Enum } from '../../../client/interfaces/Enum';
-import { isDefined } from '../../../utils/isDefined';
 
 export const getEnum = (values?: (string | number)[]): Enum[] => {
     if (Array.isArray(values)) {
@@ -7,7 +6,6 @@ export const getEnum = (values?: (string | number)[]): Enum[] => {
             .filter((value, index, arr) => {
                 return arr.indexOf(value) === index;
             })
-            .filter(isDefined)
             .map(value => {
                 if (typeof value === 'number') {
                     return {
@@ -18,11 +16,13 @@ export const getEnum = (values?: (string | number)[]): Enum[] => {
                     };
                 }
                 return {
-                    name: String(value)
-                        .replace(/\W+/g, '_')
-                        .replace(/^(\d+)/g, '_$1')
-                        .replace(/([a-z])([A-Z]+)/g, '$1_$2')
-                        .toUpperCase(),
+                    name: value
+                        ? String(value)
+                              .replace(/\W+/g, '_')
+                              .replace(/^(\d+)/g, '_$1')
+                              .replace(/([a-z])([A-Z]+)/g, '$1_$2')
+                              .toUpperCase()
+                        : '__EMPTY__',
                     value: `'${value.replace(/'/g, "\\'")}'`,
                     type: 'string',
                     description: null,

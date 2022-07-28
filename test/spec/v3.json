@@ -1782,6 +1782,20 @@
                     }
                 }
             },
+            "ModelWithEmptyStringEnum": {
+                "description": "This is a model with one enum containing an empty string",
+                "type": "object",
+                "properties": {
+                    "test": {
+                        "description": "This is a simple enum containing an empty string",
+                        "enum": [
+                            "Enum1",
+                            "Enum2",
+                            ""
+                        ]
+                    }
+                }
+            },
             "ModelWithEnumFromDescription": {
                 "description": "This is a model with one enum",
                 "type": "object",

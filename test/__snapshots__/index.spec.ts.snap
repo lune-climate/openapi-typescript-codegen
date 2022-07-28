@@ -4152,6 +4152,7 @@ export type { ModelWithCircularReference } from './models/ModelWithCircularRefer
 export type { ModelWithDictionary } from './models/ModelWithDictionary';
 export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports';
 export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties';
+export { ModelWithEmptyStringEnum } from './models/ModelWithEmptyStringEnum';
 export { ModelWithEnum } from './models/ModelWithEnum';
 export { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription';
 export type { ModelWithInteger } from './models/ModelWithInteger';
@@ -4216,6 +4217,7 @@ export { $ModelWithCircularReference } from './schemas/$ModelWithCircularReferen
 export { $ModelWithDictionary } from './schemas/$ModelWithDictionary';
 export { $ModelWithDuplicateImports } from './schemas/$ModelWithDuplicateImports';
 export { $ModelWithDuplicateProperties } from './schemas/$ModelWithDuplicateProperties';
+export { $ModelWithEmptyStringEnum } from './schemas/$ModelWithEmptyStringEnum';
 export { $ModelWithEnum } from './schemas/$ModelWithEnum';
 export { $ModelWithEnumFromDescription } from './schemas/$ModelWithEnumFromDescription';
 export { $ModelWithInteger } from './schemas/$ModelWithInteger';
@@ -4417,6 +4419,7 @@ export type { ModelWithCircularReference } from './models/ModelWithCircularRefer
 export type { ModelWithDictionary } from './models/ModelWithDictionary.js';
 export type { ModelWithDuplicateImports } from './models/ModelWithDuplicateImports.js';
 export type { ModelWithDuplicateProperties } from './models/ModelWithDuplicateProperties.js';
+export { ModelWithEmptyStringEnum } from './models/ModelWithEmptyStringEnum.js';
 export { ModelWithEnum } from './models/ModelWithEnum.js';
 export { ModelWithEnumFromDescription } from './models/ModelWithEnumFromDescription.js';
 export type { ModelWithInteger } from './models/ModelWithInteger.js';
@@ -5138,6 +5141,37 @@ import type { ModelWithString } from './ModelWithString';
 export type ModelWithDuplicateProperties = {
     prop?: ModelWithString;
 };
+"
+`;
+
+exports[`v3 should generate: ./test/generated/v3/models/ModelWithEmptyStringEnum.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+/**
+ * This is a model with one enum containing an empty string
+ */
+export type ModelWithEmptyStringEnum = {
+    /**
+     * This is a simple enum containing an empty string
+     */
+    test?: ModelWithEmptyStringEnum.test;
+};
+
+export namespace ModelWithEmptyStringEnum {
+
+    /**
+     * This is a simple enum containing an empty string
+     */
+    export enum test {
+        ENUM1 = 'Enum1',
+        ENUM2 = 'Enum2',
+        __EMPTY__ = '',
+    }
+
+
+}
 "
 `;
 
@@ -6282,6 +6316,20 @@ export const $ModelWithDuplicateProperties = {
     properties: {
         prop: {
             type: 'ModelWithString',
+        },
+    },
+} as const;"
+`;
+
+exports[`v3 should generate: ./test/generated/v3/schemas/$ModelWithEmptyStringEnum.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+export const $ModelWithEmptyStringEnum = {
+    description: \`This is a model with one enum containing an empty string\`,
+    properties: {
+        test: {
+            type: 'Enum',
         },
     },
 } as const;"
