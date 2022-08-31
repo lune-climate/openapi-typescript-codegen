@@ -4159,6 +4159,7 @@ export type { ModelWithInteger } from './models/ModelWithInteger';
 export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums';
 export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties';
 export type { ModelWithNullableString } from './models/ModelWithNullableString';
+export { ModelWithNullAsEnum } from './models/ModelWithNullAsEnum';
 export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties';
 export type { ModelWithPattern } from './models/ModelWithPattern';
 export type { ModelWithProperties } from './models/ModelWithProperties';
@@ -4224,6 +4225,7 @@ export { $ModelWithInteger } from './schemas/$ModelWithInteger';
 export { $ModelWithNestedEnums } from './schemas/$ModelWithNestedEnums';
 export { $ModelWithNestedProperties } from './schemas/$ModelWithNestedProperties';
 export { $ModelWithNullableString } from './schemas/$ModelWithNullableString';
+export { $ModelWithNullAsEnum } from './schemas/$ModelWithNullAsEnum';
 export { $ModelWithOrderedProperties } from './schemas/$ModelWithOrderedProperties';
 export { $ModelWithPattern } from './schemas/$ModelWithPattern';
 export { $ModelWithProperties } from './schemas/$ModelWithProperties';
@@ -4426,6 +4428,7 @@ export type { ModelWithInteger } from './models/ModelWithInteger.js';
 export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
 export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
 export type { ModelWithNullableString } from './models/ModelWithNullableString.js';
+export { ModelWithNullAsEnum } from './models/ModelWithNullAsEnum.js';
 export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties.js';
 export type { ModelWithPattern } from './models/ModelWithPattern.js';
 export type { ModelWithProperties } from './models/ModelWithProperties.js';
@@ -5306,6 +5309,36 @@ export type ModelWithNestedProperties = {
         } | null;
     } | null;
 };
+"
+`;
+
+exports[`v3 should generate: ./test/generated/v3/models/ModelWithNullAsEnum.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+/**
+ * This is a model with one enum being the null value. We have this as a hack in place for our middleware
+ */
+export type ModelWithNullAsEnum = {
+    /**
+     * This is a simple enum containing a null as value
+     */
+    test?: ModelWithNullAsEnum.test;
+};
+
+export namespace ModelWithNullAsEnum {
+
+    /**
+     * This is a simple enum containing a null as value
+     */
+    export enum test {
+        ENUM1 = 'Enum1',
+        ENUM2 = 'Enum2',
+    }
+
+
+}
 "
 `;
 
@@ -6446,6 +6479,20 @@ export const $ModelWithNestedProperties = {
             isReadOnly: true,
             isRequired: true,
             isNullable: true,
+        },
+    },
+} as const;"
+`;
+
+exports[`v3 should generate: ./test/generated/v3/schemas/$ModelWithNullAsEnum.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+export const $ModelWithNullAsEnum = {
+    description: \`This is a model with one enum being the null value. We have this as a hack in place for our middleware\`,
+    properties: {
+        test: {
+            type: 'Enum',
         },
     },
 } as const;"
