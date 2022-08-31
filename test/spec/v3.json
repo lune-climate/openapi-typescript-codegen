@@ -1796,6 +1796,20 @@
                     }
                 }
             },
+            "ModelWithNullAsEnum": {
+                "description": "This is a model with one enum being the null value. We have this as a hack in place for our middleware",
+                "type": "object",
+                "properties": {
+                    "test": {
+                        "description": "This is a simple enum containing a null as value",
+                        "enum": [
+                            "Enum1",
+                            "Enum2",
+                            null
+                        ]
+                    }
+                }
+            },
             "ModelWithEnumFromDescription": {
                 "description": "This is a model with one enum",
                 "type": "object",
