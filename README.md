@@ -4,9 +4,17 @@ This repo is a friendly fork of the excellent https://github.com/ferdikoomen/ope
 generator to better fit our exact use case. Some of these changes we'll try to get merged into the upstream, but some are more of a specific
 use case for us, hence the need for a fork. This code is used by https://github.com/lune-climate/lune-ts to generate the base models/services.
 
-Notable changes compared to the original package:
+# Release process
 
--   WIP
+Changes made to the library will only be picked up by `lune-ts` once a new version is released to npm.
+The release process consists of:
+
+-   Manually up the version as desired (major, minor, patch) on `package-lock.json` and `package.json`.
+-   Create a PR with the changes.
+-   Get the PR approved and merged as usual.
+-   After the changes are in master, create a new release with the corresponding tag.
+
+After the release is created, the library will be automatically released.
 
 # OpenAPI Typescript Codegen
 
