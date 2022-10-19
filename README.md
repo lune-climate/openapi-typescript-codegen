@@ -12,9 +12,9 @@ The release process consists of:
 -   Manually up the version as desired (major, minor, patch) on `package-lock.json` and `package.json`.
 -   Create a PR with the changes.
 -   Get the PR approved and merged as usual.
--   After the changes are in master, create a new release with the corresponding tag.
+-   After the changes are in master, create a new release on GH with the corresponding tag.
 
-After the release is created, the library will be automatically released.
+After the GH release is created, the library will be automatically released to npm.
 
 # OpenAPI Typescript Codegen
 
