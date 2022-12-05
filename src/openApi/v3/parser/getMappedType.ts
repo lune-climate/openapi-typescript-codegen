@@ -31,6 +31,7 @@ const FORMAT_MAPPINGS = new Map<string, MappedType>([
     ['float', { type: 'number', isPrimitive: true }],
     ['date', { type: 'string', isPrimitive: true }],
     ['date-time', { type: 'string', isPrimitive: true }],
+    ['uuid', { type: 'string', isPrimitive: true }],
 ]);
 
 /**
