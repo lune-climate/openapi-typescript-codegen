@@ -16,6 +16,24 @@
                 "operationId": "ServiceWithEmptyTag"
             }
         },
+        "/api/v{api-version}/one-of": {
+            "tags": ["OneOf"],
+            "post": {
+                "operationId": "ServiceWithOneOffRoot",
+                "requestBody": {
+                    "description": "Testing one-of request body at the root level",
+                    "required": true,
+                    "nullable": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModelWithOneOfRoot"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v{api-version}/simple": {
             "get": {
                 "tags": [
@@ -1913,6 +1931,24 @@
                         "$ref": "#/components/schemas/ModelWithCircularReference"
                     }
                 }
+            },
+            "ModelWithOneOfRoot": {
+                "description": "This is a model that represents a 'one of' relationship",
+                "type": "object",
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ModelWithString"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ModelWithEnum"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ModelWithArray"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ModelWithDictionary"
+                    }
+                ]
             },
             "CompositionWithOneOf": {
                 "description": "This is a model with one property with a 'one of' relationship",
