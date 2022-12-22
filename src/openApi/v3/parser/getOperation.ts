@@ -105,10 +105,14 @@ export const getOperation = (
         operation.imports.push(...requestBody.imports);
         operation.parametersBody = requestBody;
         dataParameter.properties.push(...requestBody.properties);
-        // if the requestBody is an array, there are no properties to showcase. We instead want to
-        // use the whole model as the parameter
         if (requestBody.export === 'array') {
+            // if the requestBody is an array, there are no properties to showcase. We instead want to
+            // use the whole model as the parameter
             dataParameter.properties.push(requestBody);
+        } else if (requestBody.export === 'one-of') {
+            // if the requestBody is a one-of, the properties cannot be used since they have no names.
+            // Instead we want to use the whole model as the parameter.
+            dataParameter.properties = [requestBody];
         }
         dataParameter.isRequired = requestBody.isRequired ? true : dataParameter.isRequired;
     }

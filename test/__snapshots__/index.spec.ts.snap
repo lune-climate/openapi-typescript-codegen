@@ -4167,6 +4167,7 @@ export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums';
 export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties';
 export type { ModelWithNullableString } from './models/ModelWithNullableString';
 export { ModelWithNullAsEnum } from './models/ModelWithNullAsEnum';
+export type { ModelWithOneOfRoot } from './models/ModelWithOneOfRoot';
 export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties';
 export type { ModelWithPattern } from './models/ModelWithPattern';
 export type { ModelWithProperties } from './models/ModelWithProperties';
@@ -4233,6 +4234,7 @@ export { $ModelWithNestedEnums } from './schemas/$ModelWithNestedEnums';
 export { $ModelWithNestedProperties } from './schemas/$ModelWithNestedProperties';
 export { $ModelWithNullableString } from './schemas/$ModelWithNullableString';
 export { $ModelWithNullAsEnum } from './schemas/$ModelWithNullAsEnum';
+export { $ModelWithOneOfRoot } from './schemas/$ModelWithOneOfRoot';
 export { $ModelWithOrderedProperties } from './schemas/$ModelWithOrderedProperties';
 export { $ModelWithPattern } from './schemas/$ModelWithPattern';
 export { $ModelWithProperties } from './schemas/$ModelWithProperties';
@@ -4443,6 +4445,7 @@ export type { ModelWithNestedEnums } from './models/ModelWithNestedEnums.js';
 export type { ModelWithNestedProperties } from './models/ModelWithNestedProperties.js';
 export type { ModelWithNullableString } from './models/ModelWithNullableString.js';
 export { ModelWithNullAsEnum } from './models/ModelWithNullAsEnum.js';
+export type { ModelWithOneOfRoot } from './models/ModelWithOneOfRoot.js';
 export type { ModelWithOrderedProperties } from './models/ModelWithOrderedProperties.js';
 export type { ModelWithPattern } from './models/ModelWithPattern.js';
 export type { ModelWithProperties } from './models/ModelWithProperties.js';
@@ -5382,6 +5385,23 @@ export type ModelWithNullableString = {
      */
     nullableRequiredProp2: string | null;
 };
+"
+`;
+
+exports[`v3 should generate: ./test/generated/v3/models/ModelWithOneOfRoot.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import type { ModelWithArray } from './ModelWithArray';
+import type { ModelWithDictionary } from './ModelWithDictionary';
+import type { ModelWithEnum } from './ModelWithEnum';
+import type { ModelWithString } from './ModelWithString';
+
+/**
+ * This is a model that represents a 'one of' relationship
+ */
+export type ModelWithOneOfRoot = (ModelWithString | ModelWithEnum | ModelWithArray | ModelWithDictionary);
 "
 `;
 
@@ -6545,6 +6565,25 @@ export const $ModelWithNullableString = {
 } as const;"
 `;
 
+exports[`v3 should generate: ./test/generated/v3/schemas/$ModelWithOneOfRoot.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+export const $ModelWithOneOfRoot = {
+    type: 'one-of',
+    description: \`This is a model that represents a 'one of' relationship\`,
+    contains: [{
+        type: 'ModelWithString',
+    }, {
+        type: 'ModelWithEnum',
+    }, {
+        type: 'ModelWithArray',
+    }, {
+        type: 'ModelWithDictionary',
+    }],
+} as const;"
+`;
+
 exports[`v3 should generate: ./test/generated/v3/schemas/$ModelWithOrderedProperties.ts 1`] = `
 "/* istanbul ignore file */
 /* tslint:disable */
@@ -6957,6 +6996,11 @@ exports[`v3 should generate: ./test/generated/v3/services/DefaultService.ts 1`] 
 "/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { ModelWithArray } from '../models/ModelWithArray.js';
+import type { ModelWithDictionary } from '../models/ModelWithDictionary.js';
+import type { ModelWithEnum } from '../models/ModelWithEnum.js';
+import type { ModelWithString } from '../models/ModelWithString.js';
+
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
 import { ApiError } from '../core/ApiError.js'
@@ -6981,6 +7025,32 @@ export abstract class DefaultService {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
+        });
+    }
+
+    /**
+     * @param data Request data
+     * @param options Additional operation options
+     */
+    public serviceWithOneOffRoot(
+        data: {
+            /**
+             * Testing one-of request body at the root level
+             */
+            modelWithOneOfRoot: (ModelWithString | ModelWithEnum | ModelWithArray | ModelWithDictionary);
+        },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
+            method: 'POST',
+            url: '/api/v{api-version}/one-of',
+            body: data?.modelWithOneOfRoot,
+            mediaType: 'application/json',
         });
     }
 
