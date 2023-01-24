@@ -126,7 +126,15 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			{{/if}}
 			{{#if parametersBody}}
 			{{#equals parametersBody.in 'formData'}}
+			{{#if parametersBody.properties}}
+			formData: {
+				{{#each parametersBody.properties}}
+				'{{{name}}}': data?.{{{camelCase name}}},
+				{{/each}}
+			},
+			{{else}}
 			formData: {{{parametersBody.name}}},
+			{{/if}}
 			{{/equals}}
 			{{#equals parametersBody.in 'body'}}
 			{{#equals parametersBody.export 'one-of'}}
