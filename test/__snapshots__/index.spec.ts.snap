@@ -7482,7 +7482,9 @@ export abstract class FormDataService {
             query: {
                 'parameter': data?.parameter,
             },
-            formData: ModelWithString,
+            formData: {
+                'prop': data?.prop,
+            },
             mediaType: 'multipart/form-data',
         });
     }
@@ -7565,7 +7567,10 @@ export abstract class MultipartService {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/multipart',
-            formData: formData,
+            formData: {
+                'content': data?.content,
+                'data': data?.data,
+            },
             mediaType: 'multipart/form-data',
         });
     }
