@@ -4153,6 +4153,7 @@ export type { ModelCircle } from './models/ModelCircle';
 export type { ModelSquare } from './models/ModelSquare';
 export type { ModelThatExtends } from './models/ModelThatExtends';
 export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends';
+export type { ModelWithAllOfRoot } from './models/ModelWithAllOfRoot';
 export type { ModelWithArray } from './models/ModelWithArray';
 export type { ModelWithBoolean } from './models/ModelWithBoolean';
 export type { ModelWithCircularReference } from './models/ModelWithCircularReference';
@@ -4220,6 +4221,7 @@ export { $ModelCircle } from './schemas/$ModelCircle';
 export { $ModelSquare } from './schemas/$ModelSquare';
 export { $ModelThatExtends } from './schemas/$ModelThatExtends';
 export { $ModelThatExtendsExtends } from './schemas/$ModelThatExtendsExtends';
+export { $ModelWithAllOfRoot } from './schemas/$ModelWithAllOfRoot';
 export { $ModelWithArray } from './schemas/$ModelWithArray';
 export { $ModelWithBoolean } from './schemas/$ModelWithBoolean';
 export { $ModelWithCircularReference } from './schemas/$ModelWithCircularReference';
@@ -4431,6 +4433,7 @@ export type { ModelCircle } from './models/ModelCircle.js';
 export type { ModelSquare } from './models/ModelSquare.js';
 export type { ModelThatExtends } from './models/ModelThatExtends.js';
 export type { ModelThatExtendsExtends } from './models/ModelThatExtendsExtends.js';
+export type { ModelWithAllOfRoot } from './models/ModelWithAllOfRoot.js';
 export type { ModelWithArray } from './models/ModelWithArray.js';
 export type { ModelWithBoolean } from './models/ModelWithBoolean.js';
 export type { ModelWithCircularReference } from './models/ModelWithCircularReference.js';
@@ -5064,6 +5067,23 @@ export type ModelThatExtendsExtends = (ModelWithString & ModelThatExtends & {
     propExtendsC?: string;
     propExtendsD?: ModelWithString;
 });
+"
+`;
+
+exports[`v3 should generate: ./test/generated/v3/models/ModelWithAllOfRoot.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import type { ModelWithArray } from './ModelWithArray';
+import type { ModelWithDictionary } from './ModelWithDictionary';
+import type { ModelWithEnum } from './ModelWithEnum';
+import type { ModelWithString } from './ModelWithString';
+
+/**
+ * This is a model that represents a 'all of' relationship
+ */
+export type ModelWithAllOfRoot = (ModelWithString & ModelWithEnum & ModelWithArray & ModelWithDictionary);
 "
 `;
 
@@ -6279,6 +6299,25 @@ export const $ModelThatExtendsExtends = {
 } as const;"
 `;
 
+exports[`v3 should generate: ./test/generated/v3/schemas/$ModelWithAllOfRoot.ts 1`] = `
+"/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+export const $ModelWithAllOfRoot = {
+    type: 'all-of',
+    description: \`This is a model that represents a 'all of' relationship\`,
+    contains: [{
+        type: 'ModelWithString',
+    }, {
+        type: 'ModelWithEnum',
+    }, {
+        type: 'ModelWithArray',
+    }, {
+        type: 'ModelWithDictionary',
+    }],
+} as const;"
+`;
+
 exports[`v3 should generate: ./test/generated/v3/schemas/$ModelWithArray.ts 1`] = `
 "/* istanbul ignore file */
 /* tslint:disable */
@@ -7050,6 +7089,32 @@ export abstract class DefaultService {
             method: 'POST',
             url: '/api/v{api-version}/one-of',
             body: data?.modelWithOneOfRoot,
+            mediaType: 'application/json',
+        });
+    }
+
+    /**
+     * @param data Request data
+     * @param options Additional operation options
+     */
+    public serviceWithAllOffRoot(
+        data: {
+            /**
+             * Testing all-of request body at the root level
+             */
+            modelWithAllOfRoot: (ModelWithString & ModelWithEnum & ModelWithArray & ModelWithDictionary);
+        },
+        options?: {
+            /**
+             * Account Id to be used to perform the API call
+             */
+            accountId?: string;
+        },
+    ): Promise<Result<void, ApiError>> {
+        return __request(this.client, this.config, options || {}, {
+            method: 'POST',
+            url: '/api/v{api-version}/all-of',
+            body: data?.modelWithAllOfRoot,
             mediaType: 'application/json',
         });
     }
