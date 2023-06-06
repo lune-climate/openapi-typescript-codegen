@@ -109,9 +109,9 @@ export const getOperation = (
             // if the requestBody is an array, there are no properties to showcase. We instead want to
             // use the whole model as the parameter
             dataParameter.properties.push(requestBody);
-        } else if (requestBody.export === 'one-of') {
-            // if the requestBody is a one-of, the properties cannot be used since they have no names.
-            // Instead we want to use the whole model as the parameter.
+        } else if (requestBody.export === 'one-of' || requestBody.export === 'all-of') {
+            // if the requestBody is a one-of/all-of, the properties cannot be used since they have no
+            // names. Instead we want to use the whole model as the parameter.
             dataParameter.properties = [requestBody];
         }
         dataParameter.isRequired = requestBody.isRequired ? true : dataParameter.isRequired;

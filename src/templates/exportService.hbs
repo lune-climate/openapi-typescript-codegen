@@ -139,6 +139,8 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			{{#equals parametersBody.in 'body'}}
 			{{#equals parametersBody.export 'one-of'}}
 			body: data?.{{{camelCase parametersBody.name}}},
+			{{else equals parametersBody.export 'all-of'}}
+			body: data?.{{{camelCase parametersBody.name}}},
 			{{else}}
 			{{#if parametersBody.properties}}
 			body: {
