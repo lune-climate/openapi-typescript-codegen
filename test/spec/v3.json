@@ -34,6 +34,24 @@
                 }
             }
         },
+        "/api/v{api-version}/all-of": {
+            "tags": ["AllOf"],
+            "post": {
+                "operationId": "ServiceWithAllOffRoot",
+                "requestBody": {
+                    "description": "Testing all-of request body at the root level",
+                    "required": true,
+                    "nullable": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModelWithAllOfRoot"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v{api-version}/simple": {
             "get": {
                 "tags": [
@@ -1936,6 +1954,24 @@
                 "description": "This is a model that represents a 'one of' relationship",
                 "type": "object",
                 "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/ModelWithString"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ModelWithEnum"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ModelWithArray"
+                    },
+                    {
+                        "$ref": "#/components/schemas/ModelWithDictionary"
+                    }
+                ]
+            },
+            "ModelWithAllOfRoot": {
+                "description": "This is a model that represents a 'all of' relationship",
+                "type": "object",
+                "allOf": [
                     {
                         "$ref": "#/components/schemas/ModelWithString"
                     },
