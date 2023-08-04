@@ -26,9 +26,9 @@ import { Result } from 'ts-results-es'
 {{/notEquals}}
 {{#if @root.exportClient}}
 {{#equals @root.httpClient 'angular'}}
-import { BaseHttpRequest } from '../core/BaseHttpRequest';
+import { BaseHttpRequest } from '../core/BaseHttpRequest.js';
 {{else}}
-import type { BaseHttpRequest } from '../core/BaseHttpRequest';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest.js';
 {{/equals}}
 {{/if}}
 
