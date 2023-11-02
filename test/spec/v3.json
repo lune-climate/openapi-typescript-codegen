@@ -1846,6 +1846,20 @@
                     }
                 }
             },
+            "ModelWithOnlyNullAsEnum": {
+                "description": "This is a model with an enum that only permits null",
+                "type": "object",
+                "properties": {
+                    "test": {
+                        "description": "Only null is allowed here",
+                        "nullable": true,
+                        "type": "string",
+                        "enum": [
+                            null
+                        ]
+                    }
+                }
+            },
             "ModelWithEnumFromDescription": {
                 "description": "This is a model with one enum",
                 "type": "object",
