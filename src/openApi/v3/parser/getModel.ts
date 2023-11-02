@@ -70,6 +70,22 @@ export const getModel = (
             model.default = getModelDefault(definition, model);
             return model;
         }
+
+        // getEnum() contains a hack to filter null values out of an enum (because we can't
+        // represent them easily using TS/JS enums).
+        //
+        // A consequence of that is if an enum contains *only* null (which seems to be
+        // a legitimate enum in OpenAPI 3 terms) getEnum() returns an empty array and we would
+        // pass execution to generic code at the very bottom of this function. That, in turn,
+        // would result in the generate TS type to be "string" which is not what we want.
+        //
+        // This special case will make it so that the generated type is just "null".
+        const isNullEnum = definition.enum !== undefined && definition.enum.length === 1 && definition.enum[0] === null;
+        if (isNullEnum) {
+            model.export = 'generic';
+            model.base = 'null';
+            return model;
+        }
     }
 
     if ((definition.type === 'int' || definition.type === 'integer') && definition.description) {
