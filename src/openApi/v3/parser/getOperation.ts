@@ -115,7 +115,7 @@ export const getOperation = (
         const queryParams = parameters.parameters.filter(p => p.in === 'query');
         if (queryParams.length !== 0) {
             dataParameter.properties.push(...queryParams);
-            dataParameter.isRequired = !!queryParams.find(p => p.isRequired);
+            dataParameter.isRequired = !!queryParams.find(p => p.isRequired) ? true : dataParameter.isRequired;
         }
     }
 
