@@ -9733,13 +9733,13 @@ export abstract class FormDataService {
     public postApiFormData(
         data?: {
             /**
-             * This is a reusable parameter
-             */
-            parameter?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -10153,6 +10153,8 @@ export abstract class OneOfService {
             query: {
                 'parameter': data?.parameter,
             },
+            body: data?.modelWithOneOfRoot,
+            mediaType: 'application/json',
         });
     }
 
@@ -10258,13 +10260,13 @@ export abstract class ParametersService {
              */
             parameterQuery: string | null;
             /**
-             * This is the parameter with a reserved keyword
-             */
-            default?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is the parameter with a reserved keyword
+             */
+            default?: string;
         },
         parameterPath1?: string,
         parameterPath2?: string,
@@ -10309,15 +10311,15 @@ export abstract class ParametersService {
      * @param options Additional operation options
      */
     public getCallWithOptionalParam(
-        data: {
-            /**
-             * This is an optional parameter
-             */
-            parameter?: string;
+        data?: {
             /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is an optional parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -10406,13 +10408,13 @@ export abstract class RequestBodyService {
     public postApiRequestBody(
         data?: {
             /**
-             * This is a reusable parameter
-             */
-            parameter?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**

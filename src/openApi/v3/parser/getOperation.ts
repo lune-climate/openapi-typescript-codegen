@@ -78,6 +78,20 @@ export const getOperation = (
         mediaType: null,
     };
 
+    // Parse the operation parameters (path, body, etc). Query parameters are not included here
+    const parameters = op.parameters ? getOperationParameters(openApi, op.parameters) : undefined;
+    if (parameters) {
+        const newParams = parameters.parameters.filter(p => p.in !== 'query');
+        operation.imports.push(...parameters.imports);
+        operation.parameters.push(...newParams);
+        operation.parametersPath.push(...parameters.parametersPath);
+        operation.parametersQuery.push(...parameters.parametersQuery);
+        operation.parametersForm.push(...parameters.parametersForm);
+        operation.parametersHeader.push(...parameters.parametersHeader);
+        operation.parametersCookie.push(...parameters.parametersCookie);
+        operation.parametersBody = parameters.parametersBody;
+    }
+
     if (op.requestBody) {
         const requestBodyDef = getRef<OpenApiRequestBody>(openApi, op.requestBody);
         const requestBody = getOperationRequestBody(openApi, requestBodyDef);
@@ -96,25 +110,13 @@ export const getOperation = (
         dataParameter.isRequired = requestBody.isRequired ? true : dataParameter.isRequired;
     }
 
-    // Parse the operation parameters (path, query, body, etc).
-    if (op.parameters) {
-        const parameters = getOperationParameters(openApi, op.parameters);
-
+    // Add query parameters after path and body parameters are processed.
+    if (parameters) {
         const queryParams = parameters.parameters.filter(p => p.in === 'query');
         if (queryParams.length !== 0) {
             dataParameter.properties.push(...queryParams);
             dataParameter.isRequired = !!queryParams.find(p => p.isRequired);
         }
-
-        const newParams = parameters.parameters.filter(p => p.in !== 'query');
-        operation.imports.push(...parameters.imports);
-        operation.parameters.push(...newParams);
-        operation.parametersPath.push(...parameters.parametersPath);
-        operation.parametersQuery.push(...parameters.parametersQuery);
-        operation.parametersForm.push(...parameters.parametersForm);
-        operation.parametersHeader.push(...parameters.parametersHeader);
-        operation.parametersCookie.push(...parameters.parametersCookie);
-        operation.parametersBody = parameters.parametersBody;
     }
 
     // Parse the operation responses.
