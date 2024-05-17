@@ -1478,6 +1478,29 @@
                     }
                 }
             }
+        },
+        "/api/v{api-version}/queryParamsWithOneOf": {
+            "post": {
+                "tags": ["OneOf"],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/SimpleParameter"
+                    }
+                ],
+                "operationId": "QueryParamsWithOneOf",
+                "requestBody": {
+                    "description": "Testing allOf request body at the root level",
+                    "required": true,
+                    "nullable": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModelWithOneOfRoot"
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {

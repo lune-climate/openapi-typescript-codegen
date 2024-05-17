@@ -78,6 +78,24 @@ export const getOperation = (
         mediaType: null,
     };
 
+    if (op.requestBody) {
+        const requestBodyDef = getRef<OpenApiRequestBody>(openApi, op.requestBody);
+        const requestBody = getOperationRequestBody(openApi, requestBodyDef);
+        operation.imports.push(...requestBody.imports);
+        operation.parametersBody = requestBody;
+        dataParameter.properties.push(...requestBody.properties);
+        if (requestBody.export === 'array') {
+            // if the requestBody is an array, there are no properties to showcase. We instead want to
+            // use the whole model as the parameter
+            dataParameter.properties.push(requestBody);
+        } else if (requestBody.export === 'one-of' || requestBody.export === 'all-of') {
+            // if the requestBody is a one-of/all-of, the properties cannot be used since they have no
+            // names. Instead we want to use the whole model as the parameter.
+            dataParameter.properties = [requestBody];
+        }
+        dataParameter.isRequired = requestBody.isRequired ? true : dataParameter.isRequired;
+    }
+
     // Parse the operation parameters (path, query, body, etc).
     if (op.parameters) {
         const parameters = getOperationParameters(openApi, op.parameters);
@@ -97,24 +115,6 @@ export const getOperation = (
         operation.parametersHeader.push(...parameters.parametersHeader);
         operation.parametersCookie.push(...parameters.parametersCookie);
         operation.parametersBody = parameters.parametersBody;
-    }
-
-    if (op.requestBody) {
-        const requestBodyDef = getRef<OpenApiRequestBody>(openApi, op.requestBody);
-        const requestBody = getOperationRequestBody(openApi, requestBodyDef);
-        operation.imports.push(...requestBody.imports);
-        operation.parametersBody = requestBody;
-        dataParameter.properties.push(...requestBody.properties);
-        if (requestBody.export === 'array') {
-            // if the requestBody is an array, there are no properties to showcase. We instead want to
-            // use the whole model as the parameter
-            dataParameter.properties.push(requestBody);
-        } else if (requestBody.export === 'one-of' || requestBody.export === 'all-of') {
-            // if the requestBody is a one-of/all-of, the properties cannot be used since they have no
-            // names. Instead we want to use the whole model as the parameter.
-            dataParameter.properties = [requestBody];
-        }
-        dataParameter.isRequired = requestBody.isRequired ? true : dataParameter.isRequired;
     }
 
     // Parse the operation responses.
