@@ -9168,17 +9168,6 @@ export abstract class ComplexService {
             path: {
                 'id': id,
             },
-            body: {
-                'key': data?.key,
-                'name': data?.name,
-                'enabled': data?.enabled,
-                'type': data?.type,
-                'listOfModels': data?.listOfModels,
-                'listOfStrings': data?.listOfStrings,
-                'parameters': data?.parameters,
-                'user': data?.user,
-            },
-            mediaType: 'application/json-patch+json',
         });
     }
 
@@ -9728,13 +9717,13 @@ export abstract class FormDataService {
     public postApiFormData(
         data?: {
             /**
-             * This is a reusable parameter
-             */
-            parameter?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -9749,10 +9738,6 @@ export abstract class FormDataService {
             query: {
                 'parameter': data?.parameter,
             },
-            formData: {
-                'prop': data?.prop,
-            },
-            mediaType: 'multipart/form-data',
         });
     }
 
@@ -10165,10 +10150,6 @@ export abstract class ParametersService {
             formData: {
                 'parameterForm': parameterForm,
             },
-            body: {
-                'prop': data?.prop,
-            },
-            mediaType: 'application/json',
         });
     }
 
@@ -10192,13 +10173,13 @@ export abstract class ParametersService {
              */
             parameterQuery: string | null;
             /**
-             * This is the parameter with a reserved keyword
-             */
-            default?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is the parameter with a reserved keyword
+             */
+            default?: string;
         },
         parameterPath1?: string,
         parameterPath2?: string,
@@ -10231,10 +10212,6 @@ export abstract class ParametersService {
             formData: {
                 'parameter_form': parameterForm,
             },
-            body: {
-                'prop': data?.prop,
-            },
-            mediaType: 'application/json',
         });
     }
 
@@ -10243,15 +10220,15 @@ export abstract class ParametersService {
      * @param options Additional operation options
      */
     public getCallWithOptionalParam(
-        data: {
-            /**
-             * This is an optional parameter
-             */
-            parameter?: string;
+        data?: {
             /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is an optional parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -10266,10 +10243,6 @@ export abstract class ParametersService {
             query: {
                 'parameter': data?.parameter,
             },
-            body: {
-                'prop': data?.prop,
-            },
-            mediaType: 'application/json',
         });
     }
 
@@ -10301,10 +10274,6 @@ export abstract class ParametersService {
             query: {
                 'parameter': data?.parameter,
             },
-            body: {
-                'prop': data?.prop,
-            },
-            mediaType: 'application/json',
         });
     }
 
@@ -10340,13 +10309,13 @@ export abstract class RequestBodyService {
     public postApiRequestBody(
         data?: {
             /**
-             * This is a reusable parameter
-             */
-            parameter?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -10361,10 +10330,6 @@ export abstract class RequestBodyService {
             query: {
                 'parameter': data?.parameter,
             },
-            body: {
-                'prop': data?.prop,
-            },
-            mediaType: 'application/json',
         });
     }
 
