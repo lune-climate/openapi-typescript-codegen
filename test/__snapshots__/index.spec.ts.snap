@@ -10130,7 +10130,7 @@ export abstract class OneOfService {
      * @param options Additional operation options
      */
     public queryParamsWithOneOf(
-        data?: {
+        data: {
             /**
              * Testing allOf request body at the root level
              */
@@ -10311,7 +10311,7 @@ export abstract class ParametersService {
      * @param options Additional operation options
      */
     public getCallWithOptionalParam(
-        data?: {
+        data: {
             /**
              * This is a simple string property
              */
