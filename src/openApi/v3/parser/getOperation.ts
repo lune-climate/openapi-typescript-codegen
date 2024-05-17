@@ -78,16 +78,9 @@ export const getOperation = (
         mediaType: null,
     };
 
-    // Parse the operation parameters (path, query, body, etc).
-    if (op.parameters) {
-        const parameters = getOperationParameters(openApi, op.parameters);
-
-        const queryParams = parameters.parameters.filter(p => p.in === 'query');
-        if (queryParams.length !== 0) {
-            dataParameter.properties.push(...queryParams);
-            dataParameter.isRequired = !!queryParams.find(p => p.isRequired);
-        }
-
+    // Parse the operation parameters (path, body, etc). Query parameters are not included here
+    const parameters = op.parameters ? getOperationParameters(openApi, op.parameters) : undefined;
+    if (parameters) {
         const newParams = parameters.parameters.filter(p => p.in !== 'query');
         operation.imports.push(...parameters.imports);
         operation.parameters.push(...newParams);
@@ -115,6 +108,15 @@ export const getOperation = (
             dataParameter.properties = [requestBody];
         }
         dataParameter.isRequired = requestBody.isRequired ? true : dataParameter.isRequired;
+    }
+
+    // Add query parameters after path and body parameters are processed.
+    if (parameters) {
+        const queryParams = parameters.parameters.filter(p => p.in === 'query');
+        if (queryParams.length !== 0) {
+            dataParameter.properties.push(...queryParams);
+            dataParameter.isRequired = !!queryParams.find(p => p.isRequired);
+        }
     }
 
     // Parse the operation responses.
