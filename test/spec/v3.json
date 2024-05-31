@@ -1883,6 +1883,31 @@
                     }
                 }
             },
+            "NullEnumOrString": {
+                "oneOf": [
+                    {
+                        "nullable": true,
+                        "type": "string",
+                        "enum": [
+                            null
+                        ]
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "NullEnumInsideAllOf": {
+                "allOf": [
+                    {
+                        "nullable": true,
+                        "type": "string",
+                        "enum": [
+                            null
+                        ]
+                    }
+                ]
+            },
             "ModelWithEnumFromDescription": {
                 "description": "This is a model with one enum",
                 "type": "object",
