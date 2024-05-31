@@ -33,7 +33,16 @@ export const getModelComposition = (
             const isObject = model.type === 'any';
             const isDictionary = model.export === 'dictionary';
             const isEmpty = isObject && !hasProperties && !hasEnums;
-            return !isEmpty || isDictionary;
+
+            // getModel has a special workaround for nullable enums with only null
+            // allowed inside (look for isNullEnum there).
+            //
+            // We need to handle the models returned in that case in a special way here,
+            // otherwise we'd discard them as isEmpty returns true for them and
+            // isDictionary is false.
+            const isNullEnum = model.base === 'null';
+
+            return !isEmpty || isDictionary || isNullEnum;
         })
         .forEach(model => {
             composition.imports.push(...model.imports);
