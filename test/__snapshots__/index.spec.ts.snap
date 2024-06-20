@@ -7082,7 +7082,7 @@ exports[`v3 should generate: ./test/generated/v3/models/NullEnumInsideAllOf.ts 1
 /* tslint:disable */
 /* eslint-disable */
 
-export type NullEnumInsideAllOf = ;
+export type NullEnumInsideAllOf = null | null;
 "
 `;
 
@@ -7099,7 +7099,7 @@ exports[`v3 should generate: ./test/generated/v3/models/NullEnumOrString.ts 1`] 
 /* tslint:disable */
 /* eslint-disable */
 
-export type NullEnumOrString = string;
+export type NullEnumOrString = (null | null | string);
 "
 `;
 
@@ -8922,7 +8922,10 @@ exports[`v3 should generate: ./test/generated/v3/schemas/$NullEnumInsideAllOf.ts
 /* eslint-disable */
 export const $NullEnumInsideAllOf = {
     type: 'all-of',
-    contains: [],
+    contains: [{
+        type: 'any',
+        isNullable: true,
+    }],
 } as const;"
 `;
 
@@ -8941,6 +8944,9 @@ exports[`v3 should generate: ./test/generated/v3/schemas/$NullEnumOrString.ts 1`
 export const $NullEnumOrString = {
     type: 'one-of',
     contains: [{
+        type: 'any',
+        isNullable: true,
+    }, {
         type: 'string',
     }],
 } as const;"
@@ -9104,6 +9110,7 @@ exports[`v3 should generate: ./test/generated/v3/services/CollectionFormatServic
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9182,6 +9189,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9303,6 +9311,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9399,6 +9408,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9580,6 +9590,7 @@ exports[`v3 should generate: ./test/generated/v3/services/DescriptionsService.ts
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9660,6 +9671,7 @@ exports[`v3 should generate: ./test/generated/v3/services/DuplicateService.ts 1`
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9753,6 +9765,7 @@ exports[`v3 should generate: ./test/generated/v3/services/ErrorService.ts 1`] = 
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9812,6 +9825,7 @@ exports[`v3 should generate: ./test/generated/v3/services/FormDataService.ts 1`]
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9827,13 +9841,13 @@ export abstract class FormDataService {
     public postApiFormData(
         data?: {
             /**
-             * This is a reusable parameter
-             */
-            parameter?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -9872,6 +9886,7 @@ exports[`v3 should generate: ./test/generated/v3/services/HeaderService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9922,6 +9937,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9998,6 +10014,7 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags1Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10059,6 +10076,7 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags2Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10120,6 +10138,7 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags3Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10163,6 +10182,7 @@ exports[`v3 should generate: ./test/generated/v3/services/NoContentService.ts 1`
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10211,6 +10231,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10229,6 +10250,10 @@ export abstract class OneOfService {
              * Testing allOf request body at the root level
              */
             modelWithOneOfRoot: (ModelWithString | ModelWithEnum | ModelWithArray | ModelWithDictionary);
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -10267,6 +10292,7 @@ import type { Pageable } from '../models/Pageable.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10350,13 +10376,13 @@ export abstract class ParametersService {
              */
             parameterQuery: string | null;
             /**
-             * This is the parameter with a reserved keyword
-             */
-            default?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is the parameter with a reserved keyword
+             */
+            default?: string;
         },
         parameterPath1?: string,
         parameterPath2?: string,
@@ -10403,13 +10429,13 @@ export abstract class ParametersService {
     public getCallWithOptionalParam(
         data: {
             /**
-             * This is an optional parameter
-             */
-            parameter?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is an optional parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -10483,6 +10509,7 @@ exports[`v3 should generate: ./test/generated/v3/services/RequestBodyService.ts 
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10498,13 +10525,13 @@ export abstract class RequestBodyService {
     public postApiRequestBody(
         data?: {
             /**
-             * This is a reusable parameter
-             */
-            parameter?: string;
-            /**
              * This is a simple string property
              */
             prop?: string;
+            /**
+             * This is a reusable parameter
+             */
+            parameter?: string;
         },
         options?: {
             /**
@@ -10547,6 +10574,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10643,6 +10671,7 @@ exports[`v3 should generate: ./test/generated/v3/services/SimpleService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10789,6 +10818,7 @@ import type { integer } from '../models/integer.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10880,6 +10910,7 @@ exports[`v3 should generate: ./test/generated/v3/services/UploadService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
