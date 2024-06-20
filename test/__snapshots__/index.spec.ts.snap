@@ -3220,6 +3220,7 @@ exports[`v2 should generate: ./test/generated/v2/services/CollectionFormatServic
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3261,7 +3262,7 @@ export abstract class CollectionFormatService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
@@ -3294,6 +3295,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3330,7 +3332,7 @@ export abstract class ComplexService {
              */
             accountId?: string;
         },
-    ): Promise<Result<Array<ModelWithString>, ApiError>> {
+    ): Promise<Result<SuccessResponse<Array<ModelWithString>>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
@@ -3362,6 +3364,7 @@ exports[`v2 should generate: ./test/generated/v2/services/DefaultService.ts 1`] 
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3380,7 +3383,7 @@ export abstract class DefaultService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
@@ -3406,6 +3409,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3447,7 +3451,7 @@ export abstract class DefaultsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
@@ -3494,7 +3498,7 @@ export abstract class DefaultsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
@@ -3553,7 +3557,7 @@ export abstract class DefaultsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
@@ -3587,6 +3591,7 @@ exports[`v2 should generate: ./test/generated/v2/services/DescriptionsService.ts
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3635,7 +3640,7 @@ export abstract class DescriptionsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
@@ -3667,6 +3672,7 @@ exports[`v2 should generate: ./test/generated/v2/services/DuplicateService.ts 1`
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3685,7 +3691,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
@@ -3702,7 +3708,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
@@ -3719,7 +3725,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
@@ -3736,7 +3742,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
@@ -3760,6 +3766,7 @@ exports[`v2 should generate: ./test/generated/v2/services/ErrorService.ts 1`] = 
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3786,7 +3793,7 @@ export abstract class ErrorService {
              */
             accountId?: string;
         },
-    ): Promise<Result<any, ApiError>> {
+    ): Promise<Result<SuccessResponse<any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/error',
@@ -3819,6 +3826,7 @@ exports[`v2 should generate: ./test/generated/v2/services/HeaderService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3838,7 +3846,7 @@ export abstract class HeaderService {
              */
             accountId?: string;
         },
-    ): Promise<Result<string, ApiError>> {
+    ): Promise<Result<SuccessResponse<string>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/header',
@@ -3867,6 +3875,7 @@ exports[`v2 should generate: ./test/generated/v2/services/MultipleTags1Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3886,7 +3895,7 @@ export abstract class MultipleTags1Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
@@ -3904,7 +3913,7 @@ export abstract class MultipleTags1Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
@@ -3928,6 +3937,7 @@ exports[`v2 should generate: ./test/generated/v2/services/MultipleTags2Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -3947,7 +3957,7 @@ export abstract class MultipleTags2Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
@@ -3965,7 +3975,7 @@ export abstract class MultipleTags2Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
@@ -3989,6 +3999,7 @@ exports[`v2 should generate: ./test/generated/v2/services/MultipleTags3Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -4008,7 +4019,7 @@ export abstract class MultipleTags3Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
@@ -4032,6 +4043,7 @@ exports[`v2 should generate: ./test/generated/v2/services/NoContentService.ts 1`
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -4051,7 +4063,7 @@ export abstract class NoContentService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
@@ -4075,6 +4087,7 @@ exports[`v2 should generate: ./test/generated/v2/services/ParametersService.ts 1
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -4108,7 +4121,7 @@ export abstract class ParametersService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
@@ -4161,7 +4174,7 @@ export abstract class ParametersService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
@@ -4205,6 +4218,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -4224,7 +4238,7 @@ export abstract class ResponseService {
              */
             accountId?: string;
         },
-    ): Promise<Result<ModelWithString, ApiError>> {
+    ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/response',
@@ -4242,7 +4256,7 @@ export abstract class ResponseService {
              */
             accountId?: string;
         },
-    ): Promise<Result<ModelWithString, ApiError>> {
+    ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/response',
@@ -4268,11 +4282,11 @@ export abstract class ResponseService {
              */
             accountId?: string;
         },
-    ): Promise<Result<{
+    ): Promise<Result<SuccessResponse<{
         readonly '@namespaceString'?: string;
         readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
-    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
+    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
@@ -4301,6 +4315,7 @@ exports[`v2 should generate: ./test/generated/v2/services/SimpleService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -4319,7 +4334,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
@@ -4336,7 +4351,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
@@ -4353,7 +4368,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
@@ -4370,7 +4385,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
@@ -4387,7 +4402,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
@@ -4404,7 +4419,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
@@ -4421,7 +4436,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
@@ -4445,6 +4460,7 @@ exports[`v2 should generate: ./test/generated/v2/services/TypesService.ts 1`] = 
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -4500,7 +4516,7 @@ export abstract class TypesService {
              */
             accountId?: string;
         },
-    ): Promise<Result<number | string | boolean | any, ApiError>> {
+    ): Promise<Result<SuccessResponse<number | string | boolean | any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/types',
@@ -9094,6 +9110,7 @@ exports[`v3 should generate: ./test/generated/v3/services/CollectionFormatServic
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9135,7 +9152,7 @@ export abstract class CollectionFormatService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/collectionFormat',
@@ -9172,6 +9189,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9208,7 +9226,7 @@ export abstract class ComplexService {
              */
             accountId?: string;
         },
-    ): Promise<Result<Array<ModelWithString>, ApiError>> {
+    ): Promise<Result<SuccessResponse<Array<ModelWithString>>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
@@ -9250,7 +9268,7 @@ export abstract class ComplexService {
              */
             accountId?: string;
         },
-    ): Promise<Result<ModelWithString, ApiError>> {
+    ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/complex/{id}',
@@ -9293,6 +9311,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9311,7 +9330,7 @@ export abstract class DefaultService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
@@ -9335,7 +9354,7 @@ export abstract class DefaultService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/one-of',
@@ -9361,7 +9380,7 @@ export abstract class DefaultService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/all-of',
@@ -9389,6 +9408,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9430,7 +9450,7 @@ export abstract class DefaultsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/defaults',
@@ -9477,7 +9497,7 @@ export abstract class DefaultsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/defaults',
@@ -9536,7 +9556,7 @@ export abstract class DefaultsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/defaults',
@@ -9570,6 +9590,7 @@ exports[`v3 should generate: ./test/generated/v3/services/DescriptionsService.ts
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9618,7 +9639,7 @@ export abstract class DescriptionsService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/descriptions/',
@@ -9650,6 +9671,7 @@ exports[`v3 should generate: ./test/generated/v3/services/DuplicateService.ts 1`
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9668,7 +9690,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
@@ -9685,7 +9707,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
@@ -9702,7 +9724,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
@@ -9719,7 +9741,7 @@ export abstract class DuplicateService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
@@ -9743,6 +9765,7 @@ exports[`v3 should generate: ./test/generated/v3/services/ErrorService.ts 1`] = 
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9769,7 +9792,7 @@ export abstract class ErrorService {
              */
             accountId?: string;
         },
-    ): Promise<Result<any, ApiError>> {
+    ): Promise<Result<SuccessResponse<any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/error',
@@ -9802,6 +9825,7 @@ exports[`v3 should generate: ./test/generated/v3/services/FormDataService.ts 1`]
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9831,7 +9855,7 @@ export abstract class FormDataService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/formData/',
@@ -9862,6 +9886,7 @@ exports[`v3 should generate: ./test/generated/v3/services/HeaderService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9881,7 +9906,7 @@ export abstract class HeaderService {
              */
             accountId?: string;
         },
-    ): Promise<Result<string, ApiError>> {
+    ): Promise<Result<SuccessResponse<string>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/header',
@@ -9912,6 +9937,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -9935,7 +9961,7 @@ export abstract class MultipartService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/multipart',
@@ -9958,13 +9984,13 @@ export abstract class MultipartService {
              */
             accountId?: string;
         },
-    ): Promise<Result<{
+    ): Promise<Result<SuccessResponse<{
         file?: Blob;
         metadata?: {
             foo?: string;
             bar?: string;
         };
-    }, ApiError>> {
+    }>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multipart',
@@ -9988,6 +10014,7 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags1Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10007,7 +10034,7 @@ export abstract class MultipleTags1Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
@@ -10025,7 +10052,7 @@ export abstract class MultipleTags1Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
@@ -10049,6 +10076,7 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags2Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10068,7 +10096,7 @@ export abstract class MultipleTags2Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
@@ -10086,7 +10114,7 @@ export abstract class MultipleTags2Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
@@ -10110,6 +10138,7 @@ exports[`v3 should generate: ./test/generated/v3/services/MultipleTags3Service.t
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10129,7 +10158,7 @@ export abstract class MultipleTags3Service {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
@@ -10153,6 +10182,7 @@ exports[`v3 should generate: ./test/generated/v3/services/NoContentService.ts 1`
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10172,7 +10202,7 @@ export abstract class NoContentService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
@@ -10201,6 +10231,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10230,7 +10261,7 @@ export abstract class OneOfService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/queryParamsWithOneOf',
@@ -10261,6 +10292,7 @@ import type { Pageable } from '../models/Pageable.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10298,7 +10330,7 @@ export abstract class ParametersService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameterPath}',
@@ -10361,7 +10393,7 @@ export abstract class ParametersService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/{parameter.path.1}/{parameter-path-2}/{PARAMETER-PATH-3}',
@@ -10411,7 +10443,7 @@ export abstract class ParametersService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/parameters/',
@@ -10446,7 +10478,7 @@ export abstract class ParametersService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/parameters/',
@@ -10477,6 +10509,7 @@ exports[`v3 should generate: ./test/generated/v3/services/RequestBodyService.ts 
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10506,7 +10539,7 @@ export abstract class RequestBodyService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/requestBody/',
@@ -10541,6 +10574,7 @@ import type { ModelWithString } from '../models/ModelWithString.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10560,7 +10594,7 @@ export abstract class ResponseService {
              */
             accountId?: string;
         },
-    ): Promise<Result<ModelWithString, ApiError>> {
+    ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/response',
@@ -10578,7 +10612,7 @@ export abstract class ResponseService {
              */
             accountId?: string;
         },
-    ): Promise<Result<ModelWithString, ApiError>> {
+    ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/response',
@@ -10604,11 +10638,11 @@ export abstract class ResponseService {
              */
             accountId?: string;
         },
-    ): Promise<Result<{
+    ): Promise<Result<SuccessResponse<{
         readonly '@namespaceString'?: string;
         readonly '@namespaceInteger'?: number;
         readonly value?: Array<ModelWithString>;
-    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends, ApiError>> {
+    } | ModelWithString | ModelThatExtends | ModelThatExtendsExtends>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
@@ -10637,6 +10671,7 @@ exports[`v3 should generate: ./test/generated/v3/services/SimpleService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10655,7 +10690,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
@@ -10672,7 +10707,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
@@ -10689,7 +10724,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
@@ -10706,7 +10741,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
@@ -10723,7 +10758,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
@@ -10740,7 +10775,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
@@ -10757,7 +10792,7 @@ export abstract class SimpleService {
              */
             accountId?: string;
         },
-    ): Promise<Result<void, ApiError>> {
+    ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
@@ -10783,6 +10818,7 @@ import type { integer } from '../models/integer.js';
 
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10838,7 +10874,7 @@ export abstract class TypesService {
              */
             accountId?: string;
         },
-    ): Promise<Result<number | string | boolean | any, ApiError>> {
+    ): Promise<Result<SuccessResponse<number | string | boolean | any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/types',
@@ -10874,6 +10910,7 @@ exports[`v3 should generate: ./test/generated/v3/services/UploadService.ts 1`] =
 /* eslint-disable */
 import { ClientConfig } from '../core/ClientConfig.js'
 import { request as __request } from '../core/request.js'
+import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
 import { Result } from 'ts-results-es'
@@ -10895,7 +10932,7 @@ export abstract class UploadService {
              */
             accountId?: string;
         },
-    ): Promise<Result<boolean, ApiError>> {
+    ): Promise<Result<SuccessResponse<boolean>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/upload',
