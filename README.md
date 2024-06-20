@@ -4,6 +4,8 @@ This repo is a friendly fork of the excellent https://github.com/ferdikoomen/ope
 generator to better fit our exact use case. Some of these changes we'll try to get merged into the upstream, but some are more of a specific
 use case for us, hence the need for a fork. This code is used by https://github.com/lune-climate/lune-ts to generate the base models/services.
 
+We have some [Developer documentation](docs/dev.md).
+
 # Release process
 
 Changes made to the library will only be picked up by `lune-ts` once a new version is released to npm.
@@ -78,6 +80,8 @@ $ openapi --help
 
 # Documentation
 
+For end-users:
+
 -   [Basic usage](docs/basic-usage.md)
 -   [OpenAPI object](docs/openapi-object.md)
 -   [Client instances](docs/client-instances.md) `--name`
@@ -88,6 +92,10 @@ $ openapi --help
 -   [Nullable props (OpenAPI v2)](docs/nullable-props.md)
 -   [Authorization](docs/authorization.md)
 -   [External references](docs/external-references.md)
+
+For developers:
+
+-   [Developer documentation](docs/dev.md)
 
 # Support
 
