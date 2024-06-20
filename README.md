@@ -78,6 +78,8 @@ $ openapi --help
 
 # Documentation
 
+For end-users:
+
 -   [Basic usage](docs/basic-usage.md)
 -   [OpenAPI object](docs/openapi-object.md)
 -   [Client instances](docs/client-instances.md) `--name`
@@ -88,6 +90,10 @@ $ openapi --help
 -   [Nullable props (OpenAPI v2)](docs/nullable-props.md)
 -   [Authorization](docs/authorization.md)
 -   [External references](docs/external-references.md)
+
+For developers:
+
+-   [Developer documentation](docs/dev.md)
 
 # Support
 
