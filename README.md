@@ -4,6 +4,8 @@ This repo is a friendly fork of the excellent https://github.com/ferdikoomen/ope
 generator to better fit our exact use case. Some of these changes we'll try to get merged into the upstream, but some are more of a specific
 use case for us, hence the need for a fork. This code is used by https://github.com/lune-climate/lune-ts to generate the base models/services.
 
+We have some [Developer documentation](docs/dev.md).
+
 # Release process
 
 Changes made to the library will only be picked up by `lune-ts` once a new version is released to npm.
