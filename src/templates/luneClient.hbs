@@ -75,6 +75,10 @@ export class LuneClient {
     public setAccount(accountId: string) {
         this.config.ACCOUNT = accountId
     }
+
+    public setApiVersion(apiVersion: {{{apiVersions}}}) {
+        this.config.API_VERSION = apiVersion
+    }
 }
 
 applyMixins(LuneClient, [

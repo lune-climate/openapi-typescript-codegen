@@ -1,7 +1,9 @@
+import { Enum } from '../../../client/interfaces/Enum';
 import { Model } from '../../../client/interfaces/Model';
 import type { Operation } from '../../../client/interfaces/Operation';
 import { OperationParameter } from '../../../client/interfaces/OperationParameter';
 import type { OperationParameters } from '../../../client/interfaces/OperationParameters';
+import { getApiVersions } from '../../../utils/versions';
 import type { OpenApi } from '../interfaces/OpenApi';
 import type { OpenApiOperation } from '../interfaces/OpenApiOperation';
 import { getOperationErrors } from './getOperationErrors';
@@ -105,8 +107,9 @@ export const getOperation = (
     }
 
     operation.parameters = operation.parameters.sort(sortByRequired);
-    // Add an options object parameter for options on the methods themselves. Currently allow an account
-    // override that can use `Lune-Account` header to override target account on a per endpoint basis.
+    // Add an options object parameter for options on the methods themselves. Currently allow:
+    // - Account override using `Lune-Account` header to override target account on a per endpoint basis.
+    // - Version override using `Lune-Version` header to override target API version.
     operation.parameters.push({
         in: 'query',
         export: 'interface',
@@ -141,6 +144,31 @@ export const getOperation = (
                 isNullable: false,
                 imports: [],
                 enum: [],
+                enums: [],
+                properties: [],
+            } as Model,
+            {
+                export: 'enum',
+                name: 'apiVersion',
+                type: 'string',
+                base: 'string',
+                template: null,
+                link: null,
+                description: 'API Version to be used to perform the API call',
+                default: undefined,
+                isDefinition: false,
+                isReadOnly: false,
+                isRequired: false,
+                isNullable: false,
+                imports: [],
+                enum: getApiVersions().map(v => {
+                    return {
+                        name: v,
+                        value: `'${v}'`,
+                        type: v,
+                        description: null,
+                    } as Enum;
+                }),
                 enums: [],
                 properties: [],
             } as Model,
