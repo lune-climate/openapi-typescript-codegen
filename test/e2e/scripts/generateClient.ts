@@ -11,6 +11,7 @@ export const generateClient = async (
     await __generate({
         input: `./test/spec/${version}.json`,
         output: `./test/e2e/generated/${dir}/`,
+        apiVersions: ['v1', 'v2'],
         httpClient: client,
         useOptions,
         useUnionTypes,

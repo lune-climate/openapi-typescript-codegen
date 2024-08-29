@@ -9,6 +9,7 @@ $ openapi --help
     -V, --version             output the version number
     -i, --input <value>       OpenAPI specification, can be a path, url or string content (required)
     -o, --output <value>      Output directory (required)
+    -v, --apiVersions <value> API Versions currently supported separated by a comma (required)
     -c, --client <value>      HTTP client to generate [fetch, xhr, node, axios, angular] (default: "fetch")
     --name <value>            Custom client class name
     --useOptions              Use options instead of arguments
@@ -23,12 +24,13 @@ $ openapi --help
     -h, --help                display help for command
 
   Examples
-    $ openapi --input ./spec.json --output ./generated
+    $ openapi --input ./spec.json --output ./generated --apiVersions v1,v2
 ```
 
 ## Example
 
 **package.json**
+
 ```json
 {
     "scripts": {

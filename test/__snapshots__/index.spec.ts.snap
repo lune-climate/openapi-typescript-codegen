@@ -802,7 +802,7 @@ export class LuneClient {
         this.config.ACCOUNT = accountId
     }
 
-    public setApiVersion(apiVersion: 'v1' | 'v2' | 'v4' | 'v5') {
+    public setApiVersion(apiVersion: 'v1' | 'v2') {
         this.config.API_VERSION = apiVersion
     }
 }
@@ -3280,7 +3280,7 @@ export abstract class CollectionFormatService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3354,7 +3354,7 @@ export abstract class ComplexService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<Array<ModelWithString>>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3409,7 +3409,7 @@ export abstract class DefaultService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3481,7 +3481,7 @@ export abstract class DefaultsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3532,7 +3532,7 @@ export abstract class DefaultsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3595,7 +3595,7 @@ export abstract class DefaultsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3682,7 +3682,7 @@ export abstract class DescriptionsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3737,7 +3737,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3758,7 +3758,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3779,7 +3779,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3800,7 +3800,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3855,7 +3855,7 @@ export abstract class ErrorService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3912,7 +3912,7 @@ export abstract class HeaderService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<string>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3965,7 +3965,7 @@ export abstract class MultipleTags1Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -3987,7 +3987,7 @@ export abstract class MultipleTags1Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4035,7 +4035,7 @@ export abstract class MultipleTags2Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4057,7 +4057,7 @@ export abstract class MultipleTags2Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4105,7 +4105,7 @@ export abstract class MultipleTags3Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4153,7 +4153,7 @@ export abstract class NoContentService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4215,7 +4215,7 @@ export abstract class ParametersService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4272,7 +4272,7 @@ export abstract class ParametersService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4340,7 +4340,7 @@ export abstract class ResponseService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4362,7 +4362,7 @@ export abstract class ResponseService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4392,7 +4392,7 @@ export abstract class ResponseService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<{
         readonly '@namespaceString'?: string;
@@ -4448,7 +4448,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4469,7 +4469,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4490,7 +4490,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4511,7 +4511,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4532,7 +4532,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4553,7 +4553,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4574,7 +4574,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -4658,7 +4658,7 @@ export abstract class TypesService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<number | string | boolean | any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -5540,7 +5540,7 @@ export class LuneClient {
         this.config.ACCOUNT = accountId
     }
 
-    public setApiVersion(apiVersion: 'v1' | 'v2' | 'v4' | 'v5') {
+    public setApiVersion(apiVersion: 'v1' | 'v2') {
         this.config.API_VERSION = apiVersion
     }
 }
@@ -9314,7 +9314,7 @@ export abstract class CollectionFormatService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9392,7 +9392,7 @@ export abstract class ComplexService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<Array<ModelWithString>>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9438,7 +9438,7 @@ export abstract class ComplexService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9504,7 +9504,7 @@ export abstract class DefaultService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9532,7 +9532,7 @@ export abstract class DefaultService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9562,7 +9562,7 @@ export abstract class DefaultService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9636,7 +9636,7 @@ export abstract class DefaultsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9687,7 +9687,7 @@ export abstract class DefaultsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9750,7 +9750,7 @@ export abstract class DefaultsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9837,7 +9837,7 @@ export abstract class DescriptionsService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9892,7 +9892,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9913,7 +9913,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9934,7 +9934,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -9955,7 +9955,7 @@ export abstract class DuplicateService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10010,7 +10010,7 @@ export abstract class ErrorService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10077,7 +10077,7 @@ export abstract class FormDataService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10132,7 +10132,7 @@ export abstract class HeaderService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<string>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10191,7 +10191,7 @@ export abstract class MultipartService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10218,7 +10218,7 @@ export abstract class MultipartService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<{
         file?: Blob;
@@ -10272,7 +10272,7 @@ export abstract class MultipleTags1Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10294,7 +10294,7 @@ export abstract class MultipleTags1Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10342,7 +10342,7 @@ export abstract class MultipleTags2Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10364,7 +10364,7 @@ export abstract class MultipleTags2Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10412,7 +10412,7 @@ export abstract class MultipleTags3Service {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10460,7 +10460,7 @@ export abstract class NoContentService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10523,7 +10523,7 @@ export abstract class OneOfService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10596,7 +10596,7 @@ export abstract class ParametersService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10663,7 +10663,7 @@ export abstract class ParametersService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10717,7 +10717,7 @@ export abstract class ParametersService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10756,7 +10756,7 @@ export abstract class ParametersService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10821,7 +10821,7 @@ export abstract class RequestBodyService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10880,7 +10880,7 @@ export abstract class ResponseService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10902,7 +10902,7 @@ export abstract class ResponseService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<ModelWithString>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -10932,7 +10932,7 @@ export abstract class ResponseService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<{
         readonly '@namespaceString'?: string;
@@ -10988,7 +10988,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11009,7 +11009,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11030,7 +11030,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11051,7 +11051,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11072,7 +11072,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11093,7 +11093,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11114,7 +11114,7 @@ export abstract class SimpleService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<void>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11200,7 +11200,7 @@ export abstract class TypesService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<number | string | boolean | any>, ApiError>> {
         return __request(this.client, this.config, options || {}, {
@@ -11262,7 +11262,7 @@ export abstract class UploadService {
             /**
              * API Version to be used to perform the API call
              */
-            apiVersion?: 'v1' | 'v2' | 'v4' | 'v5';
+            apiVersion?: 'v1' | 'v2';
         },
     ): Promise<Result<SuccessResponse<boolean>, ApiError>> {
         return __request(this.client, this.config, options || {}, {

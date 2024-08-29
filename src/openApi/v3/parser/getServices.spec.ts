@@ -2,7 +2,7 @@ import { getServices } from './getServices';
 
 describe('getServices', () => {
     it('should create a unnamed service if tags are empty', () => {
-        const services = getServices({
+        const services = getServices(['v1', 'v2'], {
             openapi: '3.0.0',
             info: {
                 title: 'x',

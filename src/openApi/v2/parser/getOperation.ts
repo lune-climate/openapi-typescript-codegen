@@ -3,7 +3,6 @@ import { Model } from '../../../client/interfaces/Model';
 import type { Operation } from '../../../client/interfaces/Operation';
 import { OperationParameter } from '../../../client/interfaces/OperationParameter';
 import type { OperationParameters } from '../../../client/interfaces/OperationParameters';
-import { getApiVersions } from '../../../utils/versions';
 import type { OpenApi } from '../interfaces/OpenApi';
 import type { OpenApiOperation } from '../interfaces/OpenApiOperation';
 import { getOperationErrors } from './getOperationErrors';
@@ -16,6 +15,7 @@ import { getServiceName } from './getServiceName';
 import { sortByRequired } from './sortByRequired';
 
 export const getOperation = (
+    apiVersions: string[],
     openApi: OpenApi,
     url: string,
     method: string,
@@ -161,7 +161,7 @@ export const getOperation = (
                 isRequired: false,
                 isNullable: false,
                 imports: [],
-                enum: getApiVersions().map(v => {
+                enum: apiVersions.map(v => {
                     return {
                         name: v,
                         value: `'${v}'`,

@@ -17,6 +17,7 @@ import { writeLuneClient } from './writeLuneClient';
 
 /**
  * Write our OpenAPI client, using the given templates at the given output
+ * @param apiVersions All API versions that are available at this point in time.
  * @param client Client object with all the models, services, etc.
  * @param templates Templates wrapper with all loaded Handlebars templates
  * @param output The relative location of the output directory
@@ -34,6 +35,7 @@ import { writeLuneClient } from './writeLuneClient';
  * @param request Path to custom request file
  */
 export const writeClient = async (
+    apiVersions: string[],
     client: Client,
     templates: Templates,
     output: string,
@@ -115,5 +117,5 @@ export const writeClient = async (
         );
     }
 
-    await writeLuneClient(client, templates, outputLuneClient);
+    await writeLuneClient(apiVersions, client, templates, outputLuneClient);
 };
