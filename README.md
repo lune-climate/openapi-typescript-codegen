@@ -60,7 +60,7 @@ $ openapi --help
     -V, --version             output the version number
     -i, --input <value>       OpenAPI specification, can be a path, url or string content (required)
     -o, --output <value>      Output directory (required)
-    -v, --apiVersions <value> API Versions currently supported separated by a comma (required)
+    -v, --apiVersions <value> API calendar versions supported separated by a comma (required)
     -c, --client <value>      HTTP client to generate [fetch, xhr, node, axios, angular] (default: "fetch")
     --name <value>            Custom client class name
     --useOptions              Use options instead of arguments

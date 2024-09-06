@@ -12,7 +12,7 @@ const params = program
     .version(pkg.version)
     .requiredOption('-i, --input <value>', 'OpenAPI specification, can be a path, url or string content (required)')
     .requiredOption('-o, --output <value>', 'Output directory (required)')
-    .requiredOption('-v, --apiVersions <value>', 'API Versions currently supported separated by a comma (required)')
+    .requiredOption('-v, --apiVersions <value>', 'API calendar versions supported separated by a comma (required)')
     .option('-c, --client <value>', 'HTTP client to generate [fetch, xhr, node, axios, angular]', 'fetch')
     .option('--name <value>', 'Custom client class name')
     .option('--useOptions', 'Use options instead of arguments')

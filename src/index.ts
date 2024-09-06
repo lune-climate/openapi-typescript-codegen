@@ -36,7 +36,7 @@ export type Options = {
  * service layer, etc.
  * @param input The relative location of the OpenAPI spec
  * @param output The relative location of the output directory
- * @param apiVersions All API versions that are available at this point in time.
+ * @param apiVersions All API calendar versions that are available at this point in time.
  * @param httpClient The selected httpClient (fetch, xhr, node or axios)
  * @param clientName Custom client class name
  * @param useOptions Use options or arguments functions
