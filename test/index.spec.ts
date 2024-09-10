@@ -30,7 +30,7 @@ describe('v3', () => {
         await generate({
             input: './test/spec/v3.json',
             output: './test/generated/v3/',
-            apiVersions: ['v1', 'v2'],
+            apiVersion: '2024-08-08',
             httpClient: HttpClient.FETCH,
             useOptions: false,
             useUnionTypes: false,

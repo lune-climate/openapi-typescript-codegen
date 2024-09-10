@@ -1,4 +1,3 @@
-import { Enum } from '../../../client/interfaces/Enum';
 import { Model } from '../../../client/interfaces/Model';
 import type { Operation } from '../../../client/interfaces/Operation';
 import { OperationParameter } from '../../../client/interfaces/OperationParameter';
@@ -139,9 +138,8 @@ export const getOperation = (
     }
     operation.parameters = operation.parameters.sort(sortByRequired);
 
-    // Add an options object parameter for options on the methods themselves. Currently allow:
-    // - Account override using `Lune-Account` header to override target account on a per endpoint basis.
-    // - Version override using `Lune-Version` header to override target API version.
+    // Add an options object parameter for options on the methods themselves. Currently allow an account
+    // override that can use `Lune-Account` header to override target account on a per endpoint basis.
     operation.parameters.push({
         in: 'query',
         export: 'interface',

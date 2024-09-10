@@ -773,7 +773,7 @@ export class LuneClient {
             VERSION: apiVersion,
             BEARER_TOKEN: apiKey,
             ACCOUNT: account,
-            CALENDAR_VERSION: 2024-08-08
+            CALENDAR_VERSION: '2024-08-08'
         }
         this.client = axios.create()
 
@@ -5389,7 +5389,7 @@ export class LuneClient {
             VERSION: apiVersion,
             BEARER_TOKEN: apiKey,
             ACCOUNT: account,
-            CALENDAR_VERSION: 
+            CALENDAR_VERSION: '2024-08-08'
         }
         this.client = axios.create()
 
