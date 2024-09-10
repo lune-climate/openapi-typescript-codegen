@@ -30,7 +30,6 @@ $ openapi --help
 ## Example
 
 **package.json**
-
 ```json
 {
     "scripts": {
