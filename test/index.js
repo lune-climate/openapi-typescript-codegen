@@ -7,7 +7,7 @@ const generate = async (input, output) => {
     await OpenAPI.generate({
         input,
         output,
-        apiVersions: ['v1', 'v2'],
+        apiVersion: '2024-08-08',
         httpClient: OpenAPI.HttpClient.FETCH,
         useOptions: true,
         useUnionTypes: false,

@@ -18,7 +18,6 @@ import { getServiceName } from './getServiceName';
 import { sortByRequired, sortModelByRequired } from './sortByRequired';
 
 export const getOperation = (
-    apiVersions: string[],
     openApi: OpenApi,
     url: string,
     method: string,
@@ -177,31 +176,6 @@ export const getOperation = (
                 isNullable: false,
                 imports: [],
                 enum: [],
-                enums: [],
-                properties: [],
-            } as Model,
-            {
-                export: 'enum',
-                name: 'apiVersion',
-                type: 'string',
-                base: 'string',
-                template: null,
-                link: null,
-                description: 'API Version to be used to perform the API call',
-                default: undefined,
-                isDefinition: false,
-                isReadOnly: false,
-                isRequired: false,
-                isNullable: false,
-                imports: [],
-                enum: apiVersions.map(v => {
-                    return {
-                        name: v,
-                        value: `'${v}'`,
-                        type: v,
-                        description: null,
-                    } as Enum;
-                }),
                 enums: [],
                 properties: [],
             } as Model,

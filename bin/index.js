@@ -12,7 +12,10 @@ const params = program
     .version(pkg.version)
     .requiredOption('-i, --input <value>', 'OpenAPI specification, can be a path, url or string content (required)')
     .requiredOption('-o, --output <value>', 'Output directory (required)')
-    .requiredOption('-v, --apiVersions <value>', 'API calendar versions supported separated by a comma (required)')
+    .requiredOption(
+        '-v, --apiVersion <value>',
+        'API calendar version value, added as `Lune-Version` header to all requests (required)'
+    )
     .option('-c, --client <value>', 'HTTP client to generate [fetch, xhr, node, axios, angular]', 'fetch')
     .option('--name <value>', 'Custom client class name')
     .option('--useOptions', 'Use options instead of arguments')
@@ -33,7 +36,7 @@ if (OpenAPI) {
     OpenAPI.generate({
         input: params.input,
         output: params.output,
-        apiVersions: params.apiVersions.split(',').map(v => v.trim()),
+        apiVersion: params.apiVersion,
         httpClient: params.client,
         clientName: params.name,
         useOptions: params.useOptions,

@@ -47,6 +47,7 @@ export class LuneClient {
             VERSION: apiVersion,
             BEARER_TOKEN: apiKey,
             ACCOUNT: account,
+            CALENDAR_VERSION: {{{apiVersion}}}
         }
         this.client = axios.create()
 
@@ -83,10 +84,6 @@ export class LuneClient {
 
     public setAccount(accountId: string) {
         this.config.ACCOUNT = accountId
-    }
-
-    public setApiVersion(apiVersion: {{{apiVersions}}}) {
-        this.config.API_VERSION = apiVersion
     }
 }
 
