@@ -15,6 +15,7 @@ export { Indent } from './Indent';
 export type Options = {
     input: string | Record<string, any>;
     output: string;
+    apiVersion: string;
     httpClient?: HttpClient;
     clientName?: string;
     useOptions?: boolean;
@@ -35,6 +36,7 @@ export type Options = {
  * service layer, etc.
  * @param input The relative location of the OpenAPI spec
  * @param output The relative location of the output directory
+ * @param apiVersion API calendar version value
  * @param httpClient The selected httpClient (fetch, xhr, node or axios)
  * @param clientName Custom client class name
  * @param useOptions Use options or arguments functions
@@ -51,6 +53,7 @@ export type Options = {
 export const generate = async ({
     input,
     output,
+    apiVersion,
     httpClient = HttpClient.FETCH,
     clientName,
     useOptions = false,
@@ -78,6 +81,7 @@ export const generate = async ({
             const clientFinal = postProcessClient(client);
             if (!write) break;
             await writeClient(
+                apiVersion,
                 clientFinal,
                 templates,
                 output,
@@ -101,6 +105,7 @@ export const generate = async ({
             const clientFinal = postProcessClient(client);
             if (!write) break;
             await writeClient(
+                apiVersion,
                 clientFinal,
                 templates,
                 output,

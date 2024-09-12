@@ -8,6 +8,7 @@ describe('v2', () => {
         await generate({
             input: './test/spec/v2.json',
             output: './test/generated/v2/',
+            apiVersion: '2024-08-08',
             httpClient: HttpClient.FETCH,
             useOptions: false,
             useUnionTypes: false,
@@ -29,6 +30,7 @@ describe('v3', () => {
         await generate({
             input: './test/spec/v3.json',
             output: './test/generated/v3/',
+            apiVersion: '2024-08-08',
             httpClient: HttpClient.FETCH,
             useOptions: false,
             useUnionTypes: false,

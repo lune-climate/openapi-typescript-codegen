@@ -8,6 +8,8 @@ describe('bin', () => {
             './test/spec/v3.json',
             '--output',
             './test/generated/bin',
+            '--apiVersion',
+            '2024-08-08',
         ]);
         expect(result.stdout.toString()).toBe('');
         expect(result.stderr.toString()).toBe('');
@@ -20,6 +22,8 @@ describe('bin', () => {
             './test/spec/v3.json',
             '--output',
             './test/generated/bin',
+            '--apiVersion',
+            '2024-08-08',
             '--client',
             'fetch',
             '--useOptions',
@@ -54,6 +58,8 @@ describe('bin', () => {
             './test/spec/v3.json',
             '--output',
             './test/generated/bin',
+            '--apiVersion',
+            '2024-08-08',
             '--unknown',
         ]);
         expect(result.stdout.toString()).toBe('');
@@ -65,6 +71,7 @@ describe('bin', () => {
         expect(result.stdout.toString()).toContain(`Usage: openapi [options]`);
         expect(result.stdout.toString()).toContain(`-i, --input <value>`);
         expect(result.stdout.toString()).toContain(`-o, --output <value>`);
+        expect(result.stdout.toString()).toContain(`-v, --apiVersion <value>`);
         expect(result.stderr.toString()).toBe('');
     });
 });

@@ -9,6 +9,7 @@ jest.mock('./fileSystem');
 
 describe('writeClient', () => {
     it('should write to filesystem', async () => {
+        const apiVersion = '2024-08-08';
         const client: Client = {
             server: 'http://localhost:8080',
             version: 'v1',
@@ -38,6 +39,7 @@ describe('writeClient', () => {
         };
 
         await writeClient(
+            apiVersion,
             client,
             templates,
             './dist',

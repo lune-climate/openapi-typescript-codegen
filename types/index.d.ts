@@ -15,6 +15,7 @@ export declare enum Indent {
 export type Options = {
     input: string | Record<string, any>;
     output: string;
+    apiVersion: string;
     httpClient?: HttpClient | 'fetch' | 'xhr' | 'node' | 'axios' | 'angular';
     clientName?: string;
     useOptions?: boolean;
