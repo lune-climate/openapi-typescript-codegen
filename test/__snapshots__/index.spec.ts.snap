@@ -2116,7 +2116,7 @@ exports[`v2 should generate: ./test/generated/v2/models/SimpleUrl.ts 1`] = `
 /* eslint-disable */
 
 /**
- * This is a simple https url
+ * This is a simple HTTPS url
  */
 export type SimpleUrl = string;"
 `;
@@ -3265,7 +3265,7 @@ exports[`v2 should generate: ./test/generated/v2/schemas/$SimpleUrl.ts 1`] = `
 /* eslint-disable */
 export const $SimpleUrl = {
     type: 'string',
-    description: \`This is a simple https url\`,
+    description: \`This is a simple HTTPS url\`,
     format: 'https-url',
 } as const;"
 `;
@@ -7346,7 +7346,7 @@ exports[`v3 should generate: ./test/generated/v3/models/SimpleUrl.ts 1`] = `
 /* eslint-disable */
 
 /**
- * This is a simple https url
+ * This is a simple HTTPS url
  */
 export type SimpleUrl = string;"
 `;
@@ -9219,7 +9219,7 @@ exports[`v3 should generate: ./test/generated/v3/schemas/$SimpleUrl.ts 1`] = `
 /* eslint-disable */
 export const $SimpleUrl = {
     type: 'string',
-    description: \`This is a simple https url\`,
+    description: \`This is a simple HTTPS url\`,
     format: 'https-url',
 } as const;"
 `;

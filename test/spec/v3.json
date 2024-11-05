@@ -1581,7 +1581,7 @@
                 "type": "file"
             },
             "SimpleUrl": {
-                "description": "This is a simple https url",
+                "description": "This is a simple HTTPS url",
                 "type": "string",
                 "format": "https-url"
             },
