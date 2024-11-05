@@ -6,6 +6,7 @@ describe('getMappedType', () => {
         expect(getMappedType('string')).toEqual({ type: 'string', isPrimitive: true });
         expect(getMappedType('date')).toEqual({ type: 'string', isPrimitive: true });
         expect(getMappedType('date-time')).toEqual({ type: 'string', isPrimitive: true });
+        expect(getMappedType('https-url')).toEqual({ type: 'string', isPrimitive: true });
         expect(getMappedType('float')).toEqual({ type: 'number', isPrimitive: true });
         expect(getMappedType('double')).toEqual({ type: 'number', isPrimitive: true });
         expect(getMappedType('short')).toEqual({ type: 'number', isPrimitive: true });

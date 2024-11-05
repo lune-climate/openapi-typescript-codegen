@@ -948,6 +948,11 @@
             "description": "This is a simple file",
             "type": "file"
         },
+        "SimpleUrl": {
+            "description": "This is a simple HTTPS url",
+            "type": "string",
+            "format": "https-url"
+        },
         "SimpleReference": {
             "description": "This is a simple reference",
             "$ref": "#/definitions/ModelWithString"

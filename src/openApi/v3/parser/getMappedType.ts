@@ -20,6 +20,7 @@ const TYPE_MAPPINGS = new Map<string, MappedType>([
     ['char', { type: 'string', isPrimitive: true }],
     ['date', { type: 'string', isPrimitive: true }],
     ['date-time', { type: 'string', isPrimitive: true }],
+    ['https-url', { type: 'string', isPrimitive: true }],
     ['password', { type: 'string', isPrimitive: true }],
     ['string', { type: 'string', isPrimitive: true }],
     ['void', { type: 'void', isPrimitive: true }],
@@ -32,6 +33,7 @@ const FORMAT_MAPPINGS = new Map<string, MappedType>([
     ['date', { type: 'string', isPrimitive: true }],
     ['date-time', { type: 'string', isPrimitive: true }],
     ['uuid', { type: 'string', isPrimitive: true }],
+    ['https-url', { type: 'string', isPrimitive: true }],
 ]);
 
 /**
