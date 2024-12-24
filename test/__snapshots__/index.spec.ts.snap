@@ -3343,7 +3343,6 @@ export abstract class CollectionFormatService {
                 'parameterArrayPipes': data?.parameterArrayPipes,
                 'parameterArrayMulti': data?.parameterArrayMulti,
             },
-            responseType: 'json',
         });
     }
 
@@ -3411,7 +3410,6 @@ export abstract class ComplexService {
                 'parameterObject': data?.parameterObject,
                 'parameterReference': data?.parameterReference,
             },
-            responseType: 'json',
             errors: {
                 400: \`400 server error\`,
                 500: \`500 server error\`,
@@ -3459,7 +3457,6 @@ export abstract class DefaultService {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-tag',
-            responseType: 'json',
         });
     }
 
@@ -3535,7 +3532,6 @@ export abstract class DefaultsService {
                 'parameterEnum': data?.parameterEnum,
                 'parameterModel': data?.parameterModel,
             },
-            responseType: 'json',
         });
     }
 
@@ -3583,7 +3579,6 @@ export abstract class DefaultsService {
                 'parameterEnum': data?.parameterEnum,
                 'parameterModel': data?.parameterModel,
             },
-            responseType: 'json',
         });
     }
 
@@ -3646,7 +3641,6 @@ export abstract class DefaultsService {
                 'parameterStringNullableWithNoDefault': data?.parameterStringNullableWithNoDefault,
                 'parameterStringNullableWithDefault': data?.parameterStringNullableWithDefault,
             },
-            responseType: 'json',
         });
     }
 
@@ -3728,7 +3722,6 @@ export abstract class DescriptionsService {
                 'parameterWithQuotes': data?.parameterWithQuotes,
                 'parameterWithReservedCharacters': data?.parameterWithReservedCharacters,
             },
-            responseType: 'json',
         });
     }
 
@@ -3772,7 +3765,6 @@ export abstract class DuplicateService {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/duplicate',
-            responseType: 'json',
         });
     }
 
@@ -3790,7 +3782,6 @@ export abstract class DuplicateService {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/duplicate',
-            responseType: 'json',
         });
     }
 
@@ -3808,7 +3799,6 @@ export abstract class DuplicateService {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/duplicate',
-            responseType: 'json',
         });
     }
 
@@ -3826,7 +3816,6 @@ export abstract class DuplicateService {
         return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/duplicate',
-            responseType: 'json',
         });
     }
 
@@ -3881,7 +3870,6 @@ export abstract class ErrorService {
             query: {
                 'status': data?.status,
             },
-            responseType: 'json',
             errors: {
                 500: \`Custom message: Internal Server Error\`,
                 501: \`Custom message: Not Implemented\`,
@@ -3933,7 +3921,6 @@ export abstract class HeaderService {
             method: 'POST',
             url: '/api/v{api-version}/header',
             responseHeader: 'operation-location',
-            responseType: 'json',
             errors: {
                 400: \`400 server error\`,
                 500: \`500 server error\`,
@@ -3982,7 +3969,6 @@ export abstract class MultipleTags1Service {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
-            responseType: 'json',
         });
     }
 
@@ -4001,7 +3987,6 @@ export abstract class MultipleTags1Service {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
-            responseType: 'json',
         });
     }
 
@@ -4046,7 +4031,6 @@ export abstract class MultipleTags2Service {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/a',
-            responseType: 'json',
         });
     }
 
@@ -4065,7 +4049,6 @@ export abstract class MultipleTags2Service {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
-            responseType: 'json',
         });
     }
 
@@ -4110,7 +4093,6 @@ export abstract class MultipleTags3Service {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/multiple-tags/b',
-            responseType: 'json',
         });
     }
 
@@ -4155,7 +4137,6 @@ export abstract class NoContentService {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/no-content',
-            responseType: 'json',
         });
     }
 
@@ -4227,7 +4208,6 @@ export abstract class ParametersService {
                 'parameterForm': parameterForm,
             },
             body: data?.parameterBody,
-            responseType: 'json',
         });
     }
 
@@ -4284,7 +4264,6 @@ export abstract class ParametersService {
                 'parameter_form': parameterForm,
             },
             body: data?.parameterBody,
-            responseType: 'json',
         });
     }
 
@@ -4333,7 +4312,6 @@ export abstract class ResponseService {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/response',
-            responseType: 'json',
         });
     }
 
@@ -4352,7 +4330,6 @@ export abstract class ResponseService {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/response',
-            responseType: 'json',
             errors: {
                 500: \`Message for 500 error\`,
                 501: \`Message for 501 error\`,
@@ -4383,7 +4360,6 @@ export abstract class ResponseService {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/response',
-            responseType: 'json',
             errors: {
                 500: \`Message for 500 error\`,
                 501: \`Message for 501 error\`,
@@ -4432,7 +4408,6 @@ export abstract class SimpleService {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/simple',
-            responseType: 'json',
         });
     }
 
@@ -4450,7 +4425,6 @@ export abstract class SimpleService {
         return __request(this.client, this.config, options || {}, {
             method: 'PUT',
             url: '/api/v{api-version}/simple',
-            responseType: 'json',
         });
     }
 
@@ -4468,7 +4442,6 @@ export abstract class SimpleService {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/simple',
-            responseType: 'json',
         });
     }
 
@@ -4486,7 +4459,6 @@ export abstract class SimpleService {
         return __request(this.client, this.config, options || {}, {
             method: 'DELETE',
             url: '/api/v{api-version}/simple',
-            responseType: 'json',
         });
     }
 
@@ -4504,7 +4476,6 @@ export abstract class SimpleService {
         return __request(this.client, this.config, options || {}, {
             method: 'OPTIONS',
             url: '/api/v{api-version}/simple',
-            responseType: 'json',
         });
     }
 
@@ -4522,7 +4493,6 @@ export abstract class SimpleService {
         return __request(this.client, this.config, options || {}, {
             method: 'HEAD',
             url: '/api/v{api-version}/simple',
-            responseType: 'json',
         });
     }
 
@@ -4540,7 +4510,6 @@ export abstract class SimpleService {
         return __request(this.client, this.config, options || {}, {
             method: 'PATCH',
             url: '/api/v{api-version}/simple',
-            responseType: 'json',
         });
     }
 
@@ -4633,7 +4602,6 @@ export abstract class TypesService {
                 'parameterDictionary': data?.parameterDictionary,
                 'parameterEnum': data?.parameterEnum,
             },
-            responseType: 'json',
         });
     }
 
