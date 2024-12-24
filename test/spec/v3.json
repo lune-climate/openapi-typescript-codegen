@@ -1501,6 +1501,78 @@
                     }
                 }
             }
+        },
+        "/api/v{api-version}/pdf": {
+            "get": {
+                "tags": [
+                    "pdf"
+                ],
+                "operationId": "GetPdfResponse",
+                "responses": {
+                    "404": {
+                        "description": "Message for 404 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ModelWithString"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Message for 200 response",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "pdf"
+                ],
+                "operationId": "PdfResponseWithExplicitAcceptHeader",
+                "parameters": [
+                    {
+                        "description": "Accept parameter should not be overwritten",
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "nullable": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "Message for 404 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ModelWithString"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Message for 200 response",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {

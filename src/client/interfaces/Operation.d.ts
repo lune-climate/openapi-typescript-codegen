@@ -13,4 +13,5 @@ export interface Operation extends OperationParameters {
     errors: OperationError[];
     results: OperationResponse[];
     responseHeader: string | null;
+    responseType: 'arraybuffer' | 'document' | 'json' | 'text' | 'stream' | 'blob' | null;
 }

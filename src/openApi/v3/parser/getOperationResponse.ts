@@ -31,11 +31,13 @@ export const getOperationResponse = (
         enum: [],
         enums: [],
         properties: [],
+        mediaType: null,
     };
 
     if (response.content) {
         const content = getContent(openApi, response.content);
         if (content) {
+            operationResponse.mediaType = content.mediaType;
             if (content.schema.$ref?.startsWith('#/components/responses/')) {
                 content.schema = getRef<OpenApiSchema>(openApi, content.schema);
             }

@@ -163,6 +163,9 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 			{{#if responseHeader}}
 			responseHeader: '{{{responseHeader}}}',
 			{{/if}}
+			{{#if responseType}}
+			responseType: '{{{responseType}}}',
+			{{/if}}
 			{{#if errors}}
 			errors: {
 				{{#each errors}}

@@ -30,6 +30,7 @@ export const getOperationResponse = (
         enum: [],
         enums: [],
         properties: [],
+        mediaType: null,
     };
 
     // If this response has a schema, then we need to check two things:

@@ -6,11 +6,14 @@ import type { OpenApi } from '../interfaces/OpenApi';
 import type { OpenApiOperation } from '../interfaces/OpenApiOperation';
 import type { OpenApiRequestBody } from '../interfaces/OpenApiRequestBody';
 import { getOperationErrors } from './getOperationErrors';
+import { getOperationExplicitAcceptHeader } from './getOperationExplicitAcceptHeader';
+import { getOperationImplicitAcceptHeader } from './getOperationImplicitAcceptHeader';
 import { getOperationName } from './getOperationName';
 import { getOperationParameters } from './getOperationParameters';
 import { getOperationRequestBody } from './getOperationRequestBody';
 import { getOperationResponseHeader } from './getOperationResponseHeader';
 import { getOperationResponses } from './getOperationResponses';
+import { getOperationResponseType } from './getOperationResponseType';
 import { getOperationResults } from './getOperationResults';
 import { getRef } from './getRef';
 import { getServiceName } from './getServiceName';
@@ -47,6 +50,7 @@ export const getOperation = (
         errors: [],
         results: [],
         responseHeader: null,
+        responseType: null,
     };
 
     // We want to treat query parameters and body request as a single object with all the parameters
@@ -125,6 +129,36 @@ export const getOperation = (
         const operationResults = getOperationResults(operationResponses);
         operation.errors = getOperationErrors(operationResponses);
         operation.responseHeader = getOperationResponseHeader(operationResults);
+        operation.responseType = getOperationResponseType(operationResults);
+
+        // Add 'Accept' header, if not set
+        const explicitAcceptHeader = parameters ? getOperationExplicitAcceptHeader(parameters.parametersHeader) : null;
+        if (!explicitAcceptHeader) {
+            const acceptHeader = getOperationImplicitAcceptHeader(operationResults);
+            if (acceptHeader) {
+                const acceptHeaderOperationParameter: OperationParameter = {
+                    in: 'header',
+                    prop: 'Accept',
+                    export: 'interface',
+                    name: `'${acceptHeader}'`,
+                    type: 'any',
+                    base: 'any',
+                    template: null,
+                    link: null,
+                    description: null,
+                    isDefinition: false,
+                    isReadOnly: false,
+                    isRequired: true,
+                    isNullable: false,
+                    imports: [],
+                    enum: [],
+                    enums: [],
+                    properties: [],
+                    mediaType: null,
+                };
+                operation.parametersHeader.push(acceptHeaderOperationParameter);
+            }
+        }
 
         operationResults.forEach(operationResult => {
             operation.results.push(operationResult);
