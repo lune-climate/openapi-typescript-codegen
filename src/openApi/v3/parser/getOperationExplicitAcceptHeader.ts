@@ -4,8 +4,5 @@ export const getOperationExplicitAcceptHeader = (operationParameters: OperationP
     const header = operationParameters.find(operationParameter => {
         return operationParameter.in === 'header' && operationParameter.name.toLowerCase() === 'accept';
     });
-    if (header) {
-        return header.name;
-    }
-    return null;
+    return header ? header.name : null;
 };
