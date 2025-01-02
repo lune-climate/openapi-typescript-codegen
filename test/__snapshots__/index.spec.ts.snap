@@ -9375,6 +9375,9 @@ export abstract class ComplexService {
         return __request(this.client, this.config, options || {}, {
             method: 'GET',
             url: '/api/v{api-version}/complex',
+            headers: {
+                'Accept': 'application/json',
+            },
             query: {
                 'parameterObject': data?.parameterObject,
                 'parameterReference': data?.parameterReference,
@@ -9419,6 +9422,9 @@ export abstract class ComplexService {
             url: '/api/v{api-version}/complex/{id}',
             path: {
                 'id': id,
+            },
+            headers: {
+                'Accept': 'application/json; type=collection',
             },
             body: {
                 'key': data?.key,
@@ -10710,7 +10716,6 @@ export abstract class PdfService {
             url: '/api/v{api-version}/pdf',
             headers: {
                 'Accept': accept,
-                'Accept': 'accept',
             },
             responseType: 'blob',
             errors: {
@@ -11117,6 +11122,9 @@ export abstract class TypesService {
             path: {
                 'id': id,
             },
+            headers: {
+                'Accept': 'application/json',
+            },
             query: {
                 'parameterNumber': data?.parameterNumber,
                 'parameterString': data?.parameterString,
@@ -11172,6 +11180,9 @@ export abstract class UploadService {
         return __request(this.client, this.config, options || {}, {
             method: 'POST',
             url: '/api/v{api-version}/upload',
+            headers: {
+                'Accept': 'application/json',
+            },
             formData: {
                 'file': file,
             },
