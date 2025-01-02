@@ -134,6 +134,7 @@ export const getOperation = (
         // Add 'Accept' header, if not set
         const explicitAcceptHeader = parameters ? getOperationExplicitAcceptHeader(parameters.parametersHeader) : null;
         if (!explicitAcceptHeader) {
+            // if `explicitAcceptHeader` exists, there's no need to add it
             const acceptHeader = getOperationImplicitAcceptHeader(operationResults);
             if (acceptHeader) {
                 const acceptHeaderOperationParameter: OperationParameter = {
