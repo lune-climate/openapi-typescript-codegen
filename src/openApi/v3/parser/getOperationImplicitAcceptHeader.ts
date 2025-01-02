@@ -4,8 +4,5 @@ export const getOperationImplicitAcceptHeader = (operationResponses: OperationRe
     const operationResponse = operationResponses.find(operationResponses => {
         return operationResponses.in === 'response';
     });
-    if (operationResponse) {
-        return operationResponse.mediaType;
-    }
-    return null;
+    return operationResponse ? operationResponse.mediaType : null;
 };
