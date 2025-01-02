@@ -44,6 +44,7 @@ export const getOperation = (
         errors: [],
         results: [],
         responseHeader: null,
+        responseType: null,
     };
 
     // Parse the operation parameters (path, query, body, etc).
