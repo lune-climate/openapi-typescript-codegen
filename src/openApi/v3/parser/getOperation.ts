@@ -132,10 +132,8 @@ export const getOperation = (
         operation.responseType = getOperationResponseType(operationResults);
 
         // Add 'Accept' header, if not set
-        const explicitAcceptHeader = parameters ? getOperationExplicitAcceptHeader(parameters.parametersHeader) : null;
-        if (!explicitAcceptHeader) {
-            const acceptHeader = getOperationImplicitAcceptHeader(operationResults);
-            if (acceptHeader) {
+        const acceptHeader = parameters ? getOperationExplicitAcceptHeader(parameters.parametersHeader) : getOperationImplicitAcceptHeader(operationResults);
+        if (acceptHeader) {
                 const acceptHeaderOperationParameter: OperationParameter = {
                     in: 'header',
                     prop: 'Accept',
