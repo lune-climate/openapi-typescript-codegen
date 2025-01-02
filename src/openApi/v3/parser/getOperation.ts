@@ -132,32 +132,31 @@ export const getOperation = (
         operation.responseType = getOperationResponseType(operationResults);
 
         // Add 'Accept' header, if not set
-        const explicitAcceptHeader = parameters ? getOperationExplicitAcceptHeader(parameters.parametersHeader) : null;
-        if (!explicitAcceptHeader) {
-            const acceptHeader = getOperationImplicitAcceptHeader(operationResults);
-            if (acceptHeader) {
-                const acceptHeaderOperationParameter: OperationParameter = {
-                    in: 'header',
-                    prop: 'Accept',
-                    export: 'interface',
-                    name: `'${acceptHeader}'`,
-                    type: 'any',
-                    base: 'any',
-                    template: null,
-                    link: null,
-                    description: null,
-                    isDefinition: false,
-                    isReadOnly: false,
-                    isRequired: true,
-                    isNullable: false,
-                    imports: [],
-                    enum: [],
-                    enums: [],
-                    properties: [],
-                    mediaType: null,
-                };
-                operation.parametersHeader.push(acceptHeaderOperationParameter);
-            }
+        const acceptHeader = parameters
+            ? getOperationExplicitAcceptHeader(parameters.parametersHeader)
+            : getOperationImplicitAcceptHeader(operationResults);
+        if (acceptHeader) {
+            const acceptHeaderOperationParameter: OperationParameter = {
+                in: 'header',
+                prop: 'Accept',
+                export: 'interface',
+                name: `'${acceptHeader}'`,
+                type: 'any',
+                base: 'any',
+                template: null,
+                link: null,
+                description: null,
+                isDefinition: false,
+                isReadOnly: false,
+                isRequired: true,
+                isNullable: false,
+                imports: [],
+                enum: [],
+                enums: [],
+                properties: [],
+                mediaType: null,
+            };
+            operation.parametersHeader.push(acceptHeaderOperationParameter);
         }
 
         operationResults.forEach(operationResult => {
