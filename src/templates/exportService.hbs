@@ -23,7 +23,7 @@ import { request as __request } from '../core/request.js'
 import { SuccessResponse } from '../core/SuccessResponse.js'
 import { ApiError } from '../core/ApiError.js'
 import { AxiosInstance } from 'axios'
-import { Result } from 'ts-results-es'
+import { AsyncResult } from 'ts-results-es'
 {{/notEquals}}
 {{#if @root.exportClient}}
 {{#equals @root.httpClient 'angular'}}
@@ -84,7 +84,7 @@ export abstract class {{{name}}}{{{@root.postfix}}} {
 	public {{{name}}}({{>parameters}}): Observable<{{>result}}> {
 		return __request(OpenAPI, this.http, {
 	{{else}}
-	public {{{name}}}({{>parameters}}): Promise<Result<SuccessResponse<{{>result}}>, ApiError>> {
+	public {{{name}}}({{>parameters}}): AsyncResult<SuccessResponse<{{>result}}>, ApiError> {
 		return __request(this.client, this.config, options || {}, {
 	{{/equals}}
 	{{/if}}
