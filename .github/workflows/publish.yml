@@ -29,6 +29,8 @@ jobs:
         run: npm ci
       - name: Build release
         run: npm run prepublishOnly
+      - name: Create release artifact directory
+        run: mkdir npm-package
       - name: Pack release artifact
         run: npm pack --ignore-scripts --pack-destination npm-package
       - name: Upload release artifact
