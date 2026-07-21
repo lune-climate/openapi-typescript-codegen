@@ -1,4 +1,4 @@
-name: Publish new version
+name: Stage npm package
 
 on:
   release:
@@ -6,9 +6,15 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout the code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -18,11 +24,43 @@ jobs:
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 26.5.0
-          registry-url: https://registry.npmjs.org/
+          package-manager-cache: false
       - name: Install project
         run: npm ci
       - name: Build release
         run: npm run prepublishOnly
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: Pack release artifact
+        run: npm pack --ignore-scripts --pack-destination npm-package
+      - name: Upload release artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: npm-package
+          path: npm-package
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: npm-publish
+      url: https://www.npmjs.com/package/@lune-climate/openapi-typescript-codegen
+    permissions:
+      id-token: write
+    steps:
+      - name: Download release artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: npm-package
+          path: npm-package
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 26.5.0
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Stage package with npm trusted publishing
+        shell: bash
+        run: |
+          mapfile -t tarballs < <(find npm-package -maxdepth 1 -type f -name '*.tgz' -print)
+          test "${#tarballs[@]}" -eq 1
+          npm stage publish "${tarballs[0]}" --access public
