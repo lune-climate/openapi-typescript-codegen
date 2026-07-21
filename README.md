@@ -14,9 +14,13 @@ The release process consists of:
 -   Manually up the version as desired (major, minor, patch) on `package-lock.json` and `package.json`.
 -   Create a PR with the changes.
 -   Get the PR approved and merged as usual.
--   After the changes are in master, create a new release on GH with the corresponding tag.
+-   After the changes are in master, create a new GitHub Release with the
+    corresponding tag. The tag name must start with `v`, for example `v1.2.3`.
+-   Approve the protected `npm-publish` deployment when GitHub requests it.
+-   Review and approve the staged package in npm with 2FA.
 
-After the GH release is created, the library will be automatically released to npm.
+Creating the GitHub Release builds and stages the package. It is published to
+npm only after both approvals are complete.
 
 # OpenAPI Typescript Codegen
 
