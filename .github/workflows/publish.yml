@@ -65,4 +65,4 @@ jobs:
         run: |
           mapfile -t tarballs < <(find npm-package -maxdepth 1 -type f -name '*.tgz' -print)
           test "${#tarballs[@]}" -eq 1
-          npm stage publish "${tarballs[0]}" --access public
+          npm stage publish "./${tarballs[0]}" --access public
